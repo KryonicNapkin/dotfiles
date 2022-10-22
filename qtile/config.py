@@ -179,11 +179,10 @@ keys = [
     # Config files
     
     KeyChord([mod], "d", [
-        Key([], "a", lazy.spawn("/home/thinker/.config/qtile/scripts/edit_alacritty_config.sh")),
-        Key([], "q", lazy.spawn("{terminal} -e lvim /home/thinker/.config/qtile/config.py")),
-        Key([], "d", lazy.spawn("{terminal} -e lvim /home/thinker/.config/dunst/dunstrc")),
-        Key([], "x", lazy.spawn("{terminal} -e lvim /home/thinker/.xinitrc")),
-        Key([], "s", lazy.spawn("{terminal} -e lvim /usr/lib/sddm/sddm.conf.d/default.conf"))
+        Key([], "a", lazy.spawn("alacritty -e nvim /home/thinker/.config/qtile/autostart.sh")),
+        Key([], "q", lazy.spawn("alacritty -e nvim /home/thinker/.config/qtile/config.py")),
+        Key([], "d", lazy.spawn("alacritty -e nvim /home/thinker/.config/dunst/dunstrc")),
+        Key([], "x", lazy.spawn("alacritty -e nvim /home/thinker/.xinitrc")),
     ]),
 
     # Rofi helpers
@@ -336,10 +335,10 @@ def init_widgets_list():
                 foreground=colors[2],
                 mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn(
-                        f'{terminal} -e vim /home/thinker/.config/qtile/config.py'
+                        f'{terminal} -e nvim /home/thinker/.config/qtile/config.py'
                     ),
                     'Button3': lambda: qtile.cmd_spawn(
-                        f'{terminal} -e vim /home/thinker/.config/qtile/autostart.sh'
+                        f'{terminal} -e nvim /home/thinker/.config/qtile/autostart.sh'
                     )
                 }
             ),
