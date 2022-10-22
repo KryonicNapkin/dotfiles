@@ -14,7 +14,7 @@ automake
 base
 bat
 battop
-betterdiscordctl
+betterdiscordctl-git
 betterlockscreen
 bind
 binutils
@@ -116,8 +116,6 @@ light
 linux
 linux-firmware
 linux-headers
-linux-lts
-linux-lts-docs
 linux-zen
 linux-zen-headers
 logwatch
@@ -168,6 +166,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
+plymouth
 polkit-gnome
 procs
 ps2-bios
