@@ -7,5 +7,5 @@ End you can then edit the file "pkglist.txt" file to add or remove the packages 
 You must make the script file executable by typing "cd My-dotfiles && chmod +x pkg-installed.sh" into the command line.
 
 Screenshot :
-![alt text](https://github.com/coevoe/My-dotfiles/Screenshot.png?raw=true)
+![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshot.png)
 
