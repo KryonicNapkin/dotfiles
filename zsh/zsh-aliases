@@ -1,7 +1,4 @@
 #!/bin/sh
-alias j='z'
-alias f='zi'
-alias g='lazygit'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/nvim/'
 alias ls='exa -s type --color=always --group-directories-first --icons'
@@ -13,9 +10,6 @@ alias cat='bat'
 alias show_rozvrch='feh ~/Screenshots/Rozvrch_9.B.png &'
 alias ttyclock='tty-clock -s -b -c'
 alias pipes='pipes.sh -t 1'
-
-# Games
-alias ldoom164='legendary launch 5b60142e120c4f2d88027595c21d4a04'
 
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -61,9 +55,6 @@ alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate ar
 alias mach_list_systemctl="systemctl list-unit-files --state=enabled"
 
 alias mach_java_mode="export SDKMAN_DIR="$HOME/.sdkman" && [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh""
-
-alias m="git checkout master"
-alias s="git checkout stable"
 
 if [[ $TERM == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
