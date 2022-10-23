@@ -143,7 +143,6 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
-nitch
 nmap
 noto-fonts-emoji
 ocl-icd
