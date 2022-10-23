@@ -9,6 +9,7 @@ archlinux-wallpaper
 artha
 ascii
 aspell-en
+at
 autoconf
 automake
 base
@@ -48,6 +49,7 @@ etcher-bin
 evillimiter
 exa
 fakeroot
+fcron
 file
 findutils
 firefox
@@ -166,7 +168,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
-plymouth
+plymouth-git
 polkit-gnome
 procs
 ps2-bios
@@ -222,7 +224,6 @@ whois
 wine-staging
 wireless_tools
 wireplumber
-wqy-zenhei
 xarchiver
 xbindkeys
 xdg-user-dirs
