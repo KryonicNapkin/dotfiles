@@ -1,7 +1,5 @@
 #!/bin/sh
 export ZDOTDIR=$HOME/.config/zsh/
-export EDITOR='lvim'
-export BROWSER='brave'
 HISTFILE=~/.config/zsh/.zsh_history
 setopt appendhistory
 
@@ -81,7 +79,7 @@ autoload edit-command-line; zle -N edit-command-line
 # Environment variables set everywhere
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 # For QT Themes
 export QT_QPA_PLATFORMTHEME=qt5ct
