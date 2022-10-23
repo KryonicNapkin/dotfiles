@@ -9,7 +9,6 @@ archlinux-wallpaper
 artha
 ascii
 aspell-en
-at
 autoconf
 automake
 base
