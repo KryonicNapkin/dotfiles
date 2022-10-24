@@ -10,13 +10,10 @@ check() {
 }
 
 if [ "$(ping -w 1 8.8.8.8 | awk '{print $1}' | head -n 2 | tail -n 1)" = 64 ]; then
-  if [ $(diff ~/My-dotfiles/Bin/pkglist.txt ~/$(paru -Qe | awk '{print $1}' > $HOME/pkglist.txt)) = \n ]; then
-    check
-      else
-    echo "nothing changed"
-  fi
+  check
 else
   echo "Error connecting to internet"
 fi
 
+rm ~/stdou_test.txt
 rm ~/pkglist.txt
