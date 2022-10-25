@@ -147,6 +147,7 @@ nitch
 nmap
 noto-fonts-emoji
 ocl-icd
+okular
 onlyoffice-bin
 openbsd-netcat
 openttd
