@@ -15,7 +15,7 @@ Paruinstlall() {
 # This function install all my packages on to your system
 
 Install() {
-  paru -S --needed - < pkglist.txt
+  paru -S --needed - < $HOME/My-dotfiles/Bin/pkglist.txt
 }
 
 # This function run an if loop to check if you have installed 
