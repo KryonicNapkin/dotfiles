@@ -223,6 +223,7 @@ whois
 wine-staging
 wireless_tools
 wireplumber
+wqy-zenhei
 xarchiver
 xbindkeys
 xdg-user-dirs
