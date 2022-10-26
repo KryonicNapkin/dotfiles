@@ -10,5 +10,5 @@ Basic orientation around folder scructure:
 6. **etc.d** - is directory where all all config dirs are required to be put in ***/etc/*** dir
 
 Screenshot of current desktop:
-![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshot.png)
+![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshot1.png)
 
