@@ -559,7 +559,7 @@ def init_widgets_list():
             widget.CheckUpdates(
                 no_update_string='0',
                 update_interval=600,
-                distro="Arch_paru",
+                distro="Arch_checkupdates",
                 display_format="{updates}",
                 background=colors[1],
                 foreground=colors[2],
