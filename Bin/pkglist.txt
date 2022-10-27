@@ -64,7 +64,6 @@ glfw-wayland
 gnome-disk-utility
 goaccess
 google-earth-pro
-gotop-bin
 grep
 groff
 grub
@@ -144,6 +143,7 @@ neovim
 network-manager-applet
 networkmanager
 nitch
+nitrogen
 nmap
 noto-fonts-emoji
 ocl-icd
@@ -199,6 +199,7 @@ st
 steam
 sudo
 sysstat
+systray-x-git
 teams
 terminus-font
 texinfo
@@ -207,6 +208,7 @@ tlauncher-org
 tldr
 traceroute
 ttf-nerd-fonts-symbols-2048-em
+ufw
 unarj
 unrar
 unzip
