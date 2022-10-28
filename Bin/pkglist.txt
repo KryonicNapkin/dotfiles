@@ -127,7 +127,6 @@ m4
 maim
 make
 man-db
-marble
 materia-gtk-theme
 mkinitcpio-firmware
 mlocate
@@ -204,7 +203,6 @@ teams
 terminus-font
 texinfo
 thunderbird
-tlauncher-org
 tldr
 traceroute
 ttf-nerd-fonts-symbols-2048-em
