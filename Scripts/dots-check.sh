@@ -25,6 +25,14 @@ dotscheck() {
   diff -q ~/.bashrc ~/My-dotfiles/.bashrc
   echo -e "### .fehbg file ###\n"
   diff -q ~/.fehbg ~/My-dotfiles/.fehbg
+  echo -e "#######################################################################################\n"
+  echo -e "############################"
+  echo -e "### /USR DIRECTORY FILES ###"
+  echo -e "############################\n"
+  echo -e "### sddm conf dir (/usr/share) ###\n"
+  diff -q /usr/share/sddm ~/My-dotfiles/usr.d/sddm
+  echo -e "### sddm conf dir (/usr/lib/) ###\n"
+  diff -q /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr.d/sddm.conf.d
 }
 
 dotscheck
