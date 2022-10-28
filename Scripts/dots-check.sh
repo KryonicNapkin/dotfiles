@@ -35,6 +35,12 @@ dotscheck() {
   diff -q /usr/share/sddm ~/My-dotfiles/usr.d/sddm
   echo -e "### sddm conf dir (/usr/lib/) ###\n"
   diff -q /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr.d/sddm.conf.d
+  echo -e "#######################################################################################\n"
+  echo -e "############################"
+  echo -e "### /ETC DIRECTORY FILES ###"
+  echo -e "############################\n"
+  echo -e "### plymouth conf dir (/etc) ###\n"
+  diff -q /etc/plymouth ~/My-dotfiles/etc.d/plymouth
 }
 
 dotscheck
