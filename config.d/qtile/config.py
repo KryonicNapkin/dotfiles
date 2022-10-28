@@ -213,14 +213,10 @@ keys = [
 # Create labels for groups and assign them a default layout.
 groups = []
 
-#group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "minus"]
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-#group_labels = ["", "", "", "", "", "", "", "", "", "", ""]
-#group_labels = ["TERM", "WWW", "FILE", "DRAW", "MUSC", "DEV", "VIRT", "CHAT", "MAIL", "PLAY", "OPT"]
 group_labels = ["TERM", "WEB", "FILE", "DRAW", "MUSC", "DEV", "VIRT", "CHAT", "MAIL", "PLAY"]
 
-#group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall",  "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall" ]
 group_layouts = ["monadtall", "monadtall", "monadtall",  "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 
 # Add group names, labels, and default layouts to the groups object.
@@ -267,6 +263,22 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+# colorscheme for onedark theme
+
+
+def init_colorsd():
+    return [["#1e2127", "#1e2127"],  # color 0  | bg
+            ["#1e2127", "#1e2127"],  # color 1  | bg
+            ["#abb2bf", "#abb2bf"],  # color 2  | fg
+            ["#e06c75", "#e06c75"],  # color 3  | red
+            ["#98c379", "#98c379"],  # color 4  | green
+            ["#d19a66", "#d19a66"],  # color 5  | orange
+            ["#61afef", "#61afef"],  # color 6  | blue
+            ["#c678dd", "#c678dd"],  # color 7  | magenta
+            #["#ff79c6", "#ff79c6"],  # color 8  | pink
+            ["#56b6c2", "#56b6c2"],  # color 9  | cyan
+            ["#828791", "#828791"]]  # color 10 | white
+
 # colors for dracula theme
 
 
@@ -278,8 +290,8 @@ def init_colors():
             ["#50fa7b", "#50fa7b"],  # color 4  | green
             ["#f1fa8c", "#f1fa8c"],  # color 5  | yellow
             ["#ffb86c", "#ffb86c"],  # color 6  | orange
-            ["#bd93f9", "#bd93f9"],  # color 7  | blue
-            ["#ff79c6", "#ff79c6"],  # color 8  | magenta
+            ["#bd93f9", "#bd93f9"],  # color 7  | magenta
+            ["#ff79c6", "#ff79c6"],  # color 8  | pink
             ["#8be9fd", "#8be9fd"],  # color 9  | cyan
             ["#bbbbbb", "#bbbbbb"]]  # color 10 | white
 
