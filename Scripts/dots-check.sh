@@ -15,10 +15,10 @@ dotscheck() {
   diff -q ~/.config/alacritty/ ~/My-dotfiles/config.d/alacritty/
   echo -e "\n### rofi dot dir ###"
   diff -q ~/.config/rofi/ ~/My-dotfiles/config.d/rofi/
-  echo -e "##############################\n"
-  echo -e "##############################"
+  echo -e "#######################################################################################\n"
+  echo -e "############################"
   echo -e "### HOME DIRECTORY FILES ###"
-  echo -e "##############################\n"
+  echo -e "############################\n"
   echo -e "### .zshrc file ###\n"
   diff -q ~/.zshrc ~/My-dotfiles/.zshrc
   echo -e "### .bashrc file ###\n"
