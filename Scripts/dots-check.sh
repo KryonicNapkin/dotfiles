@@ -25,6 +25,8 @@ dotscheck() {
   diff -q ~/.bashrc ~/My-dotfiles/.bashrc
   echo -e "### .fehbg file ###\n"
   diff -q ~/.fehbg ~/My-dotfiles/.fehbg
+  echo -e "### .xinitrc file ###\n"
+  diff -q ~/.xinitrc ~/My-dotfiles/.xinitrc
   echo -e "#######################################################################################\n"
   echo -e "############################"
   echo -e "### /USR DIRECTORY FILES ###"
