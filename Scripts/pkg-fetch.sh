@@ -13,5 +13,3 @@ if [ "$(ping -w 1 8.8.8.8 | awk '{print $1}' | head -n 2 | tail -n 1)" = 64 ]; t
 else
   dunstify "Error connecting to internet" -u critical
 fi
-
-rm ~/pkglist.txt
