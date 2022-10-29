@@ -5,7 +5,7 @@ dotscheck() {
   echo -e "##############################"
   echo -e "### CONFIG DIRECTORY FILES ###"
   echo -e "##############################\n"
-  echo -e "### Qtile dot dir ###\n"
+  echo -e "### Qtile dot dir ###"
   diff -rq ~/.config/qtile/ ~/My-dotfiles/config.d/qtile/
   echo -e "\n### Dunst dot dir ###"
   diff -rq ~/.config/dunst/ ~/My-dotfiles/config.d/dunst/
@@ -43,5 +43,5 @@ dotscheck() {
   diff -rq /etc/plymouth ~/My-dotfiles/etc.d/plymouth
 }
 
-dotscheck > ~/dotcheck-report.txt 
-less ~/dotcheck-report.txt
+dotscheck > dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt 
+less dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
