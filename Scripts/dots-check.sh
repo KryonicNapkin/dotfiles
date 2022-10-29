@@ -6,41 +6,42 @@ dotscheck() {
   echo -e "### CONFIG DIRECTORY FILES ###"
   echo -e "##############################\n"
   echo -e "### Qtile dot dir ###\n"
-  diff -q ~/.config/qtile/ ~/My-dotfiles/config.d/qtile/
+  diff -rq ~/.config/qtile/ ~/My-dotfiles/config.d/qtile/
   echo -e "\n### Dunst dot dir ###"
-  diff -q ~/.config/dunst/ ~/My-dotfiles/config.d/dunst/
+  diff -rq ~/.config/dunst/ ~/My-dotfiles/config.d/dunst/
   echo -e "\n### zsh dot dir ###"
-  diff -q ~/.config/zsh/ ~/My-dotfiles/config.d/zsh/
+  diff -rq ~/.config/zsh/ ~/My-dotfiles/config.d/zsh/
   echo -e "\n### alacritty dot dir ###"
-  diff -q ~/.config/alacritty/ ~/My-dotfiles/config.d/alacritty/
+  diff -rq ~/.config/alacritty/ ~/My-dotfiles/config.d/alacritty/
   echo -e "\n### rofi dot dir ###"
-  diff -q ~/.config/rofi/ ~/My-dotfiles/config.d/rofi/
+  diff -rq ~/.config/rofi/ ~/My-dotfiles/config.d/rofi/
   echo -e "#######################################################################################\n"
   echo -e "############################"
   echo -e "### HOME DIRECTORY FILES ###"
   echo -e "############################\n"
   echo -e "### .zshrc file ###\n"
-  diff -q ~/.zshrc ~/My-dotfiles/.zshrc
+  diff -rq ~/.zshrc ~/My-dotfiles/.zshrc
   echo -e "### .bashrc file ###\n"
-  diff -q ~/.bashrc ~/My-dotfiles/.bashrc
+  diff -rq ~/.bashrc ~/My-dotfiles/.bashrc
   echo -e "### .fehbg file ###\n"
-  diff -q ~/.fehbg ~/My-dotfiles/.fehbg
+  diff -rq ~/.fehbg ~/My-dotfiles/.fehbg
   echo -e "### .xinitrc file ###\n"
-  diff -q ~/.xinitrc ~/My-dotfiles/.xinitrc
+  diff -rq ~/.xinitrc ~/My-dotfiles/.xinitrc
   echo -e "#######################################################################################\n"
   echo -e "############################"
   echo -e "### /USR DIRECTORY FILES ###"
   echo -e "############################\n"
   echo -e "### sddm conf dir (/usr/share) ###\n"
-  diff -q /usr/share/sddm ~/My-dotfiles/usr.d/sddm
+  diff -rq /usr/share/sddm ~/My-dotfiles/usr.d/sddm
   echo -e "### sddm conf dir (/usr/lib/) ###\n"
-  diff -q /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr.d/sddm.conf.d
+  diff -rq /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr.d/sddm.conf.d
   echo -e "#######################################################################################\n"
   echo -e "############################"
   echo -e "### /ETC DIRECTORY FILES ###"
   echo -e "############################\n"
   echo -e "### plymouth conf dir (/etc) ###\n"
-  diff -q /etc/plymouth ~/My-dotfiles/etc.d/plymouth
+  diff -rq /etc/plymouth ~/My-dotfiles/etc.d/plymouth
 }
 
-dotscheck
+dotscheck > ~/dotcheck-report.txt 
+less ~/dotcheck-report.txt
