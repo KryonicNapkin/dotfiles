@@ -25,7 +25,7 @@ paru_install() {
   echo -e "########"
   echo -e "# DONE #"
   echo -e "########\n"
-  Install
+  ParuInstall
 }
 
 ParuInstall() {
@@ -41,7 +41,7 @@ YayInstall() {
 # When installing paru is done it run "Install" function described 
 # earlier in this file 
 
-read -p "What aur helper you want to install the packages with \
+read -p "What aur helper you want to install the packages with
 (p for paru y for yay (paru's installation is long)): " aurhelper
 case $aurhelper in 
   y ) yay_install;;
