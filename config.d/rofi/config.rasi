@@ -8,7 +8,7 @@
 
 configuration {
 	/*---------- General setting ----------*/
-	modi: "drun,run,filebrowser,window";
+	modi: "drun,run,filebrowser,window,keys,calc";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
