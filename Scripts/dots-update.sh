@@ -46,7 +46,7 @@ update_zsh() {
   echo "##########################"
   echo "#  Updating zsh dot dir  #"
   echo -e "##########################\n"
-  cp -rf $CONFIG/zsh $DOTDIR/config.d/
+  cp -rf $CONFIG/zsh $DOTDIR/config.d/zsh/
   doned
 }
 
