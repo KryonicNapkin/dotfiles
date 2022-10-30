@@ -27,6 +27,7 @@ brave-bin
 breeze-gtk
 bridge-utils
 brightnessctl
+browsh-bin
 btop
 btrfs-progs
 cgames
@@ -64,6 +65,7 @@ glfw-wayland
 gnome-disk-utility
 goaccess
 google-earth-pro
+gotop-bin
 grep
 groff
 grub
@@ -122,7 +124,6 @@ logwatch
 lshw
 lutris
 lxappearance
-lynx
 m4
 maim
 make
@@ -158,7 +159,6 @@ paru
 patch
 pax-utils
 pcmanfm
-pfetch
 phinger-cursors
 picom
 pipes.sh
@@ -170,7 +170,6 @@ pkgconf
 plymouth-git
 polkit-gnome
 procs
-ps2-bios
 pulsemixer
 python-adblock
 python-bluepy
@@ -181,7 +180,6 @@ python-reportlab
 qemu-full
 qogir-gtk-theme
 qtile
-qtile-extras-git
 ranger
 redshift
 reflector
@@ -215,7 +213,6 @@ viewnior
 vim
 virt-manager
 virt-viewer
-vlc
 vulkan-radeon
 webp-pixbuf-loader
 wget
