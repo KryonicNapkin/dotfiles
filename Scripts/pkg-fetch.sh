@@ -1,8 +1,11 @@
 #!/bin/bash
 
+# Variables
+DOTS=$HOME/My-dotfiles/
+
 check() {
-  paru -Qe | awk '{print $1}' > ~/My-dotfiles/Bin/pkglist.txt
-  cd ~/My-dotfiles/    
+  paru -Qe | awk '{print $1}' > $DOTS/Bin/pkglist.txt
+  cd $DOTS    
   git add -u Bin/pkglist.txt 
   git commit -m "Added the latest fetch of packages"
   git push git@github.com:coevoe/My-dotfiles.git 
