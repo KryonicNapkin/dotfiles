@@ -54,7 +54,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    height: 										 295px;
+    height: 										 320px;
     width:                       350px;
     x-offset:                    0px;
     y-offset:                    0px;
@@ -86,10 +86,10 @@ mainbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     6px;
+    spacing:                     8px;
     margin:                      0px;
     padding:                     6px;
-    border:                      0px 0px 1px 0px;
+    border:                      0px 0px 2px 0px;
     border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
@@ -122,7 +122,7 @@ entry {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       10;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -131,7 +131,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     0px;
+    spacing:                     3px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -151,9 +151,9 @@ scrollbar {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     6px;
     margin:                      0px;
-    padding:                     4px;
+    padding:                     5px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;
@@ -215,7 +215,7 @@ element-text {
 /*****----- Mode Switcher -----*****/
 mode-switcher{
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     8px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -225,7 +225,7 @@ mode-switcher{
     text-color:                  @foreground-colour;
 }
 button {
-    padding:                     6px;
+    padding:                     7px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;
