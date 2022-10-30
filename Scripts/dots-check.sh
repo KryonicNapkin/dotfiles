@@ -45,4 +45,4 @@ dotscheck() {
 
 dotscheck > dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt 
 less dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
-rm dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
+rm ~/My-dotfiles/Scripts/*.txt
