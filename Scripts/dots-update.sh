@@ -1,61 +1,77 @@
 #!/bin/bash
-set -xe
+#set -xe
+
+# Variables 
+CONFIG=$HOME/.config/
+DOTDIR=$HOME/My-dotfiles/
 
 doned() {
   echo "##########################"
   echo "#         DONE           #"
-  echo "##########################"
-}
-
-abort() {
-  echo "##########################"
-  echo "#         ABORT          #"
-  echo "##########################"
+  echo -e "##########################\n"
 }
 
 update_qtile() {
   echo "##########################"
   echo "# Updating qtile dot dir #"
   echo -e "##########################\n"
-  cp -rf ~/.config/qtile ~/My-dotfiles/config.d/
+  cp -rf $CONFIG/qtile/ $DOTDIR/config.d/
+  doned
 }
 update_dunst() {
   echo "##########################"
   echo "# Updating dunst dot dir #"
   echo -e "##########################\n"
-  cp -rf ~/.config/zsh ~/My-dotfiles/confid.d/
+  cp -rf $CONFIG/dunst/ $DOTDIR/config.d/
+  doned
 }
 
 update_alacritty() {
   echo "##############################"
   echo "# Updating alacritty dot dir #"
   echo -e "##############################\n"
-  cp -rf ~/.config/alacritty ~/My-dotfiles/confid.d/
+  cp -rf $CONFIG/alacritty/*.yml $DOTDIR/config.d/alacritty
+  doned
 }
 
 update_rofi() {
   echo "##########################"
   echo "# Updating rofi dot dir  #"
   echo -e "##########################\n"
-  cp -rf ~/.config/rofi ~/My-dotfiles/confid.d/
+  cp -rf $CONFIG/rofi $DOTDIR/config.d/
+  doned
 }
 
 update_zsh() {
   echo "##########################"
   echo "#  Updating zsh dot dir  #"
   echo -e "##########################\n"
-  cp -rf ~/.config/zsh ~/My-dotfiles/confid.d/
+  cp -rf $CONFIG/zsh $DOTDIR/config.d/
+  doned
 }
 
-main() {
-  while getopts q:d:a:z:r flag
-  do
-    case "${flag}" in
-      q) update_qtile;;
-      d) update_dunst;;
-      a) update_alacritty;;
-      z) update_zsh;;
-      r) update_rofi;;
-    esac
-  done
-}
+while getopts "qdarzw" option; do  
+  case "${option}" in
+    q ) 
+      update_qtile
+      ;;
+    d ) 
+      update_dunst
+      ;;
+    a ) 
+      update_alacritty
+      ;;
+    r ) 
+      update_rofi
+      ;;
+    z ) 
+      update_zsh
+      ;;
+    w ) 
+      update_qtile; update_dunst; update_alacritty; update_rofi; update_zsh;
+      ;;
+    ? ) 
+     echo "Invalid option $1"; exit 1
+     ;; 
+  esac
+done
