@@ -20,7 +20,7 @@ declare -a options=(
 
 choice=$( printf "%s\n" "${options[@]}" | rofi -dmenu -p Edit -theme ~/.config/rofi/launchers/type-4/style-1_configs.rasi) 
 
-if [ "$choice" == "quit" ]; then
+if [ "$choice" == "QUIT" ]; then
   echo "Program terminated" && exit 1
 elif [ "$choice" ]; then
   config=$(printf "%s\n" "${choice}" | awk '{print $NF}')
