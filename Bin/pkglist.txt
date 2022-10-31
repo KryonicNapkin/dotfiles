@@ -77,7 +77,6 @@ hdparm
 heroic-games-launcher-bin
 hplip
 htop
-iftop
 inetutils
 inkscape
 intel-ucode
@@ -177,6 +176,7 @@ python-notify2
 python-pip
 python-psutil
 python-reportlab
+qalculate-gtk
 qemu-full
 qogir-gtk-theme
 qtile
@@ -188,6 +188,7 @@ rofi
 rofi-calc
 sane
 scour
+scrcpy
 sddm
 sddm-sugar-dark
 sed
@@ -195,6 +196,7 @@ smartmontools
 st
 steam
 sudo
+sxiv
 sysstat
 systray-x-git
 teams
