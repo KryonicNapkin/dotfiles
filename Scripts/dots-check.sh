@@ -15,6 +15,8 @@ dotscheck() {
   diff -rq ~/.config/alacritty/ ~/My-dotfiles/config.d/alacritty/
   echo -e "\n### rofi dot dir ###"
   diff -rq ~/.config/rofi/ ~/My-dotfiles/config.d/rofi/
+  echo -e "\n### picom dot dir ###"
+  diff -rq ~/.config/picom/ ~/My-dotfiles/config.d/picom/
   echo -e "#######################################################################################\n"
   echo -e "############################"
   echo -e "### HOME DIRECTORY FILES ###"
