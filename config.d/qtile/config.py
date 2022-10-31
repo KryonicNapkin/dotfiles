@@ -176,19 +176,11 @@ keys = [
     Key([mod, "shift"], "v", lazy.spawn("virt-manager"), desc="Open Virt-manager"),
     Key([mod, "shift"], "d", lazy.spawn("discord"), desc="Open discord"),
 
-    # Config files
-    
-    KeyChord([mod], "d", [
-        Key([], "a", lazy.spawn("alacritty -e nvim /home/thinker/.config/qtile/autostart.sh")),
-        Key([], "q", lazy.spawn("alacritty -e nvim /home/thinker/.config/qtile/config.py")),
-        Key([], "d", lazy.spawn("alacritty -e nvim /home/thinker/.config/dunst/dunstrc")),
-        Key([], "x", lazy.spawn("alacritty -e nvim /home/thinker/.xinitrc")),
-    ]),
-
     # Rofi helpers
 
     KeyChord([mod], "r", [
         Key([], "r", lazy.spawn("/home/thinker/.config/rofi/launchers/type-4/launcher.sh"), desc="Open Rofi"),
+        Key([], "e", lazy.spawn("/home/thinker/.config/qtile/scripts/rofi-configs.sh"), desc="Open Rofi edit config menu"),
         Key([], "p", lazy.spawn("/home/thinker/.config/rofi/powermenu/type-1/powermenu.sh"), desc="Open Rofi powermenu"),
         Key([], "s", lazy.spawn("/home/thinker/.config/rofi/applets/bin/screenshot.sh"), desc="Open Maim Screenshot utility"),
         Key([], "q", lazy.spawn("/home/thinker/.config/rofi/applets/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
