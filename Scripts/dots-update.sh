@@ -26,6 +26,14 @@ update_dunst() {
   doned
 }
 
+update_picom() {
+  echo "###########################"
+  echo "# Updating picom dot dir  #"
+  echo -e "###########################\n"
+  cp -rf $CONFIG/picom $DOTDIR/config.d/
+  doned
+}
+
 update_alacritty() {
   echo "##############################"
   echo "# Updating alacritty dot dir #"
@@ -50,13 +58,16 @@ update_zsh() {
   doned
 }
 
-while getopts "qdarzw" option; do  
+while getopts "qdparzw" option; do  
   case "${option}" in
     q ) 
       update_qtile
       ;;
     d ) 
       update_dunst
+      ;;
+    p ) 
+      update_picom
       ;;
     a ) 
       update_alacritty
@@ -68,7 +79,7 @@ while getopts "qdarzw" option; do
       update_zsh
       ;;
     w ) 
-      update_qtile; update_dunst; update_alacritty; update_rofi; update_zsh;
+      update_qtile; update_dunst; update_picom; update_alacritty; update_rofi; update_zsh;
       ;;
     ? ) 
      echo "Invalid option $1"; exit 1
