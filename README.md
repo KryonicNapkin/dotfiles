@@ -28,6 +28,6 @@ Basic orientation around folder scructure:
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
 
 ## Roadmap
-- [] Add better documentation
-- [] Make more Scripts for user
-- [] Make This page more atractive
+- [ ] Add better documentation
+- [ ] Make more Scripts for user
+- [ ] Make This page more atractive
