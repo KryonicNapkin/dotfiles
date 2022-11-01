@@ -26,3 +26,8 @@ Basic orientation around folder scructure:
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
+
+## Roadmap
+- [] Add better documentation
+- [] Make more Scripts for user
+- [] Make This page more atractive
