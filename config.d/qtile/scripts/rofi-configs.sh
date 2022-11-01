@@ -5,6 +5,7 @@ ED="nvim"
 declare -a options=(
 "alacrity - $CONFDIR/alacritty/alacritty.yml"
 "dunst - $CONFDIR/dunst/dunstrc"
+"picom - $CONFDIR/picom/picom.conf"
 "qtile - $CONFDIR/qtile/config.py"
 "autostart - $CONFDIR/qtile/autostart.sh"
 "zsh-prompt - $CONFDIR/zsh/zsh-prompt"
