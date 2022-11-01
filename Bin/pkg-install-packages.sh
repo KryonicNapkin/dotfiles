@@ -11,7 +11,7 @@ abort() {
 }
 
 yay_install() {
-  git clone https://aur.archlinux.org/yay-bin.git
+  cd && git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin && makepkg -sci
   echo -e "########"
   echo -e "# DONE #"
@@ -35,11 +35,6 @@ ParuInstall() {
 YayInstall() {
   yay -S --needed - < $HOME/My-dotfiles/Bin/pkglist.txt
 }
-
-# This function run an if loop to check if you have installed 
-# paru and if not it run "Paruinstlall" function to install paru
-# When installing paru is done it run "Install" function described 
-# earlier in this file 
 
 read -p "What aur helper you want to install the packages with
 (p for paru y for yay (paru's installation is long)): " aurhelper
