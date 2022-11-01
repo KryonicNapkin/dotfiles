@@ -22,7 +22,7 @@ Basic orientation around folder scructure:
 * **File Manager**         == Pcmanfm
 * **Colorscheme**          == Dracula (Bar, Qtile), Onedark (Alacritty)
 
-###SCREENSHOTS### 
+##SCREENSHOTS## 
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
