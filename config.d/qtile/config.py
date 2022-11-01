@@ -234,7 +234,7 @@ layout_theme = {'border_width': 2,
                 'margin': 5,
                 'font': "Cantarell",
                 'font_size': 10,
-                'border_focus': "bd93f9",
+                'border_focus': "8be9fd",
                 'border_normal': "555555",
                 }
 
@@ -647,7 +647,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='About Mozilla Thunderbird'),  # About Thunderbird
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(wm_class='feh'),  # Feh
 ], **layout_theme)
 
 auto_fullscreen = True
