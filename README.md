@@ -22,3 +22,4 @@ Screenshot of current desktop:
 * Compositor           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
 * Application launcher == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
 * Notification         == Dunst
+* File Manager         == pcmanfm
