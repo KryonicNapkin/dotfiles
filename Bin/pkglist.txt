@@ -36,6 +36,7 @@ cockpit
 cups
 cups-pdf
 dash
+devour
 dialog
 dict-git
 discord
@@ -159,7 +160,7 @@ patch
 pax-utils
 pcmanfm
 phinger-cursors
-picom
+picom-ibhagwan-git
 pipes.sh
 pipewire
 pipewire-alsa
@@ -196,7 +197,6 @@ smartmontools
 st
 steam
 sudo
-sxiv
 sysstat
 systray-x-git
 teams
