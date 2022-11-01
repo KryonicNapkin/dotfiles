@@ -10,16 +10,16 @@ Basic orientation around folder scructure:
 6. **etc.d** - is directory where all config dirs are required to be put in ***/etc/*** dir
 
 ## Software that I use:
-* Distro               == Archlinux
-* WM (Window Manager)  == Qtile
-* Panel                == Qtile's built in panel
-* Terminal             == Alacritty
-* Shell                == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
-* Text Editor          == Moustly [Lunarvim](https://lunarvim.org/) but for the rofi-configs script [Astronvim](https://astronvim.github.io/), because lvim does not want to start by qtile keybinding
-* Compositor           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
-* Application launcher == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
-* Notification         == Dunst
-* File Manager         == Pcmanfm
+* **Distro**               == Archlinux
+* **WM (Window Manager)**  == Qtile
+* **Panel**                == Qtile's built in panel
+* **Terminal**             == Alacritty
+* **Shell**                == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
+* **Text Editor**          == Moustly [Lunarvim](https://lunarvim.org/) but for the rofi-configs script [Astronvim](https://astronvim.github.io/), because lvim does not want to start by qtile keybinding
+* **Compositor**           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
+* **Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
+* **Notification**         == Dunst
+* **File Manager**         == Pcmanfm
 
 Screenshots of current desktop:
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
