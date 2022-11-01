@@ -10,10 +10,10 @@ Basic orientation around folder scructure:
 6. **etc.d** - is directory where all config dirs are required to be put in ***/etc/*** dir
 
 ## Software that I use:
-* **Distro**               == Archlinux
-* **WM (Window Manager)**  == Qtile
+* **Distro**               == [Archlinux](https://archlinux.org/)
+* **WM (Window Manager)**  == [Qtile](https://qtile.org/)
 * **Panel**                == Qtile's built in panel
-* **Terminal**             == Alacritty
+* **Terminal**             == [Alacritty](https://alacritty.org/)
 * **Shell**                == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
 * **Text Editor**          == Moustly [Lunarvim](https://lunarvim.org/) but for the rofi-configs script [Astronvim](https://astronvim.github.io/), because lvim does not want to start by qtile keybinding
 * **Compositor**           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
@@ -22,7 +22,7 @@ Basic orientation around folder scructure:
 * **File Manager**         == Pcmanfm
 * **Colorscheme**          == Dracula (Bar, Qtile), Onedark (Alacritty)
 
-Screenshots of current desktop:
+###SCREENSHOTS### 
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
