@@ -20,7 +20,7 @@ Basic orientation around folder scructure:
 * **Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
 * **Notification**         == Dunst
 * **File Manager**         == Pcmanfm
-* **Colorscheme**         == Bar == Dracula; Terminal == onedark;
+* **Colorscheme**          == Dracula (Bar, Qtile), Onedark (Alacritty)
 
 Screenshots of current desktop:
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
