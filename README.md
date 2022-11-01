@@ -30,4 +30,4 @@ Basic orientation around folder scructure:
 ## Roadmap
 - [ ] Add better documentation
 - [ ] Make more Scripts for user
-- [ ] Make This page more atractive
+- [ ] Make this page more atractive
