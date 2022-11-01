@@ -18,9 +18,9 @@ Basic orientation around folder scructure:
 * **Text Editor**          == Moustly [Lunarvim](https://lunarvim.org/) but for the rofi-configs script [Astronvim](https://astronvim.github.io/), because lvim does not want to start by qtile keybinding
 * **Compositor**           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
 * **Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
-* **Notification**         == Dunst
-* **File Manager**         == Pcmanfm
-* **Colorscheme**          == Dracula (Bar, Qtile), Onedark (Alacritty)
+* **Notification**         == [Dunst](https://dunst-project.org/)
+* **File Manager**         == PCManFM
+* **Colorscheme**          == [Dracula](https://draculatheme.com) (Bar, Qtile), Onedark (Alacritty)
 
 ### SCREENSHOTS 
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
