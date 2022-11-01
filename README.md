@@ -19,6 +19,7 @@ Screenshots of current desktop:
 * WM (Window Manager)  == Qtile
 * Panel                == Qtile's built in panel
 * Terminal             == Alacritty
+* Shell                == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
 * Compositor           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
 * Application launcher == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
 * Notification         == Dunst
