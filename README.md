@@ -9,7 +9,7 @@ Basic orientation around folder scructure:
 5. **usr.d** - is directory where all config dirs are required to be put in ***/usr/*** dir
 6. **etc.d** - is directory where all config dirs are required to be put in ***/etc/*** dir
 
-Screenshot of current desktop:
+Screenshots of current desktop:
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
