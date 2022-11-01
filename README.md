@@ -14,3 +14,15 @@ Screenshot of current desktop:
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
 
+
+## Software that I use:
+* Distro               == Archlinux
+* WM (Window Manager)  == Qtile
+* Panel                == Qtile's built in panel
+* Terminal             == Alacritty
+* Compositor           == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
+* Application launcher == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
+* Notification         == Dunst
+
+
+
