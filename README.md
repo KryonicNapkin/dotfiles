@@ -29,5 +29,5 @@ Basic orientation around folder scructure:
 
 ## Roadmap
 - [ ] Add better documentation
-- [ ] Make more Scripts for user
+- [ ] Make more scripts for user
 - [ ] Make this page more atractive
