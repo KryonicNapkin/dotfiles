@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[t@m][\W]\$ '
+PS1='[t@m][\W] -> '
 
 export ZDOTDIR=$HOME/.config/zsh/
 export BROWSER='brave'
