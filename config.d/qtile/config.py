@@ -406,7 +406,7 @@ def init_widgets_list():
                 borderwidth=2,
                 border=colors[7],
                 margin=0,
-                padding=5,
+                padding=6,
                 highlight_method="block",
                 title_width_method="uniform",
                 urgent_alert_method="border",
