@@ -81,6 +81,7 @@ htop
 inetutils
 inkscape
 intel-ucode
+iotop
 iptables-nft
 iw
 iwd
@@ -128,6 +129,7 @@ m4
 maim
 make
 man-db
+mate-power-manager
 materia-gtk-theme
 mkinitcpio-firmware
 mlocate
@@ -169,6 +171,7 @@ pipewire-pulse
 pkgconf
 plymouth-git
 polkit-gnome
+powertop
 procs
 pulsemixer
 python-adblock
@@ -194,7 +197,6 @@ sddm
 sddm-sugar-dark
 sed
 smartmontools
-st
 steam
 sudo
 sysstat
@@ -230,7 +232,6 @@ xdg-user-dirs
 xdotool
 xf86-video-amdgpu
 xf86-video-ati
-xfce4-power-manager
 xfce4-terminal
 xorg-server
 xorg-xhost
