@@ -1,2 +1,4 @@
 *.pyc
 config.d/qtile/__pycache__
+*.zsh_history
+*.zcompdump
