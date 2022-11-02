@@ -32,7 +32,7 @@ from typing import List
 from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.dgroups import simple_key_binder
-from libqtile.config import Key, KeyChord, Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Key, KeyChord, Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile import widget
 from libqtile.widget import base
@@ -200,7 +200,6 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
-
 # My workspaces
 
 # Create labels for groups and assign them a default layout.
@@ -255,6 +254,15 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
+
+# SCRATCHPAD
+groups.append(ScratchPad('scratchpad', [
+    DropDown('term', terminal, width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+
+keys.extend([
+    Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('term'))
+])
 
 # colorscheme for onedark theme
 
