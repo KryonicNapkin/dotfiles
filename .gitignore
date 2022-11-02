@@ -1,1 +1,2 @@
 *.pyc
+config.d/__pycache__
