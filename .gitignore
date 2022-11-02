@@ -1,2 +1,2 @@
 *.pyc
-config.d/__pycache__
+config.d/qtile/__pycache__
