@@ -13,6 +13,7 @@ autoconf
 automake
 base
 bat
+batsignal
 battop
 betterdiscordctl-git
 betterlockscreen
@@ -129,7 +130,6 @@ m4
 maim
 make
 man-db
-mate-power-manager
 materia-gtk-theme
 mkinitcpio-firmware
 mlocate
@@ -171,6 +171,7 @@ pipewire-pulse
 pkgconf
 plymouth-git
 polkit-gnome
+powerkit
 powertop
 procs
 pulsemixer
@@ -206,6 +207,9 @@ terminus-font
 texinfo
 thunderbird
 tldr
+tlp
+tlp-rdw
+tlpui
 traceroute
 ttf-nerd-fonts-symbols-2048-em
 ufw
