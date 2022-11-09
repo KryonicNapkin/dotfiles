@@ -57,6 +57,7 @@ def client_new(client):
     if client.name == 'Mozilla Thunderbird':
         client.togroup('9')
 
+
 # Autostart
 
 @hook.subscribe.startup_once
@@ -256,44 +257,25 @@ layouts = [
 
 # SCRATCHPAD
 groups.append(ScratchPad('scratchpad', [
-    DropDown('term', terminal, width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+    DropDown('term', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
 ]))
 
 keys.extend([
     Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('term'))
 ])
 
-# colorscheme for onedark theme
-
-
-def init_colorsd():
-    return [["#1e2127", "#1e2127"],  # color 0  | bg
-            ["#1e2127", "#1e2127"],  # color 1  | bg
-            ["#abb2bf", "#abb2bf"],  # color 2  | fg
-            ["#e06c75", "#e06c75"],  # color 3  | red
-            ["#98c379", "#98c379"],  # color 4  | green
-            ["#d19a66", "#d19a66"],  # color 5  | orange
-            ["#61afef", "#61afef"],  # color 6  | blue
-            ["#c678dd", "#c678dd"],  # color 7  | magenta
-            #["#ff79c6", "#ff79c6"],  # color 8  | pink
-            ["#56b6c2", "#56b6c2"],  # color 9  | cyan
-            ["#828791", "#828791"]]  # color 10 | white
-
-# colors for dracula theme
-
 
 def init_colors():
     return [["#282a36", "#282a36"],  # color 0  | bg
-            ["#282a36", "#282a36"],  # color 1  | bg
-            ["#f8f8f2", "#f8f8f2"],  # color 2  | fg
-            ["#ff5555", "#ff5555"],  # color 3  | red
-            ["#50fa7b", "#50fa7b"],  # color 4  | green
-            ["#f1fa8c", "#f1fa8c"],  # color 5  | yellow
-            ["#ffb86c", "#ffb86c"],  # color 6  | orange
-            ["#bd93f9", "#bd93f9"],  # color 7  | magenta
-            ["#ff79c6", "#ff79c6"],  # color 8  | pink
-            ["#8be9fd", "#8be9fd"],  # color 9  | cyan
-            ["#bbbbbb", "#bbbbbb"]]  # color 10 | white
+            ["#f8f8f2", "#f8f8f2"],  # color 1  | fg
+            ["#ff5555", "#ff5555"],  # color 2  | red
+            ["#50fa7b", "#50fa7b"],  # color 3  | green
+            ["#f1fa8c", "#f1fa8c"],  # color 4  | yellow
+            ["#ffb86c", "#ffb86c"],  # color 5  | orange
+            ["#bd93f9", "#bd93f9"],  # color 6  | magenta
+            ["#ff79c6", "#ff79c6"],  # color 7  | pink
+            ["#8be9fd", "#8be9fd"],  # color 8  | cyan
+            ["#bbbbbb", "#bbbbbb"]]  # color 9  | white
 
 
 def init_separator():
@@ -301,7 +283,7 @@ def init_separator():
                 size_percent=60,
                 margin=5,
                 linewidth=2,
-                background=colors[1],
+                background=colors[0],
                 foreground="#555555")
 
 
@@ -311,13 +293,13 @@ def nerd_icon(nerdfont_icon, fg_color):
                 fontsize=15,
                 text=nerdfont_icon,
                 foreground=fg_color,
-                background=colors[1])
+                background=colors[0])
 
 
 def init_edge_spacer():
     return widget.Spacer(
                 length=4,
-                background=colors[1])
+                background=colors[0])
 
 
 colors = init_colors()
@@ -335,16 +317,14 @@ extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
     widgets_list = [
-            # Left Side of the bar
-
             widget.Spacer(
                 length=1,
-                background=colors[1]
+                background=colors[0]
             ),
             widget.Image(
                 filename="~/.config/qtile/python.png",
-                background=colors[1],
-                foreground=colors[2],
+                background=colors[0],
+                foreground=colors[1],
                 mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn(
                         f'{terminal} -e nvim /home/thinker/.config/qtile/config.py'
@@ -356,22 +336,22 @@ def init_widgets_list():
             ),
             widget.GroupBox(
                 #font="Iosevka Nerd Font",
-                font="Source Code Pro bold",
+                font="Source Code Pro Bold",
                 fontsize=10,
                 margin_y=4,
                 margin_x=4,
                 padding_y=5,
                 padding_x=5,
-                forground=colors[2],
-                background=colors[1],
+                forground=colors[1],
+                background=colors[0],
                 borderwidth=2,
                 disable_drag=True,
                 highlight_method="line",
                 highlight_color=['282a36'],
-                this_screen_border=colors[4],
-                this_current_screen_border=colors[7],
+                this_screen_border=colors[3],
+                this_current_screen_border=colors[6],
                 active=colors[6],
-                inactive=colors[2],
+                inactive=colors[1],
                 rounded=False,
                 use_mouse_wheel=False
             ),
@@ -379,13 +359,13 @@ def init_widgets_list():
             widget.CurrentLayoutIcon(
                 scale=0.7,
                 padding=0,
-                background=colors[1]
+                background=colors[0]
             ),
             widget.CurrentLayout(
                 font="Source Code Pro bold",
                 fontsize=12,
-                background=colors[1],
-                foreground=colors[9]
+                background=colors[0],
+                foreground=colors[8]
             ),
             sep,
             space,
@@ -394,53 +374,33 @@ def init_widgets_list():
                 font="Source Code Pro Bold",
                 fontsize=14,
                 padding=0,
-                foreground=colors[3],
-                background=colors[1]
+                foreground=colors[2],
+                background=colors[0]
             ),
             space, 
             sep,
             widget.TaskList(
                 icon_size=0,
-                foreground=colors[2],
-                background=colors[1],
+                foreground=colors[1],
+                background=colors[0],
                 borderwidth=2,
-                border=colors[7],
+                border=colors[6],
                 margin=0,
                 padding=6,
                 highlight_method="block",
                 title_width_method="uniform",
                 urgent_alert_method="border",
-                urgent_border=colors[3],
+                urgent_border=colors[2],
                 rounded=False,
                 txt_floating=" ",
                 txt_maximized=" ",
                 txt_minimized=" "
             ),
             sep,
-            #widget.WindowName(
-            #    format='{state}{name}',
-            #    max_chars=66,
-            #    background=colors[1]
-            #),
-            #widget.Spacer(
-            #    length=bar.STRETCH,
-            #    background=colors[1]
-            #),
-            #nerd_icon(
-            #    "",
-            #    colors[7]
-            #),
-            #widget.Battery(
-            #    foreground=colors[7],
-            #    background=colors[1],
-            #    format="{percent:2.0%}",
-            #    mouse_callbacks={
-            #        'Button1': lambda: qtile.cmd_spawn("alacritty -e battop")
-            #    }
             space,
             nerd_icon(
                 "",
-                colors[8]
+                colors[7]
             ),
 
             ###################################
@@ -452,53 +412,39 @@ def init_widgets_list():
             #    brightness_file='/sys/class/backlight/acpi_video0/brightness',
             #    max_brightness_file='/sys/class/backlight/acpi_video0/max_brightness',
             #    change_command='blight set {:.0f}',
-            #    background=colors[1],
-            #    foreground=colors[8]
+            #    background=colors[0],
+            #    foreground=colors[7]
             #),
             widget.Backlight(
                 backlight_name='radeon_bl0',
                 brightness_file='/sys/class/backlight/radeon_bl0/brightness',
                 max_brightness_file='/sys/class/backlight/radeon_bl0/max_brightness',
                 change_command='blight set {:.0f}',
-                background=colors[1],
-                foreground=colors[8]
+                background=colors[0],
+                foreground=colors[7]
             ),
             space,
             nerd_icon(
                 "墳",
-                colors[6]
+                colors[5]
             ),
             widget.Volume(
                 step=5,
-                foreground=colors[6],
-                background=colors[1],
+                foreground=colors[5],
+                background=colors[0],
                 mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn("{terminal} -e pulsemixer")
                 }
             ),
             space,
-            #space,
-            #nerd_icon(
-            #    "",
-            #    colors[6]
-            #),
-            #widget.ThermalZone(
-            #    crit=90,
-            #    fgcolor_crit=colors[3],
-            #    format_crit="{temp}°C",
-            #    fgcolor_high=colors[6],
-            #    fgcolor_normal=colors[2],
-            #    foreground=colors[2],
-            #    background=colors[1]
-            #),
             nerd_icon(
                 "",
-                colors[3]
+                colors[2]
             ),
             widget.CPU(
                 format="{load_percent}%",
-                foreground=colors[3],
-                background=colors[1],
+                foreground=colors[2],
+                background=colors[0],
                 update_interval=1,
                 mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn("{terminal} -e gotop")
@@ -507,106 +453,63 @@ def init_widgets_list():
             space,
             nerd_icon(
                 "﬙",
-                colors[4]
+                colors[3]
             ),
             widget.Memory(
                 format="{MemUsed:.0f}{mm}",
-                foreground=colors[4],
-                background=colors[1],
+                foreground=colors[3],
+                background=colors[0],
                 update_interval=1,
                 mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn("{terminal} -e gotop")
                 }
             ),
             space,
-            #space,
-            #nerd_icon(
-            #    "",
-            #    colors[7]
-            #),
-            #widget.GenPollText(
-            #    foreground=colors[7],
-            #    background=colors[1],
-            #    update_interval=1,
-            #    func=lambda: storage.diskspace('FreeSpace'),
-            #    mouse_callbacks={
-            #        'Button1': lambda: qtile.cmd_spawn("alacritty -e ncdu")
-            #    }
-            #),
-            #space,
-            #nerd_icon(
-            #    "",
-            #    colors[4]
-            #),
-            #widget.GenPollText(
-            #    foreground=colors[2],
-            #    background=colors[1],
-            #    update_interval=5,
-            #    func= lambda: subprocess.check_output("/home/thinker/.config/qtile/scripts/num-installed-pkgs").decode("utf-8"),
-            #),
-            #space,
-
-            # Left Side of the bar
-
-            #widget.Spacer(
-            #    length=bar.STRETCH,
-            #    background=colors[1]
-            #),
-            #nerd_icon(
-            #    "",
-            #    colors[4]
-            #),
-            #    format="{down} ↓↑ {up}",
-            #    foreground=colors[4],
-            #    background=colors[1],
-            #    update_interval=0.5,
-            #    mouse_callbacks={
-            #        'Button1': lambda: qtile.cmd_spawn("alacritty -e gotop")
-            #    }
             sep,
             nerd_icon(
                 "",
-                colors[4]
+                colors[3]
             ),
             widget.CheckUpdates(
                 no_update_string='0',
                 update_interval=600,
                 distro="Arch_checkupdates",
                 display_format="{updates}",
-                background=colors[1],
-                foreground=colors[2],
+                background=colors[0],
+                foreground=colors[1],
             ),
             sep,
+            space,
             nerd_icon(
                 "",
-                colors[9]
+                colors[8]
             ),
             widget.Clock(
                 format='%A',
-                foreground=colors[9],
-                background=colors[1]
+                foreground=colors[8],
+                background=colors[0]
             ),
             widget.Clock(
                 format='%H:%M:%S',
                 font="Source Code Pro bold",
-                foreground=colors[6],
-                background=colors[1]
+                foreground=colors[5],
+                background=colors[0]
             ),
             widget.Clock(
                 format='%d.%m.%y',
-                foreground=colors[9],
-                background=colors[1]
+                foreground=colors[8],
+                background=colors[0]
             ),
             sep,
             widget.KeyboardLayout(
                 font="Source Code Pro bold",
-                foreground=colors[6],
-                background=colors[1]
+                foreground=colors[5],
+                background=colors[0]
             ),
             sep,
             widget.Systray(
                 icon_size=20,
-                background=colors[1]
+                background=colors[0]
             ),
             space,
         ]
@@ -653,7 +556,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='Display'),  # ImageMagick
     Match(wm_class='Alafloat'),  # Floating Alacritty Terminal 
     Match(title='About Mozilla Thunderbird'),  # About Thunderbird
-    Match(title='branchdialog'),  # gitk
+    Match(title='feh [1 of 1] - /home/thinker/Screenshots/Rozvrch_9.B.png'), # Feh 
     Match(title='pinentry'),  # GPG key password entry
 ], **layout_theme)
 
