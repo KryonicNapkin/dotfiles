@@ -40,6 +40,7 @@ if [[ "$layout" == 'NO' ]]; then
 	option_8=" Edupage"
 	option_9=" Logos Ideas"
   option_10=" Arch Wiki"
+  option_11=" OurWorldInData"
 else
 	option_1=""
 	option_2=""
@@ -51,6 +52,7 @@ else
 	option_8=""
 	option_9=""
 	option_10=""
+  option_11=""
 fi
 
 # Rofi CMD
@@ -67,7 +69,7 @@ rofi_cmd() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6\n$option_7\n$option_8\n$option_9\n$option_10" | rofi_cmd
+	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6\n$option_7\n$option_8\n$option_9\n$option_10\n$option_11" | rofi_cmd
 }
 
 # Execute Command
@@ -91,7 +93,9 @@ run_cmd() {
 	elif [[ "$1" == '--opt9' ]]; then
 		xdg-open 'https://commons.wikimedia.org/wiki/Category:SVG_by_country'
 	elif [[ "$1" == '--opt10' ]]; then
-		xdg-open 'https://wiki.archlinux.org/'
+		brave 'https://wiki.archlinux.org/'
+	elif [[ "$1" == '--opt11' ]]; then
+		brave 'https://ourworldindata.org/'
 	fi
 }
 
@@ -127,5 +131,8 @@ case ${chosen} in
     		;;
 		$option_10)
     run_cmd --opt10
+    		;;
+		$option_11)
+    run_cmd --opt11
     		;;
 esac
