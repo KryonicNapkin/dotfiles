@@ -156,6 +156,7 @@ openttd
 os-prober
 pacman
 pamixer
+pandoc
 papirus-icon-theme
 paru
 patch
