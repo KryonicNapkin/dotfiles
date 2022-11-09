@@ -3,7 +3,7 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 alias nvimrc='nvim ~/.config/nvim/'
 alias ls='exa -s type --color=always --group-directories-first --icons'
 alias la='exa -s type -ah --color=always --group-directories-first --icons'
-alias lla='exa -s type -lah --color=always --group-directories-first --icons'
+alias ll='exa -s type -lah --color=always --group-directories-first --icons'
 alias vim='lvim'
 alias ps='procs'
 alias cat='bat'
@@ -13,6 +13,7 @@ alias pipes='pipes.sh -t 1'
 
 # Terminal swallowing
 alias feh='devour feh'
+alias zathura='devour zathura'
 alias mpv='devour mpv'
 
 # get fastest mirrors
