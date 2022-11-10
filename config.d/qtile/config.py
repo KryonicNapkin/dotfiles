@@ -464,7 +464,6 @@ def init_widgets_list():
                     'Button1': lambda: qtile.cmd_spawn("{terminal} -e gotop")
                 }
             ),
-            space,
             sep,
             nerd_icon(
                 "",
@@ -479,7 +478,6 @@ def init_widgets_list():
                 foreground=colors[1],
             ),
             sep,
-            space,
             nerd_icon(
                 "",
                 colors[8]
