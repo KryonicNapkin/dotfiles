@@ -55,10 +55,28 @@ update_zsh() {
   echo "#  Updating zsh dot dir  #"
   echo -e "##########################\n"
   cp -rf $CONFIG/zsh $DOTDIR/config.d/
+  cp -rf $HOME/.zshrc $DOTDIR/
   doned
 }
 
-while getopts "qdparzw" option; do  
+update_fehbg() {
+  echo "##########################"
+  echo "#     Updating fehbg     #"
+  echo -e "##########################\n"
+  cp -rf $HOME/.fehbg $DOTDIR/
+  doned
+}
+
+update_bash() {
+  echo "##########################"
+  echo "#     Updating bash      #"
+  echo -e "##########################\n"
+  cp -rf $HOME/.bashrc $DOTDIR/
+  cp -rf $HOME/.bash_profile $DOTDIR/
+  doned
+}
+
+while getopts "qdparzwfb" option; do  
   case "${option}" in
     q ) 
       update_qtile
@@ -78,8 +96,14 @@ while getopts "qdparzw" option; do
     z ) 
       update_zsh
       ;;
+    f ) 
+      update_fehbg
+      ;;
+    b ) 
+      update_bash
+      ;;
     w ) 
-      update_qtile; update_dunst; update_picom; update_alacritty; update_rofi; update_zsh;
+      update_qtile; update_dunst; update_picom; update_alacritty; update_rofi; update_zsh; update_fehbg; update_bash;
       ;;
     ? ) 
      echo "Invalid option $1"; exit 1
