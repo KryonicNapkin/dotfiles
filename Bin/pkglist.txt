@@ -3,6 +3,7 @@ acpilight
 alacritty
 alsa-utils
 amdvlk
+arc-icon-theme
 arch-wiki-docs
 archlinux-keyring
 archlinux-wallpaper
@@ -11,6 +12,7 @@ ascii
 aspell-en
 autoconf
 automake
+awesome
 base
 bat
 batsignal
@@ -38,6 +40,7 @@ cups
 cups-pdf
 dash
 devour
+dex
 dialog
 dict-git
 discord
@@ -213,12 +216,14 @@ tlp
 tlp-rdw
 tlpui
 traceroute
+ttf-mononoki
 ttf-nerd-fonts-symbols-2048-em
 ufw
 unarj
 unrar
 unzip
 vde2
+vicious
 viewnior
 vim
 virt-manager
