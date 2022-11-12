@@ -247,6 +247,7 @@ xfce4-terminal
 xorg-server
 xorg-xhost
 xorg-xinit
+xorg-xwininfo
 xsane
 xterm
 yt-dlp
