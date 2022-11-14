@@ -188,6 +188,7 @@ python-reportlab
 qalculate-gtk
 qemu-full
 qogir-gtk-theme
+qt5ct
 qtile
 ranger
 redshift
