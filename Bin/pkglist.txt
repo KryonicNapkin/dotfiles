@@ -175,7 +175,6 @@ pipewire-pulse
 pkgconf
 plymouth-git
 polkit-gnome
-powerkit
 powertop
 procs
 pulsemixer
@@ -184,6 +183,7 @@ python-bluepy
 python-notify2
 python-pip
 python-psutil
+python-pyqt5
 python-reportlab
 qalculate-gtk
 qemu-full
@@ -198,7 +198,6 @@ rofi
 rofi-calc
 sane
 scour
-scrcpy
 sddm
 sddm-sugar-dark
 sed
@@ -211,7 +210,6 @@ teams
 terminus-font
 texinfo
 thunderbird
-tlauncher-org
 tldr
 tlp
 tlp-rdw
