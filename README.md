@@ -28,7 +28,7 @@ Basic orientation around folder scructure:
 * **Notification**         == [Dunst](https://dunst-project.org/)
 * **File Manager**         == PCManFM
 * **Colorscheme**          == [Dracula](https://draculatheme.com) (Bar, Qtile); Onedark (Alacritty)
-* **Colorscheme (AwesomeWM)** == Ondark
+* **Colorscheme (AwesomeWM)** == Onedark
 
 ### SCREENSHOTS 
 Qtile desktop
