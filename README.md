@@ -16,7 +16,7 @@ Basic orientation around folder scructure:
 ## Software that I use:
 * **Distro**               == [Archlinux](https://archlinux.org/)
 * **Primary WM (Window Manager)**  == [AwesomeWM](https://awesomewm.org/)
-* **Secondary (Window Manager)**  == [Qtile](https://qtile.org/)
+* **Secondary WM (Window Manager)**  == [Qtile](https://qtile.org/)
 * **Panel**                == Qtile's built in panel
 * **Panel (AwesomeWM)**    == Awesome's built in panel
 * **Terminal**             == [Alacritty](https://alacritty.org/)
