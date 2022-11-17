@@ -3,6 +3,7 @@ acpilight
 alacritty
 alsa-utils
 amdvlk
+arandr
 arc-icon-theme
 arch-wiki-docs
 archlinux-keyring
