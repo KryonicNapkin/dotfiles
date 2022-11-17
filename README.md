@@ -1,5 +1,9 @@
 # My-dotfiles
-My qtile desktop dotfiles
+My Qtile and AwesomeWm desktop dotfiles
+
+## Welcome
+This is my repo for the dotfiles. When I first created this repo, it was for the dotfiles of my qtile desktop, but after I began to experiment with AwesomeWM and more window managers so I settled on Awesome because I wanted something minimal, customizable and written in C, because I don't really like python but I don't mind it either. 
+I will be keeping Qtile still maintained but less than Awesome.
 
 Basic orientation around folder scructure: 
 1. **Docs** - is directory where are stored all of docs about every file in this repo and about scripts (how they work)
@@ -11,8 +15,10 @@ Basic orientation around folder scructure:
 
 ## Software that I use:
 * **Distro**               == [Archlinux](https://archlinux.org/)
-* **WM (Window Manager)**  == [Qtile](https://qtile.org/)
+* **Primary WM (Window Manager)**  == [AwesomeWM](https://awesomewm.org/)
+* **Secondary (Window Manager)**  == [Qtile](https://qtile.org/)
 * **Panel**                == Qtile's built in panel
+* **Panel (AwesomeWM)**    == Awesome's built in panel
 * **Terminal**             == [Alacritty](https://alacritty.org/)
 * **Shell**                == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
 * **Text Editor**          == Moustly [Lunarvim](https://lunarvim.org/) but for the rofi-configs script [Astronvim](https://astronvim.github.io/), because lvim does not want to start by qtile keybinding
@@ -21,12 +27,18 @@ Basic orientation around folder scructure:
 * **Browser**              == [Brave](https://brave.com)
 * **Notification**         == [Dunst](https://dunst-project.org/)
 * **File Manager**         == PCManFM
-* **Colorscheme**          == [Dracula](https://draculatheme.com) (Bar, Qtile), Onedark (Alacritty)
+* **Colorscheme**          == [Dracula](https://draculatheme.com) (Bar, Qtile); Onedark (Alacritty)
+* **Colorscheme (AwesomeWM)** == Ondark
 
 ### SCREENSHOTS 
+Qtile desktop
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
+
+AwesomeWM desktop
+![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot_awesome.png)
+![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot_awesome1.png)
 
 ## Roadmap
 - [ ] Add better documentation
