@@ -22,6 +22,7 @@ betterdiscordctl-git
 betterlockscreen
 bind
 binutils
+birdtray
 bison
 blight
 blueman
@@ -45,6 +46,7 @@ dex
 dialog
 dict-git
 discord
+discordo-git
 dkms
 dmenu
 dnsmasq
@@ -174,7 +176,6 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 pkgconf
-plymouth-git
 polkit-gnome
 powertop
 procs
@@ -197,6 +198,7 @@ reflector
 ripgrep
 rofi
 rofi-calc
+rofi-emoji
 sane
 scour
 sddm
@@ -206,7 +208,6 @@ smartmontools
 steam
 sudo
 sysstat
-systray-x-git
 teams
 terminus-font
 texinfo
@@ -253,5 +254,6 @@ xterm
 yt-dlp
 zathura
 zathura-pdf-mupdf
+zip
 zram-generator
 zsh
