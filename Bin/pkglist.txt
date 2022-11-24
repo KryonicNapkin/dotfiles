@@ -150,6 +150,7 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
+nimdow-bin
 nitch
 nitrogen
 nmap
@@ -162,7 +163,6 @@ openttd
 os-prober
 pacman
 pamixer
-pandoc
 papirus-icon-theme
 paru
 patch
