@@ -155,6 +155,7 @@ nitch
 nitrogen
 nmap
 noto-fonts-emoji
+nyx
 ocl-icd
 okular
 onlyoffice-bin
@@ -189,6 +190,7 @@ python-pyqt5
 python-reportlab
 qalculate-gtk
 qemu-full
+qgnomeplatform-qt5
 qogir-gtk-theme
 qt5ct
 qtile
@@ -216,6 +218,7 @@ tldr
 tlp
 tlp-rdw
 tlpui
+tor
 traceroute
 ttf-mononoki
 ttf-nerd-fonts-symbols-2048-em
