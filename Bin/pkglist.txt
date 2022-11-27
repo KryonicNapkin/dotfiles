@@ -150,7 +150,6 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
-nimdow-bin
 nitch
 nitrogen
 nmap
@@ -252,6 +251,7 @@ xorg-server
 xorg-xhost
 xorg-xinit
 xorg-xwininfo
+xplr
 xsane
 xterm
 yt-dlp
