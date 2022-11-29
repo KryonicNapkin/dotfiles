@@ -65,6 +65,7 @@ flex
 fzf
 gawk
 gcc
+gcolor3
 gdk-pixbuf2-docs
 gettext
 gimp
