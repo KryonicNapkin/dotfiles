@@ -8,7 +8,7 @@ alias vim='lvim'
 alias ps='procs'
 alias cat='bat'
 alias show_rozvrch='feh ~/Screenshots/Rozvrch_9.B.png &'
-alias ttyclock='tty-clock -s -b -c'
+alias ttyclock='tty-clock -s -b -c -f "%a %d.%m.%y"'
 alias pipes='pipes.sh -t 1'
 
 # Terminal swallowing

@@ -52,12 +52,6 @@ dotscheck() {
   echo -e "### sddm conf dir (/usr/lib/) ###\n"
   diff -rq /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr.d/lib/sddm/sddm.conf.d
 
-  echo -e "#######################################################################################\n"
-  echo -e "############################"
-  echo -e "### /ETC DIRECTORY FILES ###"
-  echo -e "############################\n"
-  echo -e "### plymouth conf dir (/etc) ###\n"
-  diff -rq /etc/plymouth ~/My-dotfiles/etc.d/plymouth
 }
 
 dotscheck > dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt 

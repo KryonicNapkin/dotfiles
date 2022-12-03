@@ -36,7 +36,7 @@
     #offset = 8x36
 
     # For 5 px margin in qtile
-    offset = 12x38
+    offset = 14x40
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0

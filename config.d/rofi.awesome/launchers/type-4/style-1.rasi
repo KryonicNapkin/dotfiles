@@ -9,10 +9,10 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "run,drun";
+	modi:                       "run";
     show-icons:                 true;
-    display-drun: 							"";
     display-run:                "";
+    display-drun:               "";
 	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	window-format:              "{w} · {c} · {t}";
 }
@@ -80,7 +80,7 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "message", "listview" ];
 }
 
 /*****----- Inputbar -----*****/

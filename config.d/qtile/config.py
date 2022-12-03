@@ -181,12 +181,12 @@ keys = [
 
     KeyChord([mod], "r", [
         Key([], "r", lazy.spawn("/home/thinker/.config/rofi/launchers/type-4/launcher.sh"), desc="Open Rofi"),
-        Key([], "e", lazy.spawn("/home/thinker/.config/qtile/scripts/rofi-configs.sh", shell=True), desc="Open Rofi edit config menu"),
+        Key([], "e", lazy.spawn("/home/thinker/.config/rofi/applets/bin/rofi-configs.sh", shell=True), desc="Open Rofi edit config menu"),
         Key([], "p", lazy.spawn("/home/thinker/.config/rofi/powermenu/type-1/powermenu.sh"), desc="Open Rofi powermenu"),
         Key([], "s", lazy.spawn("/home/thinker/.config/rofi/applets/bin/screenshot.sh"), desc="Open Maim Screenshot utility"),
         Key([], "q", lazy.spawn("/home/thinker/.config/rofi/applets/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
-        Key([], "c", lazy.spawn("/home/thinker/.config/qtile/scripts/rofi-calc.sh"), desc="Open Rofi calculator"),
-        Key([], "n", lazy.spawn("/home/thinker/.config/qtile/scripts/rofi-network-manager.sh"), desc="Open Rofi calculator"),
+        Key([], "c", lazy.spawn("/home/thinker/.config/rofi/applets/bin/rofi-calc.sh"), desc="Open Rofi calculator"),
+        Key([], "n", lazy.spawn("/home/thinker/.config/rofi/applets/bin/rofi-network-manager.sh"), desc="Open Rofi calculator"),
     ]),
 
     # Toggle between different layouts as defined below

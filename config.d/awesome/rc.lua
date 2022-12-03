@@ -7,17 +7,16 @@ local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
 
+local dpi           = require("beautiful.xresources").apply_dpi
 -- Widget and layout library
-local lain = require("lain")
-local vicious = require("vicious")
-local wibox = require("wibox")
-local away = require("away")
-local markup = lain.util.markup
+local lain          = require("lain")
+local wibox         = require("wibox")
+local markup        = lain.util.markup
 -- Theme handling library
-local beautiful = require("beautiful")
+local beautiful     = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
+local naughty       = require("naughty")
+local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -27,6 +26,24 @@ local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightne
 
 -- Naughty notification config
 naughty.config.padding = 6
+
+-- Function run_once
+function run_once(prg, arg_string, pname, screen)
+  if not prg then
+    do return nil end
+  end
+
+  if not pname then
+    pname = prg
+  end
+
+  if not arg_string then
+    awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
+  else
+    awful.util.spawn_with_shell("pgrep -f -u $USER -x '" ..
+      pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")", screen)
+  end
+end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -58,13 +75,16 @@ end
 beautiful.init("/home/thinker/.config/awesome/theme.lua")
 
 -- GAPS
-beautiful.useless_gap = 3
+beautiful.useless_gap = dpi(3)
 
 -- AUTOSTART
-awful.spawn.with_shell("/home/thinker/.fehbg")
-awful.spawn.with_shell("picom --no-fading-openclose --config ~/.config/picom.awesome/picom_awesome.conf")
-awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-awful.spawn.with_shell("dunst")
+run_once("/home/thinker/.fehbg")
+run_once("picom --no-fading-openclose --config ~/.config/picom.awesome/picom_awesome.conf")
+run_once("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
+run_once("dunst")
+run_once("nm-applet")
+run_once("discord --start-minimized")
+run_once("birdtray")
 
 -- Default Variables (Programs)
 terminal = "alacritty"
@@ -90,11 +110,22 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- Widgets
 
+-- Net
+local netdown = wibox.widget.textbox()
+local netup = wibox.widget.textbox()
+
+local net = lain.widget.net({
+  settings = function()
+    netup:set_markup(markup.fontfg(beautiful.font, "#61afef", "  " .. net_now.sent .. ""))
+    netdown:set_markup(markup.fontfg(beautiful.font, "#61afef", " " .. net_now.received .. ""))
+  end
+})
+
 -- TEMP widget
 local temp_widget = lain.widget.temp {
   timeout = 15,
   settings = function()
-    widget:set_markup(markup.fontfg(beautiful.font, "#e5c07b", "  " .. coretemp_now .. "°C "))
+    widget:set_markup(markup.fontfg(beautiful.font, "#e5c07b", "  " .. coretemp_now .. "°C"))
   end
 }
 
@@ -102,7 +133,7 @@ local temp_widget = lain.widget.temp {
 local cpu_widget = lain.widget.cpu {
   timeout = 1,
   settings = function()
-    widget:set_markup(markup.fontfg(beautiful.font, "#e06c75", "  " .. cpu_now.usage .. "% "))
+    widget:set_markup(markup.fontfg(beautiful.font, "#e06c75", " " .. cpu_now.usage .. "%"))
   end
 }
 
@@ -110,12 +141,12 @@ local cpu_widget = lain.widget.cpu {
 local ram_widget = lain.widget.mem {
   timeout = 1,
   settings = function()
-    widget:set_markup(markup.fontfg(beautiful.font, "#98c379", "  " .. mem_now.perc .. "% "))
+    widget:set_markup(markup.fontfg(beautiful.font, "#98c379", " " .. mem_now.perc .. "%"))
   end
 }
 
 -- Spacewidget
-local space_widget = {
+local spacer = {
   text   = '  ',
   widget = wibox.widget.textbox
 }
@@ -124,7 +155,7 @@ local space_widget = {
 local my_disk_usage = lain.widget.fs({
   threshold = 90,
   settings  = function()
-    widget:set_markup(markup.fontfg(beautiful.font, "#c678dd", "   " .. fs_now["/"].percentage .. "% "))
+    widget:set_markup(markup.fontfg(beautiful.font, "#c678dd", " " .. fs_now["/"].percentage .. "%"))
   end
 })
 
@@ -132,7 +163,7 @@ local my_disk_usage = lain.widget.fs({
 local bat_widget = lain.widget.bat {
   timeout = 15,
   settings = function()
-    widget:set_markup("  " .. bat_now.perc .. "% ")
+    widget:set_markup(" " .. bat_now.perc .. "% ")
   end
 }
 
@@ -142,10 +173,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 local mytextclock = wibox.widget {
-  format = ' %a %d.%m.%y %H:%M:%S ',
   refresh = 1,
+  format = ' %a %d.%m.%y %H:%M:%S ',
   widget = wibox.widget.textclock
 }
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
   awful.button({}, 1, function(t) t:view_only() end),
@@ -208,7 +240,7 @@ awful.screen.connect_for_each_screen(function(s)
     buttons = tasklist_buttons,
   }
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  s.mywibox = awful.wibar({ position = "top", screen = s, height = 20 })
 
   -- Add widgets to the wibox
   s.mywibox:setup {
@@ -222,21 +254,28 @@ awful.screen.connect_for_each_screen(function(s)
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       temp_widget,
+      spacer,
       cpu_widget,
+      spacer,
       ram_widget,
+      spacer,
       my_disk_usage,
-      space_widget,
+      spacer,
+      netdown,
+      netup,
+      spacer,
       volume_widget {
         timeout = 1,
         widget_type = 'icon_and_text'
       },
-      space_widget,
+      spacer,
       brightness_widget {
         percentage = false,
         type = 'icon_and_text',
         program = 'brightnessctl',
         step = 5
       },
+      spacer,
       bat_widget,
       mykeyboardlayout,
       mytextclock,
@@ -269,12 +308,16 @@ globalkeys = gears.table.join(
 
   -- Terminal Applications
   awful.key({ altkey, "Control" }, "c",
-    function() awful.spawn.with_shell("alacritty --class tty-clock -e tty-clock -s -b -c",
-        { floating = true, ontop = true }) end,
+    function() awful.spawn.with_shell("alacritty --class tty-clock -e tty-clock -s -b -c -f '%a %d.%m.%y'",
+        { floating = true, ontop = true })
+    end,
     { description = "Open Clock", group = "Terminal Applications" }),
   awful.key({ altkey, "Control" }, "g",
     function() awful.spawn.with_shell("alacritty --class gotop -e gotop", { floating = true, ontop = true }) end,
     { description = "Open Gotop", group = "Terminal Applications" }),
+  awful.key({ altkey, "Control" }, "r",
+    function() awful.spawn.with_shell("feh ~/Screenshots/Rozvrch_9.B.png", { floating = true, ontop = true }) end,
+    { description = "Open Rozvrch", group = "Terminal Applications" }),
 
   -- Notify Applications
   awful.key({ modkey, altkey }, "u",
@@ -308,7 +351,7 @@ globalkeys = gears.table.join(
     { description = "Open a Alacritty", group = "Programs" }),
   awful.key({ modkey, "Shift" }, "w", function() awful.spawn(browser) end,
     { description = "Open a Brave", group = "Programs" }),
-  awful.key({ modkey, "Shift" }, "m", function() awful.spawn(filemanager) end,
+  awful.key({ modkey, "Shift" }, "f", function() awful.spawn(filemanager) end,
     { description = "Open a File Manager", group = "Programs" }),
   awful.key({ modkey, "Shift" }, "d", function() awful.spawn("discord") end,
     { description = "Open a Discord", group = "Programs" }),
@@ -323,9 +366,11 @@ globalkeys = gears.table.join(
 
         if key == "r" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/launchers/type-4/launcher.sh")
         elseif key == "p" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/powermenu/type-1/powermenu.sh")
+        elseif key == "w" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/rofi-wiki.sh")
         elseif key == "n" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/rofi-network-manager.sh")
         elseif key == "c" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/rofi-calc.sh")
-        elseif key == "e" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/rofi-configs.sh")
+        elseif key == "d" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/rofi-configs.sh")
+        elseif key == "e" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/rofi-emoji.sh")
         elseif key == "q" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/quicklinks.sh")
         elseif key == "s" then awful.spawn.with_shell("/home/thinker/.config/rofi.awesome/applets/bin/screenshot.sh")
         end
@@ -549,6 +594,7 @@ awful.rules.rules = {
     }
   },
 
+
   -- Floating clients.
   { rule_any = {
     instance = {
@@ -557,6 +603,7 @@ awful.rules.rules = {
       "pinentry",
       "tty-clock",
       "gotop",
+      "rozvrch",
     },
     class = {
       "Arandr",
@@ -567,7 +614,8 @@ awful.rules.rules = {
       "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
       "Wpa_gui",
       "veromix",
-      "xtightvncviewer"
+      "xtightvncviewer",
+      "feh"
     },
     -- Note that the name property shown in xprop might be set slightly after creation of the client
     -- and the name shown there might not match defined rules here.

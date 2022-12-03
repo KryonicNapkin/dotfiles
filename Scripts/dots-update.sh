@@ -76,6 +76,14 @@ update_bash() {
   doned
 }
 
+update_xinitrc() {
+  echo "##########################"
+  echo "#    Updating xinitrc    #"
+  echo -e "##########################\n"
+  cp -rf $HOME/.xinitrc $DOTDIR/
+  doned
+}
+
 while getopts "qdparzwfb" option; do  
   case "${option}" in
     q ) 
@@ -102,8 +110,11 @@ while getopts "qdparzwfb" option; do
     b ) 
       update_bash
       ;;
+    x ) 
+      update_xinitrc
+      ;;
     w ) 
-      update_qtile; update_dunst; update_picom; update_alacritty; update_rofi; update_zsh; update_fehbg; update_bash;
+      update_qtile; update_dunst; update_picom; update_alacritty; update_rofi; update_zsh; update_fehbg; update_bash; update_xinitrc;
       ;;
     ? ) 
      echo "Invalid option $1"; exit 1
