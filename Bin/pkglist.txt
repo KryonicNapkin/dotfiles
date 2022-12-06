@@ -22,7 +22,6 @@ betterdiscordctl-git
 betterlockscreen
 bind
 binutils
-birdtray
 bison
 blight
 blueman
@@ -166,6 +165,7 @@ openttd
 os-prober
 pacman
 pamixer
+pandoc
 papirus-icon-theme
 paru
 patch
@@ -251,6 +251,7 @@ xf86-video-amdgpu
 xf86-video-ati
 xfce4-terminal
 xorg-server
+xorg-xev
 xorg-xhost
 xorg-xinit
 xorg-xwininfo
