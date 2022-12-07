@@ -216,6 +216,7 @@ teams
 terminus-font
 texinfo
 thunderbird
+tlauncher-org
 tldr
 tlp
 tlp-rdw
