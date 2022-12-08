@@ -46,7 +46,6 @@ dex
 dialog
 dict-git
 discord
-discordo-git
 dkms
 dmenu
 dnsmasq
