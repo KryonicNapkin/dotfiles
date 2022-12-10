@@ -255,7 +255,6 @@ xorg-xev
 xorg-xhost
 xorg-xinit
 xorg-xwininfo
-xplr
 xsane
 xterm
 yt-dlp
