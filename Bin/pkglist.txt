@@ -13,7 +13,7 @@ ascii
 aspell-en
 autoconf
 automake
-awesome
+awesome-git
 base
 bat
 batsignal
