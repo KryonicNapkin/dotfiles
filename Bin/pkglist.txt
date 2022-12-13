@@ -81,6 +81,7 @@ grub
 grub-customizer
 gst-plugin-pipewire
 gucharmap
+gufw
 gzip
 hdparm
 heroic-games-launcher-bin
