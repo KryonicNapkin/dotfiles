@@ -1,47 +1,48 @@
 #!/usr/bin/env bash
 # set -xe
 
-# This function install yay for you if you do not have it 
+# This function install yay for you if you do not have it
+
+YAYCHECK=$(which yay)
+PARUCHECK=$(which paru)
 
 abort() {
-  echo "######################"
-  echo "#    Aboriding...    #"
-  echo "######################"
-  exit 1
+	echo "######################"
+	echo "#    Aboriding...    #"
+	echo "######################"
+	exit 1
 }
 
 yay_install() {
-  cd && git clone https://aur.archlinux.org/yay-bin.git
-  cd yay-bin && makepkg -sci
-  echo -e "########"
-  echo -e "# DONE #"
-  echo -e "########\n"
-  YayInstall
+	if [[ "$YAYCHECK" == "yay not found" ]]; then
+		cd && git clone https://aur.archlinux.org/yay-bin.git
+		cd yay-bin && makepkg -sci
+		echo -e "########"
+		echo -e "# DONE #"
+		echo -e "########\n"
+	else
+		yay -S --needed - <$HOME/My-dotfiles/Bin/pkglist.txt
+	fi
 }
 
 paru_install() {
-  git clone https://aur.archlinux.org/paru.git
-  cd paru && makepkg -sci
-  echo -e "########"
-  echo -e "# DONE #"
-  echo -e "########\n"
-  ParuInstall
-}
-
-ParuInstall() {
-  paru -S --needed - < $HOME/My-dotfiles/Bin/pkglist.txt
-}
-
-YayInstall() {
-  yay -S --needed - < $HOME/My-dotfiles/Bin/pkglist.txt
+	if [[ "$PARUCHECK" == "paru not found" ]]; then
+		git clone https://aur.archlinux.org/paru.git
+		cd paru && makepkg -sci
+		echo -e "########"
+		echo -e "# DONE #"
+		echo -e "########\n"
+	else
+		paru -S --needed - <$HOME/My-dotfiles/Bin/pkglist.txt
+	fi
 }
 
 read -p "What aur helper you want to install the packages with
-(p for paru y for yay (paru's installation is long)): " aurhelper
-case $aurhelper in 
-  y ) yay_install;;
-  p ) paru_install;;
-  * ) abort;;
+(p for paru y for yay (paru's installation is longer than yay's)): " aurhelper
+case $aurhelper in
+y) yay_install ;;
+p) paru_install ;;
+*) abort ;;
 esac
 
 # End of script
