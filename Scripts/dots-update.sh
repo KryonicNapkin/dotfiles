@@ -100,15 +100,16 @@ update_bash() {
 	doned
 }
 
-update_xinitrc() {
-	echo "##########################"
-	echo "#    Updating xinitrc    #"
-	echo -e "##########################\n"
+update_x() {
+	echo "#############################"
+	echo "#    Updating Xorg files    #"
+	echo -e "#############################\n"
 	cp -rf $HOME/.xinitrc $DOTDIR/
+	cp -rf $HOME/.Xresources $DOTDIR/
 	doned
 }
 
-while getopts "qdplarzefb" option; do
+while getopts "qxdplarzefb" option; do
 	case "${option}" in
 	q)
 		update_qtile
@@ -136,20 +137,23 @@ while getopts "qdplarzefb" option; do
 	f)
 		update_fehbg
 		;;
+	x)
+		update_x
+		;;
 	b)
 		update_bash
-		;;
-	x)
-		update_xinitrc
 		;;
 	e)
 		update_qtile
 		update_dunst
 		update_picom
+		update_picom_awesome
 		update_alacritty
 		update_rofi
+		update_rofi_awesome
 		update_zsh
 		update_fehbg
+		update_x
 		update_bash
 		update_xinitrc
 		;;
