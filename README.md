@@ -28,8 +28,7 @@ Basic orientation around folder scructure:
 -   **Terminal** == [Alacritty](https://alacritty.org/)
 -   **Shell** == Zsh
     ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
--   **Text Editor** == [Lvim-tech](https://github.com/lvim-tech/lvim) [Astronvim](https://astronvim.github.io/), because
-    lvim does not want to start by qtile keybinding
+-   **Text Editor** == [Lvim-tech](https://github.com/lvim-tech/lvim)
 -   **Compositor** == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
 -   **Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
 -   **Browser** == [Brave](https://brave.com)
