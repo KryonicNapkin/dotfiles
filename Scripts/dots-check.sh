@@ -41,10 +41,13 @@ dotscheck() {
 	echo -e "### HOME DIRECTORY FILES ###"
 	echo -e "############################\n"
 
+	echo -e "### .Xresources file ###\n"
+	diff -rq ~/.Xresources ~/My-dotfiles/.Xresources
+
 	echo -e "### .bashrc file ###\n"
 	diff -rq ~/.bashrc ~/My-dotfiles/.bashrc
 
-	echo -e "### .bashrc file ###\n"
+	echo -e "### .bash_profile file ###\n"
 	diff -rq ~/.bash_profile ~/My-dotfiles/.bash_profile
 
 	echo -e "### .fehbg file ###\n"
