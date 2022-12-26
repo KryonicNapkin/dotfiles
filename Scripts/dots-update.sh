@@ -155,7 +155,6 @@ while getopts "qxdplarzefb" option; do
 		update_fehbg
 		update_x
 		update_bash
-		update_xinitrc
 		;;
 	?)
 		echo "Invalid option $1"
