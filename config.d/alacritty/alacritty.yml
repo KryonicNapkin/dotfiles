@@ -364,7 +364,7 @@ font:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    #shape: Block
+    shape: Block
     # Cursor blinking state
     #
     # Values for `blinking`:
