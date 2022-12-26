@@ -10,7 +10,7 @@
 ## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-dir="$HOME/.config/rofi.awesome/powermenu/type-1"
+dir="$HOME/.config/rofi_awesome/powermenu/type-1"
 theme='style-3'
 
 # CMDs
@@ -18,13 +18,13 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=' Shutdown'
-reboot=' Reboot'
-lock=' Lock'
-suspend=' Sleep'
-logout=' Logout'
-yes=' Yes'
-no=' No'
+shutdown=' Shutdown'
+reboot=' Reboot'
+lock=' Lock'
+suspend=' Sleep'
+logout=' Logout'
+yes=' Yes'
+no=' No'
 
 # Rofi CMD
 rofi_cmd() {

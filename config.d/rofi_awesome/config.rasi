@@ -127,7 +127,7 @@ configuration {
 	kb-row-right: "Control+Page_Down";
 	kb-row-up: "Up,Control+p";
 	kb-row-down: "Down,Control+n";
-	kb-row-tab: "Tab";
+	kb-element-next: "Tab";
 	kb-page-prev: "Page_Up";
 	kb-page-next: "Page_Down";
 	kb-row-first: "Home,KP_Home";

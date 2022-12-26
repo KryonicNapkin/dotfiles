@@ -9,7 +9,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun";
+	modi:                       "run";
     show-icons:                 true;
     display-run:                "";
     display-drun:               "";
@@ -250,7 +250,7 @@ message {
     text-color:                  @foreground-colour;
 }
 textbox {
-    padding:                     10px;
+    padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;
@@ -264,7 +264,7 @@ textbox {
     markup:                      true;
 }
 error-message {
-    padding:                     10px;
+    padding:                     8px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;

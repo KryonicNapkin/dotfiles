@@ -11,7 +11,7 @@ main() {
            cut -d '/' -f8- | \
            sed -e 's/_/ /g' -e 's/.html//g' | \
            sort | \
-           rofi -dmenu -p "Arch Wiki Docs:" -theme ~/.config/rofi.awesome/launchers/type-4/style-1_wiki.rasi "$@") || exit 1
+           rofi -dmenu -p "Arch Wiki Docs:" -theme ~/.config/rofi_awesome/launchers/type-4/style-1_wiki.rasi "$@") || exit 1
 
     if [ "$choice" ]; then
         article=$(printf '%s\n' "${wikidir}${choice}.html" | sed 's/ /_/g')

@@ -6,7 +6,7 @@
 ## Applets : Quick Links
 
 # Import Current Theme
-source "$HOME"/.config/rofi.awesome/applets/shared/theme.bash
+source "$HOME"/.config/rofi_awesome/applets/shared/theme.bash
 theme="$type/$style"
 
 # Theme Elements
