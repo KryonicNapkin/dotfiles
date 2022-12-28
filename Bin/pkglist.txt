@@ -200,7 +200,7 @@ teams
 terminus-font
 texinfo
 thunderbird
-tlauncher-org
+tlauncher
 tldr
 tlp
 tlp-rdw
@@ -217,6 +217,7 @@ unarj
 unrar
 unzip
 vde2
+viewnior
 vim
 virt-manager
 virt-viewer
@@ -230,6 +231,7 @@ wireless_tools
 wireplumber
 xarchiver
 xbindkeys
+xclip
 xdg-user-dirs
 xdg-utils
 xdotool
