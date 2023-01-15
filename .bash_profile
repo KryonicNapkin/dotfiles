@@ -4,3 +4,4 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 source ~/.bashrc
+. "$HOME/.cargo/env"
