@@ -1,5 +1,4 @@
 acpi
-acpilight
 alacritty
 alsa-utils
 amdvlk
@@ -8,7 +7,6 @@ arc-icon-theme
 arch-wiki-docs
 archlinux-keyring
 ascii
-aspell-en
 autoconf
 automake
 awesome-git
@@ -20,7 +18,7 @@ betterlockscreen
 bind
 binutils
 bison
-blight
+blender
 blueman
 bluez-tools
 bluez-utils
@@ -28,7 +26,6 @@ brave-bin
 breeze-gtk
 bridge-utils
 brightnessctl
-btop
 btrfs-progs
 cdrtools
 cmatrix
@@ -50,7 +47,6 @@ ed
 etcher-bin
 exa
 fakeroot
-fcron
 feh
 file
 findutils
@@ -87,6 +83,7 @@ iw
 iwd
 kdiskmark
 kvantum
+lazygit
 legendary
 lib32-giflib
 lib32-gnutls
@@ -125,13 +122,13 @@ m4
 maim
 make
 man-db
-mangohud
 materia-gtk-theme
 mkinitcpio-firmware
 mlocate
 mpc
 mpv
 nano
+nasm
 nbwmon
 ncdu
 ncurses5-compat-libs
@@ -150,7 +147,6 @@ onlyoffice-bin
 openbsd-netcat
 os-prober
 pacman
-pamac-aur
 pamixer
 papirus-icon-theme
 paru
@@ -166,7 +162,6 @@ pipewire-jack
 pipewire-pulse
 pkgconf
 polkit-gnome
-procs
 protonup-git
 pulsemixer
 python-adblock
@@ -200,7 +195,7 @@ teams
 terminus-font
 texinfo
 thunderbird
-tlauncher
+timeshift-bin
 tldr
 tlp
 tlp-rdw
@@ -222,6 +217,7 @@ vim
 virt-manager
 virt-viewer
 vulkan-radeon
+vulkan-tools
 webp-pixbuf-loader
 wget
 which
