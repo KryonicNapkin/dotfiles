@@ -4,7 +4,7 @@
 DOTS=$HOME/My-dotfiles/
 
 check() {
-	paru -Qe | awk '{print $1}' >$DOTS/Bin/pkglist.txt
+	paru -Qqe >$DOTS/Bin/pkglist.txt
 	cd $DOTS
 	git add -u Bin/pkglist.txt
 	git commit -m "Added the latest fetch of packages"
