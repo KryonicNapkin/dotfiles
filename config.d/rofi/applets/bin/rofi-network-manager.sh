@@ -18,7 +18,7 @@ WIRED_INTERFACES_PRODUCT=$(nmcli -f general.product device show "$WIRED_INTERFAC
 
 function initialization() {
 	source "$DIR/rofi-network-manager.conf" || source "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/rofi-network-manager.conf" || exit
-	{ [[ -f "$HOME/.config/rofi/launchers/type-4/style-1.rasi" ]] && RASI_DIR="$HOME/.config/rofi.awesome/launchers/type-4/style-1.rasi"; } || { [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/rofi-network-manager.rasi" ]] && RASI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/rofi/launchers/type-4/style.rasi"; } || exit
+	{ [[ -f "$HOME/.config/rofi/launchers/type-4/style-1.rasi" ]] && RASI_DIR="$HOME/.config/rofi/launchers/type-4/style-1.rasi"; } || { [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/rofi/rofi-network-manager.rasi" ]] && RASI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/rofi/launchers/type-4/style.rasi"; } || exit
 	for i in "${WIRELESS_INTERFACES[@]}"; do WIRELESS_INTERFACES_PRODUCT+=("$(nmcli -f general.product device show "$i" | awk '{print $2}')"); done
 	wireless_interface_state
 	ethernet_interface_state

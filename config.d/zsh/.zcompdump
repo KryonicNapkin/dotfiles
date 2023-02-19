@@ -1,4 +1,4 @@
-#files: 824	version: 5.9
+#files: 825	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -89,6 +89,7 @@ _comps=(
 'bibtex' '_bibtex'
 'bindkey' '_bindkey'
 'bison' '_bison'
+'blight' '_blight'
 'bluetoothctl' '_bluetoothctl'
 'bmake' '_make'
 'bogofilter' '_bogofilter'
@@ -136,7 +137,6 @@ _comps=(
 'cabal' '_cabal'
 'cal' '_cal'
 'calendar' '_calendar'
-'cargo' '_cargo'
 'cat' '_cat'
 'catchsegv' '_precommand'
 'cc' '_gcc'
@@ -1043,6 +1043,7 @@ _comps=(
 'readelf' '_readelf'
 'readlink' '_readlink'
 'readonly' '_typeset'
+'rebar' '_rebar'
 '-redirect-' '_redirect'
 '-redirect-,<,bunzip2' '_bzip2'
 '-redirect-,<,bzip2' '_bzip2'
@@ -1673,8 +1674,8 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _alacritty _bat _bluetoothctl _bootctl _busctl \
-            _bwrap _cargo _checkupdates _coredumpctl _curl \
+autoload -Uz _alacritty _bat _blight _bluetoothctl _bootctl \
+            _busctl _bwrap _checkupdates _coredumpctl _curl \
             _exa _hostnamectl _journalctl _kernel-install _libinput \
             _localectl _loginctl _luarocks _luarocks-admin _machinectl \
             _meson _mkinitcpio _mpv _networkctl _nim \
@@ -1829,15 +1830,15 @@ autoload -Uz _alacritty _bat _bluetoothctl _bootctl _busctl \
             _kill _limit _limits _math _math_params \
             _mere _module_math_func _options _options_set _options_unset \
             _parameter _parameters _precommand _print _prompt \
-            _ps1234 _read _redirect _run-help _sched \
-            _set _setopt _source _strftime _subscript \
-            _suffix_alias_files _tcpsys _tilde _trap _ttyctl \
-            _typeset _ulimit _unhash _user_math_func _value \
-            _vared _vars _vcs_info _vcs_info_hooks _wait \
-            _which _widgets _zargs _zattr _zcalc \
-            _zcalc_line _zcompile _zed _zftp _zle \
-            _zmodload _zmv _zparseopts _zpty _zsh-mime-handler \
-            _zsocket _zstyle _ztodo
+            _ps1234 _read _rebar _redirect _run-help \
+            _sched _set _setopt _source _strftime \
+            _subscript _suffix_alias_files _tcpsys _tilde _trap \
+            _ttyctl _typeset _ulimit _unhash _user_math_func \
+            _value _vared _vars _vcs_info _vcs_info_hooks \
+            _wait _which _widgets _zargs _zattr \
+            _zcalc _zcalc_line _zcompile _zed _zftp \
+            _zle _zmodload _zmv _zparseopts _zpty \
+            _zsh-mime-handler _zsocket _zstyle _ztodo
 autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs

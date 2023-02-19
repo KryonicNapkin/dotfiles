@@ -152,8 +152,8 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse sset Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 3%-")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 3%+")),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("blight set +10")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("blight set -10")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("blight set +5%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("blight set -5%")),
 
     # Language
 
@@ -180,13 +180,16 @@ keys = [
     # Rofi helpers
 
     KeyChord([mod], "r", [
-        Key([], "r", lazy.spawn("/home/thinker/.config/rofi/launchers/type-4/launcher.sh"), desc="Open Rofi"),
-        Key([], "e", lazy.spawn("/home/thinker/.config/rofi/applets/bin/rofi-configs.sh", shell=True), desc="Open Rofi edit config menu"),
-        Key([], "p", lazy.spawn("/home/thinker/.config/rofi/powermenu/type-1/powermenu.sh"), desc="Open Rofi powermenu"),
-        Key([], "s", lazy.spawn("/home/thinker/.config/rofi/applets/bin/screenshot.sh"), desc="Open Maim Screenshot utility"),
-        Key([], "q", lazy.spawn("/home/thinker/.config/rofi/applets/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
-        Key([], "c", lazy.spawn("/home/thinker/.config/rofi/applets/bin/rofi-calc.sh"), desc="Open Rofi calculator"),
-        Key([], "n", lazy.spawn("/home/thinker/.config/rofi/applets/bin/rofi-network-manager.sh"), desc="Open Rofi calculator"),
+        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/launchers/type-4/launcher.sh"), desc="Open Rofi"),
+        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/launchers/type-4/launcher_bin.sh"), desc="Open Rofi"),
+        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/powermenu/type-1/powermenu.sh"), desc="Open Rofi Powermenu"),
+        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
+        Key([], "n", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-network-manager.sh"), desc="Open Rofi Network Manager"),
+        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
+        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
+        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
+        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/applets/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
+        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/applets/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
     ]),
 
     # Toggle between different layouts as defined below
@@ -327,10 +330,10 @@ def init_widgets_list():
                 foreground=colors[1],
                 mouse_callbacks={
                     'Button1': lambda: qtile.cmd_spawn(
-                        f'{terminal} -e nvim /home/thinker/.config/qtile/config.py'
+                        f'{terminal} -e nvim /home/oizero/.config/qtile/config.py'
                     ),
                     'Button3': lambda: qtile.cmd_spawn(
-                        f'{terminal} -e nvim /home/thinker/.config/qtile/autostart.sh'
+                        f'{terminal} -e nvim /home/oizero/.config/qtile/autostart.sh'
                     )
                 }
             ),
@@ -399,7 +402,7 @@ def init_widgets_list():
             sep,
             space,
             nerd_icon(
-                "",
+                " ",
                 colors[7]
             ),
 
@@ -466,7 +469,7 @@ def init_widgets_list():
             ),
             sep,
             nerd_icon(
-                "",
+                " ",
                 colors[3]
             ),
             widget.CheckUpdates(
@@ -479,7 +482,7 @@ def init_widgets_list():
             ),
             sep,
             nerd_icon(
-                "",
+                " ",
                 colors[8]
             ),
             widget.Clock(
@@ -554,7 +557,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='Display'),  # ImageMagick
     Match(wm_class='Alafloat'),  # Floating Alacritty Terminal 
     Match(title='About Mozilla Thunderbird'),  # About Thunderbird
-    Match(title='feh [1 of 1] - /home/thinker/Screenshots/Rozvrch_9.B.png'), # Feh 
+    Match(title='feh [1 of 1] - /home/oizero/Screenshots/Rozvrch_9.B.png'), # Feh 
     Match(title='pinentry'),  # GPG key password entry
 ], **layout_theme)
 
