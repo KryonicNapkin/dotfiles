@@ -2,6 +2,7 @@ acpi
 alacritty
 alsa-utils
 amdvlk
+android-tools
 arandr
 arc-icon-theme
 arch-wiki-docs
@@ -44,6 +45,8 @@ dnsmasq
 dosbox-x
 dunst
 ed
+erlang
+erlang-cl
 etcher-bin
 exa
 fakeroot
@@ -62,6 +65,7 @@ gimp
 git
 gnome-disk-utility
 goaccess
+google-earth-pro
 gotop-bin
 grep
 groff
@@ -81,6 +85,7 @@ iotop
 iptables-nft
 iw
 iwd
+jq
 kdiskmark
 kvantum
 lazygit
@@ -176,6 +181,8 @@ qgnomeplatform-qt5
 qogir-gtk-theme
 qt5ct
 qtile
+rebar
+rebar3
 redshift
 reflector
 ripgrep
@@ -209,6 +216,7 @@ ttf-mononoki
 ttf-nerd-fonts-symbols-2048-em
 ufw
 unarj
+universal-android-debloater-bin
 unrar
 unzip
 vde2
