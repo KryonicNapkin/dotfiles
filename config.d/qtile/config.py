@@ -180,16 +180,16 @@ keys = [
     # Rofi helpers
 
     KeyChord([mod], "r", [
-        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/launchers/type-4/launcher.sh"), desc="Open Rofi"),
-        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/launchers/type-4/launcher_bin.sh"), desc="Open Rofi"),
-        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/powermenu/type-1/powermenu.sh"), desc="Open Rofi Powermenu"),
-        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
-        Key([], "n", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-network-manager.sh"), desc="Open Rofi Network Manager"),
-        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
-        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
-        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/applets/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
-        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/applets/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
-        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/applets/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
+        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/bin/launcher.sh"), desc="Open Rofi"),
+        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/bin/launcher_bin.sh"), desc="Open Rofi"),
+        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/bin/powermenu.sh"), desc="Open Rofi Powermenu"),
+        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
+        Key([], "n", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-network-manager.sh"), desc="Open Rofi Network Manager"),
+        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
+        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
+        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
+        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
+        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
     ]),
 
     # Toggle between different layouts as defined below
