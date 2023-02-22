@@ -7,3 +7,4 @@ mate-power-manager &
 dunst &
 discord --start-minimized &
 thunderbird &
+nm-applet &
