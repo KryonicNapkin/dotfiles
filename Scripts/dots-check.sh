@@ -35,7 +35,7 @@ dotscheck() {
 	echo -e "\n### alacritty dot dir ###"
 	diff -rq $CONFIGDIR/alacritty/ ~/My-dotfiles/config.d/alacritty/
 
-	echo -e "#######################################################################################\n"
+	echo -e "###################################################################\n"
 
 	echo -e "############################"
 	echo -e "### HOME DIRECTORY FILES ###"
@@ -59,7 +59,7 @@ dotscheck() {
 	echo -e "### .zprofile file ###\n"
 	diff -rq ~/.zprofile ~/My-dotfiles/.zprofile
 
-	echo -e "#######################################################################################\n"
+	echo -e "###################################################################\n"
 
 	echo -e "############################"
 	echo -e "### /USR DIRECTORY FILES ###"

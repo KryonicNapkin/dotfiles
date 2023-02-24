@@ -5,6 +5,7 @@
 CONFIG=$HOME/.config/
 DOTDIR=$HOME/My-dotfiles/
 
+# Actual code
 doned() {
 	echo "##########################"
 	echo "#         DONE           #"
@@ -88,6 +89,7 @@ update_fehbg() {
 	echo "#     Updating fehbg     #"
 	echo -e "##########################\n"
 	cp -rf $HOME/.fehbg $DOTDIR/
+	cp -rf $HOME/.fehbg_qtile $DOTDIR/
 	doned
 }
 
@@ -148,6 +150,7 @@ while getopts "qxdplarzefb" option; do
 		update_dunst
 		update_picom
 		update_picom_awesome
+        update_awesome
 		update_alacritty
 		update_rofi
 		update_rofi_awesome
