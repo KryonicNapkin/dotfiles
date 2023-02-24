@@ -1,9 +1,20 @@
 #!/bin/bash
+ROFIDIR=$HOME/.config/rofi_awesome/bin
 CONFDIR=$HOME/.config
 ED="nvim"
 
 declare -a options=(
 "alacrity - $CONFDIR/alacritty/alacritty.yml"
+"rofi-bin - $ROFIDIR/launcher_bin.sh"
+"rofi-wiki - $ROFIDIR/rofi-wiki.sh"
+"rofi - $ROFIDIR/launcher.sh"
+"rofi-powermenu - $ROFIDIR/powermenu.sh"
+"rofi-configs - $ROFIDIR/rofi-configs.sh"
+"rofi-network-menu - $ROFIDIR/rofi-network-manager.sh"
+"rofi-emoji - $ROFIDIR/rofi-emoji.sh"
+"rofi-calc - $ROFIDIR/rofi-calc.sh"
+"rofi-screenshot - $ROFIDIR/screenshot.sh"
+"rofi-quicklinks - $ROFIDIR/quicklinks.sh"
 "dunst - $CONFDIR/dunst/dunstrc"
 "picom - $CONFDIR/picom/picom.conf"
 "qtile - $CONFDIR/qtile/config.py"

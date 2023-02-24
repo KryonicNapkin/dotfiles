@@ -115,18 +115,18 @@ case ${chosen} in
 		run_cmd --opt6
         ;;
     $option_7)
-    run_cmd --opt7
-    		;;
+        run_cmd --opt7
+    	;;
     $option_8)
-    run_cmd --opt8
-    		;;
-		$option_9)
-    run_cmd --opt9
-    		;;
-		$option_10)
-    run_cmd --opt10
-    		;;
-		$option_11)
-    run_cmd --opt11
-    		;;
+        run_cmd --opt8
+    	;;
+	$option_9)
+        run_cmd --opt9
+    	;;
+	$option_10)
+        run_cmd --opt10
+    	;;
+	$option_11)
+        run_cmd --opt11
+    	;;
 esac

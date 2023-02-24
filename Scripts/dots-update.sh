@@ -33,6 +33,7 @@ update_rofi_awesome() {
 	echo "#################################"
 	echo "# Updating rofi_awesome dot dir #"
 	echo -e "#################################\n"
+    rm -rf $DOTDIR/config.d/rofi_awesome
 	cp -rf $CONFIG/rofi_awesome $DOTDIR/config.d/
 	doned
 }
@@ -41,7 +42,8 @@ update_qtile() {
 	echo "##########################"
 	echo "# Updating qtile dot dir #"
 	echo -e "##########################\n"
-	cp -rf $CONFIG/qtile/ $DOTDIR/config.d/
+    rm -rf $DOTDIR/config.d/qtile
+    cp -rrf $CONFIG/qtile/ $DOTDIR/config.d/
 	doned
 }
 update_dunst() {
@@ -64,7 +66,7 @@ update_alacritty() {
 	echo "##############################"
 	echo "# Updating alacritty dot dir #"
 	echo -e "##############################\n"
-	cp -rf $CONFIG/alacritty/*.yml $DOTDIR/config.d/alacritty
+	cp -rf $CONFIG/alacritty/alacritty.yml $DOTDIR/config.d/alacritty
 	doned
 }
 
@@ -72,6 +74,7 @@ update_rofi() {
 	echo "##########################"
 	echo "# Updating rofi dot dir  #"
 	echo -e "##########################\n"
+    rm -rf $DOTDIR/config.d/rofi
 	cp -rf $CONFIG/rofi $DOTDIR/config.d/
 	doned
 }
@@ -80,6 +83,7 @@ update_zsh() {
 	echo "##########################"
 	echo "#  Updating zsh dot dir  #"
 	echo -e "##########################\n"
+    rm -rf $DOTDIR/config.d/zsh
 	cp -rf $CONFIG/zsh $DOTDIR/config.d/
 	cp -rf $HOME/.zprofile $DOTDIR/
 	doned
