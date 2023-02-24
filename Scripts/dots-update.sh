@@ -16,6 +16,7 @@ update_awesome() {
 	echo "##########################"
 	echo "# Updating awesome dot dir #"
 	echo -e "##########################\n"
+    rm -rf $DOTDIR/config.d/awesome
 	cp -rf $CONFIG/awesome/ $DOTDIR/config.d/
 	doned
 }
