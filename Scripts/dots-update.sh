@@ -12,93 +12,93 @@ doned() {
 	echo -e "##########################\n"
 }
 
-update_awesome() {
+# WMs
+awesome() {
 	echo "##########################"
 	echo "# Updating awesome dot dir #"
 	echo -e "##########################\n"
-    rm -rf $DOTDIR/config.d/awesome
-	cp -rf $CONFIG/awesome/ $DOTDIR/config.d/
+    rm -rf $DOTDIR/config/awesome
+	cp -rf $CONFIG/awesome/ $DOTDIR/config/
 	doned
 }
 
-update_picom_awesome() {
-	echo "##################################"
-	echo "# Updating picom_awesome dot dir #"
-	echo -e "##################################\n"
-	cp -rf $CONFIG/picom_awesome $DOTDIR/config.d/
-	doned
-}
-
-update_rofi_awesome() {
-	echo "#################################"
-	echo "# Updating rofi_awesome dot dir #"
-	echo -e "#################################\n"
-    rm -rf $DOTDIR/config.d/rofi_awesome
-	cp -rf $CONFIG/rofi_awesome $DOTDIR/config.d/
-	doned
-}
-
-update_qtile() {
+qtile() {
 	echo "##########################"
 	echo "# Updating qtile dot dir #"
 	echo -e "##########################\n"
-    rm -rf $DOTDIR/config.d/qtile
-    cp -rrf $CONFIG/qtile/ $DOTDIR/config.d/
+    rm -rf $DOTDIR/config/qtile
+    cp -rf $CONFIG/qtile/ $DOTDIR/config/
 	doned
 }
-update_dunst() {
+
+dwm() {
 	echo "##########################"
-	echo "# Updating dunst dot dir #"
+	echo "#  Updating dwm dot dir  #"
 	echo -e "##########################\n"
-	cp -rf $CONFIG/dunst/ $DOTDIR/config.d/
+    rm -rf $DOTDIR/config/dwm
+    cp -rf $CONFIG/dwm/ $DOTDIR/config/
 	doned
 }
 
-update_picom() {
-	echo "###########################"
-	echo "# Updating picom dot dir  #"
-	echo -e "###########################\n"
-	cp -rf $CONFIG/picom $DOTDIR/config.d/
-	doned
-}
-
-update_alacritty() {
+# CONFIG dirs
+alacritty() {
 	echo "##############################"
 	echo "# Updating alacritty dot dir #"
 	echo -e "##############################\n"
-	cp -rf $CONFIG/alacritty/alacritty.yml $DOTDIR/config.d/alacritty
+    rm -rf $DOTDIR/config/alacritty
+	cp -rf $CONFIG/alacritty/ $DOTDIR/config/
 	doned
 }
 
-update_rofi() {
+dunst() {
 	echo "##########################"
-	echo "# Updating rofi dot dir  #"
+	echo "# Updating dunst dot dir #"
 	echo -e "##########################\n"
-    rm -rf $DOTDIR/config.d/rofi
-	cp -rf $CONFIG/rofi $DOTDIR/config.d/
+    rm -rf $DOTDIR/config/dunst
+	cp -rf $CONFIG/dunst/ $DOTDIR/config/
 	doned
 }
 
-update_zsh() {
+fehbg() {
+	echo "##########################"
+	echo "#  Updating feh dot dir  #"
+	echo -e "##########################\n"
+	rm -rf $DOTDIR/config/feh
+	cp -rf $CONFIG/feh/ $DOTDIR/config/
+	doned
+}
+
+picom() {
+	echo "##################################"
+	echo "#     Updating picom dot dir     #"
+	echo -e "##################################\n"
+    rm -rf $DOTDIR/config/picom
+	cp -rf $CONFIG/picom $DOTDIR/config/
+	doned
+}
+
+rofi() {
+	echo "#################################"
+	echo "#     Updating rofi dot dir     #"
+	echo -e "#################################\n"
+    rm -rf $DOTDIR/config/rofi
+	cp -rf $CONFIG/rofi $DOTDIR/config/
+	doned
+}
+
+zsh() {
 	echo "##########################"
 	echo "#  Updating zsh dot dir  #"
 	echo -e "##########################\n"
-    rm -rf $DOTDIR/config.d/zsh
-	cp -rf $CONFIG/zsh $DOTDIR/config.d/
+    rm -rf $DOTDIR/config/zsh
+	cp -rf $CONFIG/zsh $DOTDIR/config/
 	cp -rf $HOME/.zprofile $DOTDIR/
+	cp -rf $HOME/.zshrc $DOTDIR/
 	doned
 }
 
-update_fehbg() {
-	echo "##########################"
-	echo "#     Updating fehbg     #"
-	echo -e "##########################\n"
-	cp -rf $HOME/.fehbg $DOTDIR/
-	cp -rf $HOME/.fehbg_qtile $DOTDIR/
-	doned
-}
-
-update_bash() {
+# HOME dir
+bash() {
 	echo "##########################"
 	echo "#     Updating bash      #"
 	echo -e "##########################\n"
@@ -107,62 +107,64 @@ update_bash() {
 	doned
 }
 
-update_x() {
+X11() {
 	echo "#############################"
-	echo "#    Updating Xorg files    #"
+	echo "#    Updating X11 files     #"
 	echo -e "#############################\n"
-	cp -rf $HOME/.xinitrc $DOTDIR/
+	cp -rf $HOME/.xinitrc_a $DOTDIR/
+	cp -rf $HOME/.xinitrc_d $DOTDIR/
+	cp -rf $HOME/.xinitrc_q $DOTDIR/
 	cp -rf $HOME/.Xresources $DOTDIR/
 	doned
 }
 
-while getopts "qxdplarzefb" option; do
+while getopts "abdeflpqrxwz" option; do
 	case "${option}" in
-	q)
-		update_qtile
-		;;
-	d)
-		update_dunst
-		;;
-	p)
-		update_picom
-		update_picom_awesome
-		;;
 	a)
-		update_awesome
+		awesome
+		;;
+	w)
+		dwm
+		;;
+	q)
+		qtile
 		;;
 	l)
-		update_alacritty
+		alacritty
 		;;
-	r)
-		update_rofi
-		update_rofi_awesome
-		;;
-	z)
-		update_zsh
+	d)
+		dunst
 		;;
 	f)
-		update_fehbg
+		fehbg
 		;;
-	x)
-		update_x
+	p)
+		picom
+		;;
+	r)
+		rofi
+		;;
+	z)
+	    zsh
 		;;
 	b)
-		update_bash
+		bash
+		;;
+	x)
+		X11
 		;;
 	e)
-		update_qtile
-		update_dunst
-		update_picom
-		update_picom_awesome
-        update_awesome
-		update_alacritty
-		update_rofi
-		update_rofi_awesome
-		update_zsh
-		update_fehbg
-		update_x
-		update_bash
+        awesome
+        dwm
+		qtile
+		alacritty
+		dunst
+		fehbg
+		picom
+		rofi
+		zsh
+		bash
+		x
 		;;
 	?)
 		echo "Invalid option $1"
