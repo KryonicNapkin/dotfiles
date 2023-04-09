@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -xe
 
-CONFIGDIR=/home/oizero/.config
+CONFDIR=/home/oizero/.config
 
 dotscheck() {
 	echo -e "##############################"
@@ -9,31 +9,25 @@ dotscheck() {
 	echo -e "##############################\n"
 
 	echo -e "\n### Awesome dot dir ###"
-	diff -rq $CONFIGDIR/awesome/ ~/My-dotfiles/config.d/awesome/
-
-	echo -e "### Rofi AwesomeWM dot dir ###"
-	diff -rq $CONFIGDIR/rofi_awesome/ ~/My-dotfiles/config.d/rofi_awesome/
-
-	echo -e "\n### Picom AwesomeWM dot dir ###"
-	diff -rq $CONFIGDIR/picom_awesome/ ~/My-dotfiles/config.d/picom_awesome/
+	diff -rq $CONFDIR/awesome/ ~/My-dotfiles/config/awesome/
 
 	echo -e "### Qtile dot dir ###"
-	diff -rq $CONFIGDIR/qtile/ ~/My-dotfiles/config.d/qtile/
+	diff -rq $CONFDIR/qtile/ ~/My-dotfiles/config/qtile/
 
-	echo -e "### Rofi Qtile dot dir ###"
-	diff -rq $CONFIGDIR/rofi/ ~/My-dotfiles/config.d/rofi/
-
-	echo -e "\n### Picom Qtile dot dir ###"
-	diff -rq $CONFIGDIR/picom/ ~/My-dotfiles/config.d/picom/
+	echo -e "### DWM dot dir ###"
+	diff -rq $CONFDIR/dwm/ ~/My-dotfiles/config/dwm/
 
 	echo -e "\n### Dunst dot dir ###"
-	diff -rq $CONFIGDIR/dunst/ ~/My-dotfiles/config.d/dunst/
+	diff -rq $CONFDIR/dunst/ ~/My-dotfiles/config/dunst/
 
 	echo -e "\n### zsh dot dir ###"
-	diff -rq $CONFIGDIR/zsh/ ~/My-dotfiles/config.d/zsh/
+	diff -rq $CONFDIR/zsh/ ~/My-dotfiles/config/zsh/
 
 	echo -e "\n### alacritty dot dir ###"
-	diff -rq $CONFIGDIR/alacritty/ ~/My-dotfiles/config.d/alacritty/
+	diff -rq $CONFDIR/alacritty/ ~/My-dotfiles/config/alacritty/
+
+	echo -e "### feh dot dir ###"
+	diff -rq $CONFDIR/feh/ ~/My-dotfiles/config/feh/
 
 	echo -e "###################################################################\n"
 
@@ -50,14 +44,17 @@ dotscheck() {
 	echo -e "### .bash_profile file ###\n"
 	diff -rq ~/.bash_profile ~/My-dotfiles/.bash_profile
 
-	echo -e "### .fehbg file ###\n"
-	diff -rq ~/.fehbg ~/My-dotfiles/.fehbg
-
 	echo -e "### .xinitrc file ###\n"
 	diff -rq ~/.xinitrc ~/My-dotfiles/.xinitrc
+	diff -rq ~/.xinitrc_a ~/My-dotfiles/.xinitrc_a
+	diff -rq ~/.xinitrc_d ~/My-dotfiles/.xinitrc_d
+	diff -rq ~/.xinitrc_q ~/My-dotfiles/.xinitrc_q
 
 	echo -e "### .zprofile file ###\n"
 	diff -rq ~/.zprofile ~/My-dotfiles/.zprofile
+
+	echo -e "### .zshrc file ###\n"
+	diff -rq ~/.zshrc ~/My-dotfiles/.zshrc
 
 	echo -e "###################################################################\n"
 
@@ -66,10 +63,10 @@ dotscheck() {
 	echo -e "############################\n"
 
 	echo -e "### sddm conf dir (/usr/share) ###\n"
-	diff -rq /usr/share/sddm ~/My-dotfiles/usr.d/share/sddm
+	diff -rq /usr/share/sddm ~/My-dotfiles/usr/share/sddm
 
 	echo -e "### sddm conf dir (/usr/lib/) ###\n"
-	diff -rq /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr.d/lib/sddm/sddm.conf.d
+	diff -rq /usr/lib/sddm/sddm.conf.d ~/My-dotfiles/usr/lib/sddm/sddm.conf.d
 
 }
 
