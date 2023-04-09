@@ -1,3 +1,4 @@
+7-zip-full
 acpi
 alacritty
 alsa-utils
@@ -20,6 +21,7 @@ bind
 binutils
 bison
 blender
+blight
 blueman
 bluez-tools
 bluez-utils
@@ -28,6 +30,7 @@ breeze-gtk
 bridge-utils
 brightnessctl
 btrfs-progs
+calcurse
 cdrtools
 cmatrix
 cockpit
@@ -41,10 +44,13 @@ dialog
 discord
 dkms
 dmenu
+dmidecode
 dnsmasq
 dosbox-x
+downgrade
 dunst
 ed
+electron
 erlang
 erlang-cl
 etcher-bin
@@ -54,6 +60,7 @@ feh
 file
 findutils
 firefox
+flashrom-git
 flex
 fzf
 gawk
@@ -72,6 +79,7 @@ groff
 grub
 grub-customizer
 gst-plugin-pipewire
+gstreamer-vaapi
 gufw
 gzip
 hdparm
@@ -92,6 +100,7 @@ lazygit
 legendary
 lib32-giflib
 lib32-gnutls
+lib32-gst-plugins-base
 lib32-gst-plugins-base-libs
 lib32-gtk3
 lib32-libjpeg-turbo
@@ -115,6 +124,7 @@ libreoffice-fresh
 libtool
 libva-mesa-driver
 libvirt
+light
 linux
 linux-firmware
 linux-headers
@@ -128,6 +138,7 @@ maim
 make
 man-db
 materia-gtk-theme
+mindustry-bin
 mkinitcpio-firmware
 mlocate
 mpc
@@ -216,7 +227,6 @@ ttf-mononoki
 ttf-nerd-fonts-symbols-2048-em
 ufw
 unarj
-universal-android-debloater-bin
 unrar
 unzip
 vde2
@@ -231,6 +241,7 @@ wget
 which
 whois
 wine-staging
+winetricks
 wireless_tools
 wireplumber
 xarchiver
@@ -241,15 +252,17 @@ xdg-utils
 xdotool
 xf86-video-amdgpu
 xf86-video-ati
-xfce4-terminal
 xorg-server
+xorg-xbacklight
 xorg-xev
 xorg-xhost
 xorg-xinit
+xorg-xsetroot
 xorg-xwininfo
 xsane
 xsel
 xterm
+yad
 yt-dlp
 zathura
 zathura-pdf-mupdf
