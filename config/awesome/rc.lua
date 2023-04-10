@@ -33,7 +33,7 @@ local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 --systray_hints.mouse_buttons  = { "h", "j", "l" }
 
 -- Naughty notification config
-naughty.config.padding = 6
+naughty.config.padding = 0
 naughty.config.spacing = 3
 naughty.config.icon_dirs = "/usr/share/icons/Papirus-Dark/"
 naughty.config.presets.low.bg = "#282c34"
@@ -44,30 +44,7 @@ naughty.config.presets.normal.fg = "#abb2bf"
 naughty.config.presets.normal.timeout = 10
 naughty.config.presets.critical.bg = "#e06c75"
 naughty.config.presets.critical.fg = "#000000"
-
 naughty.config.presets.critical.timeout = 15
-
--- Function run_once
-function run_once(prg, arg_string, pname, screen)
-	if not prg then
-		do
-			return nil
-		end
-	end
-
-	if not pname then
-		pname = prg
-	end
-
-	if not arg_string then
-		awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")", screen)
-	else
-		awful.util.spawn_with_shell(
-			"pgrep -f -u $USER -x '" .. pname .. " " .. arg_string .. "' || (" .. prg .. " " .. arg_string .. ")",
-			screen
-		)
-	end
-end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -107,14 +84,6 @@ beautiful.init("/home/oizero/.config/awesome/theme.lua")
 -- GAPS
 beautiful.useless_gap = 0
 beautiful.gap_single_client = false
-
--- AUTOSTART
-run_once("/home/oizero/.fehbg")
-run_once("picom --no-fading-openclose --backend glx --config ~/.config/picom_awesome/picom.conf")
-run_once("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-run_once("nm-applet")
-run_once("thunderbird")
-run_once("discord --start-minimized")
 
 -- Fix window snapping
 awful.mouse.snap.edge_enabled = false
@@ -563,7 +532,13 @@ globalkeys = gears.table.join(
 	-- Awesome wm Keybindings
 
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-	awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+	awful.key({ modkey, "Control" }, "q", function ()
+	    local response = awful.spawn.easy_async_with_shell("yad --center --title='Quit X session' --text='Are you sure you want to logout of AwesomeWM?' --button='Logout:0' --button='Cancel:1'", function (stdout, stderr, reason, exit_code) 
+               if exit_code == 0 then
+                awesome.quit()
+               end
+            end)
+	end, { description = "quit awesome", group = "awesome" }),
 	awful.key({ modkey }, "space", function()
 		awful.layout.inc(1)
 	end, { description = "select next", group = "layout" }),
@@ -589,7 +564,7 @@ globalkeys = gears.table.join(
 
 	-- Notify Applications
 	awful.key({ modkey, altkey }, "u", function()
-		awful.spawn("/home/oizero/Scripts/notify.sh", { floating = true, ontop = true })
+		awful.spawn("/home/oizero/.local/bin/updates.sh", { floating = true, ontop = true })
 	end, { description = "Check for updates", group = "Notify Applications" }),
 
 	-- Keyboard
@@ -647,25 +622,27 @@ globalkeys = gears.table.join(
 			end
 
 			if key == "r" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/launcher.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/launcher.sh")
 			elseif key == "b" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/launcher_bin.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/launcher_bin.sh")
 			elseif key == "p" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/powermenu.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/powermenu.sh")
 			elseif key == "w" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/rofi-wiki.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-wiki.sh")
 			elseif key == "n" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/rofi-network-manager.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-network-manager.sh")
 			elseif key == "c" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/rofi-calc.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-calc.sh")
 			elseif key == "d" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/rofi-configs.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-configs.sh")
 			elseif key == "e" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/rofi-emoji.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-emoji.sh")
 			elseif key == "q" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/quicklinks.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/quicklinks.sh")
 			elseif key == "s" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi_awesome/bin/screenshot.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/screenshot.sh")
+			elseif key == "m" then
+				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/wm-changer.sh")
 			end
 			awful.keygrabber.stop(grabber)
 		end)
@@ -890,6 +867,8 @@ awful.rules.rules =
 				"htop",
 				"lvim",
 				"rozvrch",
+                "Xdialog",
+                "yad"
 			},
 			class = {
 				"Arandr",
