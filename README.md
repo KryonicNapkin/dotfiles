@@ -1,6 +1,6 @@
 # My-dotfiles
 
-My Qtile, AwesomeWm and Dwm desktop dotfiles
+My AwesomeWm, DWM and Qtile desktop dotfiles
 
 ## Welcome
 
@@ -14,7 +14,7 @@ tried were good, but I began experimenting with suckless software and first
 software that I wanted to try was Dwm. I like Dwm because it's minimal and
 written in C.
 
-Basic orientation around folder scructure:
+Basic orientation around file scructure:
 
 1. **Docs** - is directory where are stored all of docs about every file in this repo and about scripts (how they work)
 2. **Bin** - is directory where are all the scripts that the user can run if they want my qtile desktop
@@ -45,15 +45,15 @@ Basic orientation around folder scructure:
 
 ### SCREENSHOTS
 
-Qtile desktop
+### Qtile desktop
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile2.png)
 
-AwesomeWM desktop
+### AwesomeWM desktop
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome1.png)
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome2.png)
 
-Dwm desktop
+### Dwm desktop
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm1.png)
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm2.png)
 
