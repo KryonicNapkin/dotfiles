@@ -6,13 +6,13 @@
 ## Applets : Quick Links
 
 # Import Current Theme
-theme="$HOME/.config/rofi/qtile/configs/applets_style-1.rasi"
+theme="$HOME/.config/rofi/qtile/configs/applets.rasi"
 
 # Theme Elements
 prompt='Quick Links'
 mesg="Using Brave as web browser"
 
-if [[ ( "$theme" == *'applets_style-1'* ) ]]; then
+if [[ ( "$theme" == *'applets'* ) ]]; then
 	list_col='1'
 	list_row='6'
 fi
