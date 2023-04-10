@@ -32,7 +32,7 @@ Basic orientation around file scructure:
 | Type         | Software  |
 |:------------:|:---------:|
 | Shell        | [Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh) |
-| Text Editor  | [Nvpunk](https://nvpunk.gabmus.org/) |
+| Text editor  | [Nvpunk](https://nvpunk.gabmus.org/) |
 | Launcher     | [Rofi](https://github.com/adi1090x/rofi) |
 | Compositor   | [Picom](https://github.com/ibhagwan/picom) |
 | Browser      | [Brave](https://brave.com/) |
