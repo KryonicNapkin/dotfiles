@@ -25,7 +25,7 @@ Basic orientation around folder scructure:
 ## Software that I use
 
     |       | AwesomeWM | Qtile | Dwm |
-    | ----- | --------- | ----- | --- |
+    |-------|-----------|-------|-----|
     | Panel |
    **Panel** == Qtile's built in panel
    **Colorscheme**
