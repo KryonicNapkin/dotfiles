@@ -55,6 +55,6 @@ daily driver.
 
 ## Roadmap
 
-   [-] Add better documentation
-   [-] Make more scripts for user
-   [-] Make this page more atractive
+-   [] Add better documentation
+-   [] Make more scripts for user
+-   [] Make this page more atractive
