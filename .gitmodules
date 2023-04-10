@@ -7,3 +7,6 @@
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "config/dwm/slbar"]
+	path = config/dwm/slbar
+	url = https://github.com/Rentib/slbar
