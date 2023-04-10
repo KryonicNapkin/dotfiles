@@ -27,7 +27,7 @@ qtile() {
 	echo "# Updating qtile dot dir #"
 	echo -e "##########################\n"
     rm -rf $DOTDIR/config/qtile
-    cp -rf $CONFIG/qtile/ $DOTDIR/config/
+    rsync -av $CONFIG/qtile/ $DOTDIR/config/qtile --exclude=__pycache__
 	doned
 }
 
@@ -91,7 +91,7 @@ zsh() {
 	echo "#  Updating zsh dot dir  #"
 	echo -e "##########################\n"
     rm -rf $DOTDIR/config/zsh
-	cp -rf $CONFIG/zsh $DOTDIR/config/
+	rsync -av $CONFIG/zsh $DOTDIR/config/ --exclude '.zcompdump' --exclude '.zsh_history'
 	cp -rf $HOME/.zprofile $DOTDIR/
 	cp -rf $HOME/.zshrc $DOTDIR/
 	doned
