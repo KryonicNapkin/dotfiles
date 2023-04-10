@@ -29,14 +29,14 @@ Basic orientation around file scructure:
 
 ### Universal
 
-**Shell** == ([Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
-**Text Editor** == [nvpunk](https://nvpunk.gabmus.org/)
-**Application launcher** == ([Rofi](https://github.com/adi1090x/rofi))
-**Compositor** == ([Picom](https://github.com/ibhagwan/picom))
-**Browser** == [Brave](https://brave.com)
-**Notification** == [Dunst](https://dunst-project.org/)
-**File Manager** == PCManFM
-**Colorscheme** == [Dracula](https://draculatheme.com)
+   **Shell** == ([Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
+   **Text Editor** == [nvpunk](https://nvpunk.gabmus.org/)
+   **Application launcher** == ([Rofi](https://github.com/adi1090x/rofi))
+   **Compositor** == ([Picom](https://github.com/ibhagwan/picom))
+   **Browser** == [Brave](https://brave.com)
+   **Notification** == [Dunst](https://dunst-project.org/)
+   **File Manager** == PCManFM
+   **Colorscheme** == [Dracula](https://draculatheme.com)
 
 ## SCREENSHOTS
 
@@ -54,6 +54,6 @@ Basic orientation around file scructure:
 
 ## Roadmap
 
-    [ ] Add better documentation
-    [ ] Make more scripts for user
-    [ ] Make this page more atractive
+   [ ] Add better documentation
+   [ ] Make more scripts for user
+   [ ] Make this page more atractive
