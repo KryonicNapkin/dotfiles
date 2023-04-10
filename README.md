@@ -29,14 +29,15 @@ Basic orientation around file scructure:
 
 ### Universal
 
-   **Shell** == ([Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
-   **Text Editor** == [nvpunk](https://nvpunk.gabmus.org/)
-   **Application launcher** == ([Rofi](https://github.com/adi1090x/rofi))
-   **Compositor** == ([Picom](https://github.com/ibhagwan/picom))
-   **Browser** == [Brave](https://brave.com)
-   **Notification** == [Dunst](https://dunst-project.org/)
-   **File Manager** == PCManFM
-   **Colorscheme** == [Dracula](https://draculatheme.com)
+|              |           |
+|--------------|:---------:|
+| Shell        | ([Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh)) |
+| Text Editor  | ([Nvpunk](https://nvpunk.gabmus.org/)) |
+| Launcher     | ([Rofi](https://github.com/adi1090x/rofi)) |
+| Compositor   | ([Picom](https://github.com/ibhagwan/picom)) |
+| Browser      | ([Brave](https://brave.com/)) |
+| Notification | ([Dunst](https://dunst-project.org/)) |
+| File Manager | PcManFM |
 
 ## SCREENSHOTS
 
