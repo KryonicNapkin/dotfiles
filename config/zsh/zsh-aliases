@@ -1,11 +1,10 @@
 #!/bin/sh
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 alias nvimrc='nvim ~/.config/nvim/'
-alias ls='exa -s type --color=always --group-directories-first --icons'
-alias la='exa -s type -ah --color=always --group-directories-first --icons'
-alias ll='exa -s type -lah --color=always --group-directories-first --icons'
+alias ls='exa -s type --color=never --group-directories-first'
+alias la='exa -s type -ah --color=never --group-directories-first'
+alias ll='exa -s type -lah --color=never --group-directories-first'
 alias vim='nvim'
-alias cat='bat'
 alias show_rozvrch='feh ~/Screenshots/Rozvrch_9.B.png &'
 alias ttyclock='tty-clock -s -b -c -f "%a %d.%m.%y"'
 alias pipes='pipes.sh -t 1'
@@ -38,7 +37,6 @@ alias rm='rm -i'
 # easier to read disk
 alias df='df -h'     # human-readable sizes
 alias du='du -h'     # human-readable sizes
-alias free='free -m' # show sizes in MB
 
 # get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4 | head -5'

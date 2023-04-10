@@ -3,6 +3,7 @@
 HISTSIZE=10000
 SAVEHIST=10000
 export PATH="$HOME/.local/bin":$PATH
+export XDG_CONFIG_HOME="$HOME/.config"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANWIDTH=999
 export PATH=$HOME/.cargo/bin:$PATH
