@@ -23,14 +23,17 @@ Basic orientation around folder scructure:
 5. **usr** - is directory where all config dirs are required to be put in **_/usr/_** dir
 
 ## Software that I use
-# WM specific
+
+### WM specific
+
 |             | AwesomeWM | Dmw      | Qtile    |
 |-------------|:---------:|:--------:|:--------:|
 | Panel       | Built-in  | Built-in | Built-in |
 | Colorscheme | Onedark   | Onedark  | Dracula  |
 | Compositor  | Picom     | Picom    | Picom    |
 
-# Universal
+### Universal
+
      **Shell** == Zsh
     ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
    **Text Editor** == [Lvim-tech](https://github.com/lvim-tech/lvim)
