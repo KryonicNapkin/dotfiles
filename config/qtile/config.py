@@ -36,7 +36,6 @@ from libqtile.lazy import lazy
 from libqtile import widget
 from libqtile.widget import base
 
-
 mod = "mod4"
 terminal = "alacritty"
 
@@ -51,20 +50,10 @@ browser = "brave"
 
 # Hooks
 
-
 @hook.subscribe.client_new
 def client_new(client):
     if client.name == 'Mozilla Thunderbird':
         client.togroup('9')
-
-
-# Autostart
-
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen([home])
-
 
 keys = [
     # WINDOWS MANAGMENT
@@ -180,16 +169,17 @@ keys = [
     # Rofi helpers
 
     KeyChord([mod], "r", [
-        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/bin/launcher.sh"), desc="Open Rofi"),
-        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/bin/launcher_bin.sh"), desc="Open Rofi"),
-        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/bin/powermenu.sh"), desc="Open Rofi Powermenu"),
-        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
-        Key([], "n", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-network-manager.sh"), desc="Open Rofi Network Manager"),
-        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
-        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
-        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
-        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
-        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
+        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/launcher.sh"), desc="Open Rofi"),
+        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/launcher_bin.sh"), desc="Open Rofi"),
+        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/powermenu.sh"), desc="Open Rofi Powermenu"),
+        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
+        Key([], "n", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-network-manager.sh"), desc="Open Rofi Network Manager"),
+        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
+        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
+        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
+        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
+        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
+        Key([], "m", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/wm-changer.sh"), desc="Open WM changer"),
     ]),
 
     # Toggle between different layouts as defined below
