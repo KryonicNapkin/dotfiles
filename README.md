@@ -18,7 +18,7 @@ daily driver.
 4. **config** - is directory where are all config dirs are required to be put in **_$HOME/.config/_** dir
 5. **usr** - is directory where all config dirs are required to be put in **_/usr/_** dir
 
-## Software that I use
+## Software
 
 ### WM specific
 
