@@ -23,20 +23,15 @@ Basic orientation around folder scructure:
 5. **usr** - is directory where all config dirs are required to be put in **_/usr/_** dir
 
 ## Software that I use
-
-    |       | AwesomeWM | Qtile | Dwm |
-    |-------|-----------|-------|-----|
-    | Panel |
-   **Panel** == Qtile's built in panel
-   **Colorscheme**
+# WM specific
 |             | AwesomeWM | Dmw      | Qtile    |
 |-------------|:---------:|:--------:|:--------:|
 | Panel       | Built-in  | Built-in | Built-in |
 | Colorscheme | Onedark   | Onedark  | Dracula  |
 | Compositor  | Picom     | Picom    | Picom    |
-    # Qtile
-   **Panel** == Qtile's built in panel
-   **Shell** == Zsh
+
+# Universal
+     **Shell** == Zsh
     ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
    **Text Editor** == [Lvim-tech](https://github.com/lvim-tech/lvim)
    **Compositor** == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
@@ -44,8 +39,8 @@ Basic orientation around folder scructure:
    **Browser** == [Brave](https://brave.com)
    **Notification** == [Dunst](https://dunst-project.org/)
    **File Manager** == PCManFM
-   **Colorscheme** == [Dracula](https://draculatheme.com) (Bar, Qtile); Onedark (Alacritty)
-   **Colorscheme (AwesomeWM)** == Onedark
+   **Colorscheme** == [Dracula](https://draculatheme.com)
+
 
     # Dwm
    **Panel** == Qtile's built in panel
