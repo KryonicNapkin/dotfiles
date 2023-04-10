@@ -41,15 +41,15 @@ Basic orientation around file scructure:
 
 ## SCREENSHOTS
 
-### Qtile desktop
+### Qtile
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile1.png)
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile2.png)
 
-### AwesomeWM desktop
+### AwesomeWM
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome1.png)
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome2.png)
 
-### Dwm desktop
+### Dwm
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm1.png)
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm2.png)
 
