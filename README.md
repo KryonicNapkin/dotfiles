@@ -5,14 +5,10 @@ My AwesomeWm, DWM and Qtile desktop dotfiles
 ## Welcome
 
 This is my repo for the dotfiles. When I first created this repo, it was for the
-dotfiles of my qtile desktop, but after
-I began to experiment with AwesomeWM  so I've settled on Awesome because it's
-the most
-customizable WM and I like to fiddle with all the options. I will be keeping
-Qtile still maintained but less than Awesome. I think all of the wms that I
-tried were good, but I began experimenting with suckless software and first
-software that I wanted to try was Dwm. I like Dwm because it's minimal and
-written in C.
+dotfiles of my qtile desktop, but after I began to experiment with AwesomeWM,
+I've added AwesomeWM to the repo. And now I've also added DWM to it also. I will
+be keeping all the WMs up to date, but primarly DWM because it is currently my
+daily driver.
 
 Basic orientation around file scructure:
 
