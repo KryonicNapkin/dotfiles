@@ -164,7 +164,7 @@ while getopts "abdeflpqrxwz" option; do
 		rofi
 		zsh
 		bash
-		x
+		X11
 		;;
 	?)
 		echo "Invalid option $1"
