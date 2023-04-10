@@ -6,13 +6,13 @@
 ## Applets : Screenshot
 
 # Import Current Theme
-theme="$HOME/.config/rofi/awesome/configs/applets_style-1.rasi"
+theme="$HOME/.config/rofi/awesome/configs/applets.rasi"
 
 # Theme Elements
 prompt='Screenshot'
 mesg="DIR: $HOME/Screenshots"
 
-if [[ "$theme" == *'applets_style-1'* ]]; then
+if [[ "$theme" == *'applets'* ]]; then
 	list_col='1'
 	list_row='5'
 	win_width='350px'

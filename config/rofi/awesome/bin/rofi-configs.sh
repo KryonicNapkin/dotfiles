@@ -32,11 +32,11 @@ declare -a options=(
 "QUIT"
 )
 
-choice=$( printf "%s\n" "${options[@]}" | rofi -dmenu -p Edit -theme ~/.config/rofi/awesome/configs/style-1_configs.rasi) 
+choice=$( printf "%s\n" "${options[@]}" | rofi -dmenu -p Edit -theme ~/.config/rofi/awesome/configs/ed_config.rasi)
 
 if [ "$choice" == "QUIT" ]; then
   echo "Program terminated" && exit 1
 elif [ "$choice" ]; then
   config=$(printf "%s\n" "${choice}" | awk '{print $NF}')
-  alacritty -e $ED $config 
+  alacritty -e $ED $config
 fi
