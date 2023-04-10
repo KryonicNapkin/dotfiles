@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -xe
 
-# This script enables my sddm theme and set sddm 
+# This script enables my sddm theme and set sddm
 # as your default login manager
 
 abort() {
@@ -28,8 +28,8 @@ enablesddm() {
 }
 
 enablesddmtheme() {
-  sudo cp -rf ~/My-dotfiles/usr.d/share/sddm /usr/share/ 
-  sudo cp -rf ~/My-dotfiles/usr.d/lib/sddm/sddm.conf.d /usr/lib/sddm/ 
+  sudo cp -rf ~/My-dotfiles/usr.d/share/sddm /usr/share/
+  sudo cp -rf ~/My-dotfiles/usr.d/lib/sddm/sddm.conf.d /usr/lib/sddm/
   echo "###############################################"
   echo "# Enabled sugar-dark theme as your sddm theme #"
   echo -e "###############################################\n"
@@ -37,10 +37,10 @@ enablesddmtheme() {
 
 main() {
   while true; do
-  read -p "Do you want to install my config of sddm as your default login manager? [yn]: " choice
+  read -p "Do you want to enable sddm as your default login manager? [yn]: " choice
     case "$choice" in
-      y) enablesddm; 
-      break;; 
+      y) enablesddm;
+      break;;
       n) abort;;
       *) echo "Please choice y or n:"
     esac
