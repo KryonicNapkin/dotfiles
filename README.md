@@ -1,6 +1,6 @@
 # My-dotfiles
 
-My AwesomeWm, DWM and Qtile desktop dotfiles
+My AwesomeWM, DWM and Qtile desktop dotfiles
 
 ## Welcome
 
