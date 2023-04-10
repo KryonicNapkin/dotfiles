@@ -10,7 +10,7 @@ I've added AwesomeWM to the repo. Now I've also added DWM to it. I will be
 keeping all the WMs up to date, but primarily DWM because it is currently my
 daily driver.
 
-Basic orientation around file scructure:
+### File structure:
 
 1. **Docs** - is directory where are stored all of docs about every file in this repo and about scripts (how they work)
 2. **Bin** - is directory where are all the scripts that the user can run if they want my dotfiles
