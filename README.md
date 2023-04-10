@@ -6,8 +6,8 @@ My AwesomeWm, DWM and Qtile desktop dotfiles
 
 This is my repo for the dotfiles. When I first created this repo, it was for the
 dotfiles of my qtile desktop, but after I began to experiment with AwesomeWM,
-I've added AwesomeWM to the repo. And now I've also added DWM to it also. I will
-be keeping all the WMs up to date, but primarly DWM because it is currently my
+I've added AwesomeWM to the repo. Now I've also added DWM to it. I will be
+keeping all the WMs up to date, but primarly DWM because it is currently my
 daily driver.
 
 Basic orientation around file scructure:
