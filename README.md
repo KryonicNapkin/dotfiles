@@ -39,7 +39,7 @@ Basic orientation around file scructure:
 **File Manager** == PCManFM
 **Colorscheme** == [Dracula](https://draculatheme.com)
 
-### SCREENSHOTS
+## SCREENSHOTS
 
 ### Qtile desktop
 ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile1.png)
