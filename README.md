@@ -34,31 +34,28 @@ Basic orientation around folder scructure:
 
 ### Universal
 
-     **Shell** == Zsh
-    ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
-   **Text Editor** == [Lvim-tech](https://github.com/lvim-tech/lvim)
-   **Compositor** == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
-   **Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
-   **Browser** == [Brave](https://brave.com)
-   **Notification** == [Dunst](https://dunst-project.org/)
-   **File Manager** == PCManFM
-   **Colorscheme** == [Dracula](https://draculatheme.com)
-
-
-    # Dwm
-   **Panel** == Qtile's built in panel
+**Shell** == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
+**Text Editor** == [nvpunk](https://nvpunk.gabmus.org/)
+**Compositor** == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
+**Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
+**Browser** == [Brave](https://brave.com)
+**Notification** == [Dunst](https://dunst-project.org/)
+**File Manager** == PCManFM
+**Colorscheme** == [Dracula](https://draculatheme.com)
 
 ### SCREENSHOTS
 
-Qtile desktop ![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot.png)
-![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot1.png)
-![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot2.png)
+Qtile desktop
+![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile1.png)
+![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile2.png)
 
-AwesomeWM desktop ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot_awesome.png)
-![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot_awesome1.png)
+AwesomeWM desktop
+![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome1.png)
+![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome2.png)
 
-Dwm desktop ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot_awesome.png)
-![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/Screenshot_awesome1.png)
+Dwm desktop
+![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm1.png)
+![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm2.png)
 
 ## Roadmap
 
