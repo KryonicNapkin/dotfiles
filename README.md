@@ -29,7 +29,11 @@ Basic orientation around folder scructure:
     | Panel |
    **Panel** == Qtile's built in panel
    **Colorscheme**
-
+|             | AwesomeWM | Dmw      | Qtile    |
+|-------------|:---------:|:--------:|:--------:|
+| Panel       | Built-in  | Built-in | Built-in |
+| Colorscheme | Onedark   | Onedark  | Dracula  |
+| Compositor  | Picom     | Picom    | Picom    |
     # Qtile
    **Panel** == Qtile's built in panel
    **Shell** == Zsh
