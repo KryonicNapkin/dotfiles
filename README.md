@@ -26,18 +26,17 @@ Basic orientation around file scructure:
 |-------------|:---------:|:--------:|:--------:|
 | Panel       | Built-in  | Built-in | Built-in |
 | Colorscheme | Onedark   | Onedark  | Dracula  |
-| Compositor  | Picom     | Picom    | Picom    |
 
 ### Universal
 
-**Shell** == Zsh ([modified ChristianChiarulli's zsh configuration](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
-**Text Editor** == [nvpunk](https://nvpunk.gabmus.org/)
-**Compositor** == Picom ([picom-ibhagwan-git](https://github.com/ibhagwan/picom))
-**Application launcher** == Rofi ([adi1090x's rofi colection](https://github.com/adi1090x/rofi))
-**Browser** == [Brave](https://brave.com)
-**Notification** == [Dunst](https://dunst-project.org/)
-**File Manager** == PCManFM
-**Colorscheme** == [Dracula](https://draculatheme.com)
+    **Shell** == ([Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh))
+    **Text Editor** == [nvpunk](https://nvpunk.gabmus.org/)
+    **Application launcher** == ([Rofi](https://github.com/adi1090x/rofi))
+    **Compositor** == ([Picom](https://github.com/ibhagwan/picom))
+    **Browser** == [Brave](https://brave.com)
+    **Notification** == [Dunst](https://dunst-project.org/)
+    **File Manager** == PCManFM
+    **Colorscheme** == [Dracula](https://draculatheme.com)
 
 ## SCREENSHOTS
 
