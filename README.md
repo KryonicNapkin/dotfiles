@@ -25,7 +25,7 @@ Basic orientation around file scructure:
 |             | AwesomeWM | Dmw      | Qtile    |
 |-------------|:---------:|:--------:|:--------:|
 | Panel       | Built-in  | Built-in | Built-in |
-| Colorscheme | Onedark   | Onedark  | Dracula  |
+| Colorscheme | Onedark   | Onedark  | [Dracula](https://draculatheme.com/) |
 
 ### Universal
 
