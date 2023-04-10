@@ -13,7 +13,7 @@ daily driver.
 Basic orientation around file scructure:
 
 1. **Docs** - is directory where are stored all of docs about every file in this repo and about scripts (how they work)
-2. **Bin** - is directory where are all the scripts that the user can run if they want my qtile desktop
+2. **Bin** - is directory where are all the scripts that the user can run if they want my dotfiles
 3. **Scripts** - is directory only for maintainer where are all scripts that I use to maintain the repo
 4. **config** - is directory where are all config dirs are required to be put in **_$HOME/.config/_** dir
 5. **usr** - is directory where all config dirs are required to be put in **_/usr/_** dir
