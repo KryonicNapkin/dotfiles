@@ -11,7 +11,7 @@ check() {
 	git push
 }
 
-if [ "$(ping -w 1 8.8.8.8 | awk '{print $1}' | head -n 2 | tail -n 1)" = 64 ]; then
+if [ "$(ping -w 1 8.8.8.8 | awk 'NR==2{print $1}')" = 64 ]; then
 	check
 else
 	dunstify "Error connecting to internet" -u critical
