@@ -54,7 +54,6 @@ electron
 erlang
 erlang-cl
 etcher-bin
-exa
 fakeroot
 feh
 file
