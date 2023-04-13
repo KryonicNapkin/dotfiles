@@ -98,7 +98,7 @@ static const Layout layouts[] = {
 	&((Keychord){1, {{MODKEY, KEY}},                            view,                   {.ui = 1 << TAG} }), \
 	    &((Keychord){1, {{MODKEY|ControlMask, KEY}},            toggleview,             {.ui = 1 << TAG} }), \
 	    &((Keychord){1, {{MODKEY|ShiftMask, KEY}},              tag,                    {.ui = 1 << TAG} }), \
-	    &((Keychord){1, {{MODKEY|ControlMask|ShiftMask, KEY}},  toggletag,              {.ui = 1 << TAG} }), 
+	    &((Keychord){1, {{MODKEY|ControlMask|ShiftMask, KEY}},  toggletag,              {.ui = 1 << TAG} }),
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -157,7 +157,7 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_x}},   		spawn,          {.v = xpropinfo } }),
 	&((Keychord){1, {{ALTKEY, XK_space}},         		spawn,          SHCMD("setxkbmap -option 'grp:alt_space_toggle' -layout 'us,sk'; kill -46 $(pidof slbar)")}),
 	&((Keychord){1, {{MODKEY, XK_b}},				    togglebar,      {0} }),
-	&((Keychord){1, {{MODKEY, XK_b}},				    togglebar,      {0} }),
+	&((Keychord){1, {{MODKEY, XK_f}},				    togglefullscr,  {0} }),
 	&((Keychord){1, {{MODKEY, XK_i}},				    incnmaster,     {.i = +1 } }),
 	&((Keychord){1, {{MODKEY, XK_d}},				    incnmaster,     {.i = -1 } }),
 	&((Keychord){1, {{MODKEY, XK_h}},				    focusdir,       {.i =  0} }), // left
@@ -177,11 +177,15 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{MODKEY, XK_Tab}},				    view,           {0} }),
 	&((Keychord){1, {{MODKEY, XK_c}},       		    killclient,     {0} }),
 	&((Keychord){1, {{MODKEY, XK_space}},				cyclelayout,    {.i = +1} }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_f}}, 	    togglefloating, {0} }),
+	&((Keychord){1, {{MODKEY|ControlMask, XK_f}}, 	    togglefloating, {0} }),
 	&((Keychord){1, {{MODKEY, XK_comma}},			    focusmon,       {.i = -1 } }),
 	&((Keychord){1, {{MODKEY, XK_period}},			    focusmon,       {.i = +1 } }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_comma}},	    tagmon,         {.i = -1 } }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_period}},	tagmon,         {.i = +1 } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_l}},	        movekeyboard_x, {.i = 20 } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_h}},	        movekeyboard_x, {.i = -20 } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_k}},	        movekeyboard_y, {.i = 20 } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_j}},	        movekeyboard_y, {.i = -20 } }),
 	&((Keychord){1, {{ALTKEY, XK_1}},           	    togglescratch,  {.ui = 0} }),
 	&((Keychord){1, {{ALTKEY, XK_2}},				    togglescratch,  {.ui = 1} }),
 	&((Keychord){1, {{ALTKEY, XK_3}},				    togglescratch,  {.ui = 2} }),

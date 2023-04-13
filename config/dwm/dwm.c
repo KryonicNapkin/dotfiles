@@ -227,6 +227,8 @@ static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
 static void motionnotify(XEvent *e);
 static void movemouse(const Arg *arg);
+static void movekeyboard_x(const Arg *arg);
+static void movekeyboard_y(const Arg *arg);
 static Client *nexttiled(Client *c);
 static void placedir(const Arg *arg);
 static void pop(Client *c);
@@ -263,6 +265,7 @@ static void tagmon(const Arg *arg);
 static void tile(Monitor *m);
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
+static void togglefullscr(const Arg *arg);
 static void togglescratch(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
@@ -946,7 +949,7 @@ drawbar(Monitor *m)
 		drw_setscheme(drw, scheme[SchemeStatus]);
 
         x = 0;
-        for (text = s = stext; *s; s++) { 
+        for (text = s = stext; *s; s++) {
             if ((unsigned char)(*s) < ' ') {
                 ch = *s;
                 *s = '\0';
@@ -1321,7 +1324,7 @@ grabkeys(void)
 		XUngrabKey(dpy, AnyKey, AnyModifier, root);
 		for (i = 0; i < LENGTH(keychords); i++)
             if ((code = XKeysymToKeycode(dpy, keychords[i]->keys[currentkey].keysym)))
-			/* skip modifier codes, we do that ourselves */				
+			/* skip modifier codes, we do that ourselves */
                 for (k = 0; k < LENGTH(modifiers); k++)
 					XGrabKey(dpy, code, keychords[i]->keys[currentkey].mod | modifiers[k], root, True, GrabModeAsync, GrabModeAsync);
         if(currentkey > 0)
@@ -1602,6 +1605,92 @@ movemouse(const Arg *arg)
 	}
 }
 
+void
+movekeyboard_x(const Arg *arg){
+    int ocx, ocy, nx, ny;
+    Client *c;
+    Monitor *m;
+
+    if (!(c = selmon->sel))
+        return 0;
+
+    if (c->isfullscreen)
+        return 0;
+
+    restack(selmon);
+
+    ocx = c->x;
+    ocy = c->y;
+
+    nx = ocx + arg->i;
+    ny = ocy;
+
+    if (abs(selmon->wx - nx) < snap)
+        nx = selmon->wx;
+    else if (abs((selmon->wx + selmon->ww) - (nx + WIDTH(c))) < snap)
+        nx = selmon->wx + selmon->ww - WIDTH(c);
+
+    if (abs(selmon->wy - ny) < snap)
+        ny = selmon->wy;
+    else if (abs((selmon->wy + selmon->wh) - (ny + HEIGHT(c))) < snap)
+        ny = selmon->wy + selmon->wh - HEIGHT(c);
+
+    if (!c->isfloating)
+        togglefloating(NULL);
+
+    if (!selmon->lt[selmon->sellt]->arrange || c->isfloating)
+        resize(c, nx, ny, c->w, c->h, 1);
+
+    if ((m = recttomon(c->x, c->y, c->w, c->h)) != selmon) {
+        sendmon(c, m);
+        selmon = m;
+        focus(NULL);
+    }
+}
+
+void
+movekeyboard_y(const Arg *arg){
+    int ocx, ocy, nx, ny;
+    Client *c;
+    Monitor *m;
+
+    if (!(c = selmon->sel))
+        return 0;
+
+    if (c->isfullscreen)
+        return 0;
+
+    restack(selmon);
+
+    ocx = c->x;
+    ocy = c->y;
+
+    nx = ocx;
+    ny = ocy - arg->i;
+
+    if (abs(selmon->wx - nx) < snap)
+        nx = selmon->wx;
+    else if (abs((selmon->wx + selmon->ww) - (nx + WIDTH(c))) < snap)
+        nx = selmon->wx + selmon->ww - WIDTH(c);
+
+    if (abs(selmon->wy - ny) < snap)
+        ny = selmon->wy;
+    else if (abs((selmon->wy + selmon->wh) - (ny + HEIGHT(c))) < snap)
+        ny = selmon->wy + selmon->wh - HEIGHT(c);
+
+    if (!c->isfloating)
+        togglefloating(NULL);
+
+    if (!selmon->lt[selmon->sellt]->arrange || c->isfloating)
+        resize(c, nx, ny, c->w, c->h, 1);
+
+    if ((m = recttomon(c->x, c->y, c->w, c->h)) !=selmon) {
+        sendmon(c, m);
+        selmon = m;
+        focus(NULL);
+    }
+}
+
 Client *
 nexttiled(Client *c)
 {
@@ -1788,7 +1877,7 @@ restoreSession(void)
 		int check = sscanf(str, "%lu %u", &winId, &tagsForWin); // get data
 		if (check != 2) // break loop if data wasn't read correctly
 			break;
-		
+
 		for (Client *c = selmon->clients; c ; c = c->next) { // add tags to every window by winId
 			if (c->win == winId) {
 				c->tags = tagsForWin;
@@ -1807,7 +1896,7 @@ restoreSession(void)
 
 	free(str);
 	fclose(fr);
-	
+
 	// delete a file
 	remove(SESSION_FILE);
 }
@@ -2427,6 +2516,13 @@ togglefloating(const Arg *arg)
 		resize(selmon->sel, selmon->sel->x, selmon->sel->y,
 			selmon->sel->w, selmon->sel->h, 0);
 	arrange(selmon);
+}
+
+void
+togglefullscr(const Arg *arg)
+{
+    if(selmon->sel)
+        setfullscreen(selmon->sel, !selmon->sel->isfullscreen);
 }
 
 void
