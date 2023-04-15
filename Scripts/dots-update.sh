@@ -6,90 +6,110 @@ CONFIG=$HOME/.config/
 DOTDIR=$HOME/My-dotfiles/
 
 # Actual code
-doned() {
+doned()
+{
 	echo "##########################"
 	echo "#         DONE           #"
 	echo -e "##########################\n"
 }
 
 # WMs
-awesome() {
-	echo "##########################"
-	echo "# Updating awesome dot dir #"
-	echo -e "##########################\n"
+awesome()
+{
+	echo "########################"
+	echo "# Updating awesome dir #"
+	echo -e "########################\n"
     rm -rf $DOTDIR/config/awesome
 	cp -rf $CONFIG/awesome/ $DOTDIR/config/
 	doned
 }
 
-qtile() {
-	echo "##########################"
-	echo "# Updating qtile dot dir #"
-	echo -e "##########################\n"
-    rm -rf $DOTDIR/config/qtile
-    rsync -av $CONFIG/qtile/ $DOTDIR/config/qtile --exclude=__pycache__
-	doned
-}
-
-dwm() {
-	echo "##########################"
-	echo "#  Updating dwm dot dir  #"
-	echo -e "##########################\n"
+dwm()
+{
+	echo "######################"
+	echo "#  Updating dwm dir  #"
+	echo -e "######################\n"
     rm -rf $DOTDIR/config/dwm
     cp -rf $CONFIG/dwm/ $DOTDIR/config/
 	doned
 }
 
+qtile()
+{
+	echo "######################"
+	echo "# Updating qtile dir #"
+	echo -e "######################\n"
+    rm -rf $DOTDIR/config/qtile
+    rsync -av $CONFIG/qtile/ $DOTDIR/config/qtile --exclude=__pycache__
+	doned
+}
+
 # CONFIG dirs
-alacritty() {
-	echo "##############################"
-	echo "# Updating alacritty dot dir #"
-	echo -e "##############################\n"
+alacritty()
+{
+	echo "##########################"
+	echo "# Updating alacritty dir #"
+	echo -e "##########################\n"
     rm -rf $DOTDIR/config/alacritty
 	cp -rf $CONFIG/alacritty/ $DOTDIR/config/
 	doned
 }
 
-dunst() {
-	echo "##########################"
-	echo "# Updating dunst dot dir #"
-	echo -e "##########################\n"
+dunst()
+{
+	echo "######################"
+	echo "# Updating dunst dir #"
+	echo -e "######################\n"
     rm -rf $DOTDIR/config/dunst
 	cp -rf $CONFIG/dunst/ $DOTDIR/config/
 	doned
 }
 
-fehbg() {
-	echo "##########################"
-	echo "#  Updating feh dot dir  #"
-	echo -e "##########################\n"
+fehbg()
+{
+	echo "######################"
+	echo "#  Updating feh dir  #"
+	echo -e "######################\n"
 	rm -rf $DOTDIR/config/feh
 	cp -rf $CONFIG/feh/ $DOTDIR/config/
 	doned
 }
 
-picom() {
-	echo "##################################"
-	echo "#     Updating picom dot dir     #"
-	echo -e "##################################\n"
+nvim()
+{
+	echo "#######################"
+	echo "#  Updating nvim dir  #"
+	echo -e "#######################\n"
+    rm -rf $DOTDIR/config/nvim
+    cp -r $CONFIG/nvim/ $DOTDIR/config/
+    doned
+}
+
+picom()
+{
+	echo "##############################"
+	echo "#     Updating picom dir     #"
+	echo -e "##############################\n"
     rm -rf $DOTDIR/config/picom
 	cp -rf $CONFIG/picom $DOTDIR/config/
 	doned
 }
 
-rofi() {
-	echo "#################################"
-	echo "#     Updating rofi dot dir     #"
-	echo -e "#################################\n"
+rofi()
+{
+	echo "#############################"
+	echo "#     Updating rofi dir     #"
+	echo -e "#############################\n"
     rm -rf $DOTDIR/config/rofi
 	cp -rf $CONFIG/rofi $DOTDIR/config/
 	doned
 }
 
-zsh() {
-	echo "##########################"
-	echo "#  Updating zsh dot dir  #"
-	echo -e "##########################\n"
+zsh()
+{
+	echo "######################"
+	echo "#  Updating zsh dir  #"
+	echo -e "######################\n"
     rm -rf $DOTDIR/config/zsh
 	rsync -av $CONFIG/zsh $DOTDIR/config/ --exclude '.zcompdump' --exclude '.zsh_history'
 	cp -rf $HOME/.zprofile $DOTDIR/
@@ -98,7 +118,8 @@ zsh() {
 }
 
 # HOME dir
-bash() {
+bash()
+{
 	echo "##########################"
 	echo "#     Updating bash      #"
 	echo -e "##########################\n"
@@ -107,7 +128,8 @@ bash() {
 	doned
 }
 
-X11() {
+X11()
+{
 	echo "#############################"
 	echo "#    Updating X11 files     #"
 	echo -e "#############################\n"
@@ -118,19 +140,13 @@ X11() {
 	doned
 }
 
-while getopts "abdeflpqrxwz" option; do
+while getopts "abdeflnpqrxwz" option; do
 	case "${option}" in
 	a)
 		awesome
 		;;
-	w)
-		dwm
-		;;
-	q)
-		qtile
-		;;
-	l)
-		alacritty
+	b)
+		bash
 		;;
 	d)
 		dunst
@@ -138,20 +154,29 @@ while getopts "abdeflpqrxwz" option; do
 	f)
 		fehbg
 		;;
+	l)
+		alacritty
+		;;
+    n)
+        nvim
+        ;;
 	p)
 		picom
+		;;
+	q)
+		qtile
 		;;
 	r)
 		rofi
 		;;
-	z)
-	    zsh
-		;;
-	b)
-		bash
-		;;
 	x)
 		X11
+		;;
+	w)
+		dwm
+		;;
+	z)
+	    zsh
 		;;
 	e)
         awesome

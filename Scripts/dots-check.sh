@@ -8,26 +8,29 @@ dotscheck() {
 	echo -e "### CONFIG DIRECTORY FILES ###"
 	echo -e "##############################\n"
 
-	echo -e "\n### Awesome dot dir ###"
+	echo -e "\n### AwesomeWM dir ###"
 	diff -rq $CONFDIR/awesome/ ~/My-dotfiles/config/awesome/
 
-	echo -e "### Qtile dot dir ###"
+	echo -e "### Qtile dir ###"
 	diff -rq $CONFDIR/qtile/ ~/My-dotfiles/config/qtile/
 
-	echo -e "### DWM dot dir ###"
+	echo -e "### DWM dir ###"
 	diff -rq $CONFDIR/dwm/ ~/My-dotfiles/config/dwm/
 
-	echo -e "\n### Dunst dot dir ###"
+	echo -e "\n### Dunst dir ###"
 	diff -rq $CONFDIR/dunst/ ~/My-dotfiles/config/dunst/
 
-	echo -e "\n### zsh dot dir ###"
+	echo -e "\n### zsh dir ###"
 	diff -rq $CONFDIR/zsh/ ~/My-dotfiles/config/zsh/
 
-	echo -e "\n### alacritty dot dir ###"
+	echo -e "\n### alacritty dir ###"
 	diff -rq $CONFDIR/alacritty/ ~/My-dotfiles/config/alacritty/
 
-	echo -e "### feh dot dir ###"
+	echo -e "### feh dir ###"
 	diff -rq $CONFDIR/feh/ ~/My-dotfiles/config/feh/
+
+	echo -e "### nvim dir ###"
+	diff -rq $CONFDIR/nvim/ ~/My-dotfiles/config/nvim/
 
 	echo -e "###################################################################\n"
 
@@ -44,7 +47,7 @@ dotscheck() {
 	echo -e "### .bash_profile file ###\n"
 	diff -rq ~/.bash_profile ~/My-dotfiles/.bash_profile
 
-	echo -e "### .xinitrc file ###\n"
+	echo -e "### .xinitrc files ###\n"
 	diff -rq ~/.xinitrc ~/My-dotfiles/.xinitrc
 	diff -rq ~/.xinitrc_a ~/My-dotfiles/.xinitrc_a
 	diff -rq ~/.xinitrc_d ~/My-dotfiles/.xinitrc_d
