@@ -37,7 +37,7 @@ from libqtile import widget
 from libqtile.widget import base
 
 mod = "mod4"
-terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_qtile.yml"
+terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_q.yml"
 
 ################################################################################
 # SETTING XTERM AS A DEFAULT TERMINAL TEMPORATLY BECAUSE I DON'T HAVE ENOUGHT  #

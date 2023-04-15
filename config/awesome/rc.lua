@@ -89,7 +89,7 @@ beautiful.gap_single_client = false
 awful.mouse.snap.edge_enabled = false
 
 -- Default Variables (Programs)
-terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_awesome.yml"
+terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_a.yml"
 browser = "brave"
 filemanager = "pcmanfm"
 editor = "lvim" or "nvim"
