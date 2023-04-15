@@ -12,4 +12,4 @@
 	url = https://github.com/Rentib/slbar
 [submodule "config/nvim"]
 	path = config/nvim
-	url = https://github.com/gambus/nvpunk
+	url = https://gitlab.com/gambus/nvpunk
