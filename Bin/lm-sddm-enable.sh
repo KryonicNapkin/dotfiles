@@ -28,8 +28,8 @@ enablesddm() {
 }
 
 enablesddmtheme() {
-  sudo cp -rf ~/My-dotfiles/usr.d/share/sddm /usr/share/
-  sudo cp -rf ~/My-dotfiles/usr.d/lib/sddm/sddm.conf.d /usr/lib/sddm/
+  sudo cp -rf ~/dotfiles/usr/share/sddm /usr/share/
+  sudo cp -rf ~/dotfiles/usr/lib/sddm/sddm.conf.d /usr/lib/sddm/
   echo "###############################################"
   echo "# Enabled sugar-dark theme as your sddm theme #"
   echo -e "###############################################\n"

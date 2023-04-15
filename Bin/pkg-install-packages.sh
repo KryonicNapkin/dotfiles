@@ -21,7 +21,7 @@ yay_install() {
 		echo -e "# DONE #"
 		echo -e "########\n"
 	else
-		yay -S --needed - <$HOME/My-dotfiles/Bin/pkglist.txt
+		yay -S --needed - <$HOME/dotfiles/Bin/pkglist.txt
 	fi
 }
 
@@ -33,7 +33,7 @@ paru_install() {
 		echo -e "# DONE #"
 		echo -e "########\n"
 	else
-		paru -S --needed - <$HOME/My-dotfiles/Bin/pkglist.txt
+		paru -S --needed - <$HOME/dotfiles/Bin/pkglist.txt
 	fi
 }
 
