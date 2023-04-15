@@ -6,7 +6,7 @@ xinitrc_file="$HOME/.xinitrc"
 wm_list=$(ls /usr/share/xsessions/ | grep ".desktop$" | sed 's/\.desktop//')
 
 # Use rofi to display a menu of WM options
-option=$(printf "%s\n" "$wm_list" | rofi -dmenu -p "Choose a Window Manager" -theme ~/.config/rofi/qtile/configs/style-1_wm.rasi)
+option=$(printf "%s\n" "$wm_list" | rofi -dmenu -p "Choose a Window Manager" -theme ~/.config/rofi/qtile/configs/wm_changer.rasi)
 
 # Create a symbolic link to the chosen WM's .xinitrc file
 case "$option" in

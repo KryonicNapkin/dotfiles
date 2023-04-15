@@ -10,7 +10,7 @@
 ## style-1   style-2   style-3   style-4   style-5
 
 # Current Theme
-theme="$HOME/.config/rofi/awesome/configs/powermenu_style-3"
+theme="$HOME/.config/rofi/awesome/configs/powermenu"
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
