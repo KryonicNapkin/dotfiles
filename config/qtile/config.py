@@ -37,7 +37,7 @@ from libqtile import widget
 from libqtile.widget import base
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_qtile.yml"
 
 ################################################################################
 # SETTING XTERM AS A DEFAULT TERMINAL TEMPORATLY BECAUSE I DON'T HAVE ENOUGHT  #
@@ -58,7 +58,6 @@ def client_new(client):
 keys = [
     # WINDOWS MANAGMENT
     # Window navigation
-
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -66,14 +65,12 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
 
     # Switching windows
-
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # Resize windows
-
     Key([mod, "control"], "l",
         lazy.layout.grow_right(),
         lazy.layout.grow(),
@@ -119,8 +116,7 @@ keys = [
         lazy.layout.increase_nmaster(),
         ),
 
-    # window modifing
-
+    # window state modifing
     Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating mode"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
@@ -136,8 +132,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
 
-    # Audio and brightness control (not working right now)
-
+    # Audio and brightness control
     Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse sset Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 3%-")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 3%+")),
@@ -145,12 +140,10 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("blight set -5%")),
 
     # Language
-
     Key([mod], "F1", lazy.spawn("setxkbmap us"), desc="Change to US layout"),
     Key([mod], "F2", lazy.spawn("setxkbmap sk"), desc="Change to Greek layout"),
 
-    # Applications
-
+    # Used apps
     ################################################################################
     # SETTING XTERM AS A DEFAULT TERMINAL TEMPORATLY BECAUSE I DON'T HAVE ENOUGHT  #
     # TIME TO BUILD A PERFECT ST BUILD AND BECAUSE THE OLD LENOVO NOTEBOOK DOESN'T #
@@ -166,8 +159,7 @@ keys = [
     Key([mod, "shift"], "v", lazy.spawn("virt-manager"), desc="Open Virt-manager"),
     Key([mod, "shift"], "d", lazy.spawn("discord"), desc="Open discord"),
 
-    # Rofi helpers
-
+    # Rofi keybindings
     KeyChord([mod], "r", [
         Key([], "r", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/launcher.sh"), desc="Open Rofi"),
         Key([], "b", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/launcher_bin.sh"), desc="Open Rofi"),
@@ -183,14 +175,12 @@ keys = [
     ]),
 
     # Toggle between different layouts as defined below
-
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
 
     # Restart and quit Qtile
-
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
 ]
 
 # My workspaces
@@ -370,7 +360,7 @@ def init_widgets_list():
                 foreground=colors[2],
                 background=colors[0]
             ),
-            space, 
+            space,
             sep,
             widget.TaskList(
                 icon_size=0,
@@ -542,12 +532,12 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='makebranch'),  # gitk
     Match(wm_class='maketag'),  # gitk
     Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(wm_class='Viewnior'),  # Photos/Viewnior 
+    Match(wm_class='Viewnior'),  # Photos/Viewnior
     Match(wm_class='ImageMagick'),  # ImageMagick
     Match(wm_class='Display'),  # ImageMagick
-    Match(wm_class='Alafloat'),  # Floating Alacritty Terminal 
+    Match(wm_class='Alafloat'),  # Floating Alacritty Terminal
     Match(title='About Mozilla Thunderbird'),  # About Thunderbird
-    Match(title='feh [1 of 1] - /home/oizero/Screenshots/Rozvrch_9.B.png'), # Feh 
+    Match(title='feh [1 of 1] - /home/oizero/Screenshots/Rozvrch_9.B.png'), # Feh
     Match(title='pinentry'),  # GPG key password entry
 ], **layout_theme)
 
