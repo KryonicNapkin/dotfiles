@@ -10,3 +10,6 @@
 [submodule "config/dwm/slbar"]
 	path = config/dwm/slbar
 	url = https://github.com/Rentib/slbar
+[submodule "config/nvim"]
+	path = config/nvim
+	url = https://gitlab.com/gambus/nvpunk
