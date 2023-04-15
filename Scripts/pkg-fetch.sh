@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Variables
-DOTS=$HOME/My-dotfiles/
+DOTDIR=$HOME/dotfiles/
 
 check() {
-	paru -Qqe > $DOTS/Bin/pkglist.txt
-	cd $DOTS
+	paru -Qqe > $DOTDIR/Bin/pkglist.txt
+	cd $DOTDIR
 	git add -u Bin/pkglist.txt
 	git commit -m "Added the latest fetch of packages"
 	git push

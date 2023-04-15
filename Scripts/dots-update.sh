@@ -3,7 +3,7 @@
 
 # Variables
 CONFIG=$HOME/.config/
-DOTDIR=$HOME/My-dotfiles/
+DOTDIR=$HOME/dotfiles/
 
 # Actual code
 doned()
