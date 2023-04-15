@@ -89,7 +89,7 @@ beautiful.gap_single_client = false
 awful.mouse.snap.edge_enabled = false
 
 -- Default Variables (Programs)
-terminal = "alacritty"
+terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_awesome.yml"
 browser = "brave"
 filemanager = "pcmanfm"
 editor = "lvim" or "nvim"
@@ -527,19 +527,19 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+
+    -- Awesome's help window
 	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 
-	-- Awesome wm Keybindings
-
+	-- AwesomeWM Control
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
-	awful.key({ modkey, "Control" }, "q", function ()
-	    local response = awful.spawn.easy_async_with_shell("yad --center --title='Quit X session' --text='Are you sure you want to logout of AwesomeWM?' --button='Logout:0' --button='Cancel:1'", function (stdout, stderr, reason, exit_code) 
-               if exit_code == 0 then
-                awesome.quit()
-               end
-            end)
-	end, { description = "quit awesome", group = "awesome" }),
-	awful.key({ modkey }, "space", function()
+	awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+
+	awful.key({ modkey }, "F9" , function()
+		awful.spawn.with_shell("/home/oizero/.local/bin/mice-mute.sh")
+	end, { description = "select next", group = "layout" }),
+
+	awful.key({ modkey }, "", function()
 		awful.layout.inc(1)
 	end, { description = "select next", group = "layout" }),
 
@@ -567,7 +567,7 @@ globalkeys = gears.table.join(
 		awful.spawn("/home/oizero/.local/bin/updates.sh", { floating = true, ontop = true })
 	end, { description = "Check for updates", group = "Notify Applications" }),
 
-	-- Keyboard
+	-- Keyboard layout changer
 	awful.key({ "Control" }, "F1", function()
 		awful.spawn("setxkbmap us")
 	end, { description = "Switch to US keyboard", group = "Keyboard" }),
@@ -575,16 +575,13 @@ globalkeys = gears.table.join(
 		awful.spawn("setxkbmap sk")
 	end, { description = "Switch to SK keyboard", group = "Keyboard" }),
 
-	-- Brightness
+	-- Function keys keybindings
 	awful.key({}, "XF86MonBrightnessUp", function()
 		brightness_widget:inc(5)
 	end, { description = "Increase brightness", group = "Brightness" }),
 	awful.key({}, "XF86MonBrightnessDown", function()
 		brightness_widget:dec(5)
 	end, { description = "Decrease Brightness", group = "Brightness" }),
-
-	-- Volume
-
 	awful.key({}, "XF86AudioRaiseVolume", function()
 		volume_widget:inc(5)
 	end, { description = "Increase volume", group = "Volume" }),
@@ -596,7 +593,6 @@ globalkeys = gears.table.join(
 	end, { description = "Turn on and off volume", group = "Volume" }),
 
 	-- Applications
-
 	awful.key({ modkey }, "Return", function()
 		awful.spawn(terminal)
 	end, { description = "Open Alacritty", group = "Programs" }),
@@ -613,7 +609,7 @@ globalkeys = gears.table.join(
 		awful.spawn("discord")
 	end, { description = "Open Discord", group = "Programs" }),
 
-	-- PROMPT (rofi)
+	-- ROFI keybindigns
 	awful.key({ modkey }, "r", function()
 		local grabber
 		grabber = awful.keygrabber.run(function(_, key, event)
