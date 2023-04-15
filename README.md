@@ -1,5 +1,4 @@
 # My-dotfiles
-
 My AwesomeWM, DWM and Qtile desktop dotfiles
 
 ## Welcome
