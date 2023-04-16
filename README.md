@@ -13,7 +13,7 @@ daily driver.
 |---------------|:-----------------------:|:----------------:|
 | **Docs**      | nowhere                 | documentation    |
 | **Bin**       | nowhere                 | scripts for user |
-| **Scripts**   | nowhere                 | script for me    |
+| **Scripts**   | nowhere                 | scripts for me   |
 | **config**    | **_$HOME/.config/_**    | dotfiles         |
 | **usr**       | **_/usr/_**             | sddm             |
 | **local/bin** | **_$HOME/.local/bin/_** | scripts for WMs  |
