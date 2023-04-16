@@ -72,8 +72,15 @@ dotscheck() {
 	echo -e "\n### sddm conf dir (/usr/lib/) ###"
 	diff -rq /usr/lib/sddm/sddm.conf.d $DOTDIR/usr/lib/sddm/sddm.conf.d
 
+	echo -e "##############################"
+	echo -e "### .local DIRECTORY FILES ###"
+	echo -e "##############################"
+
+	echo -e "\n### bin dir (~/.local/bin) ###"
+	diff -rq ~/.local/bin $DOTDIR/local/bin
+
 }
 
 dotscheck >dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
 less dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
-rm ~/My-dotfiles/Scripts/*.txt
+rm $DOTDIR/Scripts/*.txt
