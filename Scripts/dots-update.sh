@@ -4,6 +4,7 @@
 # Variables
 CONFIG=$HOME/.config/
 DOTDIR=$HOME/dotfiles/
+BINDIR=$HOME/.local/
 
 # Actual code
 doned()
@@ -75,6 +76,14 @@ fehbg()
 	doned
 }
 
+localbin()
+{
+	echo "##########################"
+	echo "# Updating local bin dir #"
+	echo -e "##########################\n"
+    rsync -av $BINDIR/bin/ $DOTDIR/local/bin --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm
+}
+
 nvim()
 {
 	echo "#######################"
@@ -140,7 +149,7 @@ X11()
 	doned
 }
 
-while getopts "abdeflnpqrxwz" option; do
+while getopts "abcdeflnpqrxwz" option; do
 	case "${option}" in
 	a)
 		awesome
@@ -148,6 +157,9 @@ while getopts "abdeflnpqrxwz" option; do
 	b)
 		bash
 		;;
+    c)
+        localbin
+        ;;
 	d)
 		dunst
 		;;
@@ -179,17 +191,18 @@ while getopts "abdeflnpqrxwz" option; do
 	    zsh
 		;;
 	e)
-        awesome
-        dwm
-		qtile
 		alacritty
+        awesome
+		bash
+        dwm
 		dunst
 		fehbg
+        localbin
 		picom
 		rofi
-		zsh
-		bash
+		qtile
 		X11
+		zsh
 		;;
 	?)
 		echo "Invalid option $1"
