@@ -55,3 +55,6 @@ daily driver.
 -   [ ] Add better documentation
 -   [ ] Make more scripts for user
 -   [ ] Make this page more atractive
+
+### Credit
+To be continue...
