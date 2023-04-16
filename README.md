@@ -9,21 +9,14 @@ keeping all the WMs up to date, but primarily DWM because it is currently my
 daily driver.
 
 ### File structure
-|               | Place                   | Use case |
-|---------------|:-----------------------:|:--------:|
-| **Docs**      | nowhere                 |          |
-| **Bin**       | nowhere                 |          |
-| **Scripts**   | nowhere                 |          |
-| **config**    | **_$HOME/.config/_**    |          |
-| **usr**       | **_/usr/_**             |          |
-| **local/bin** | **_$HOME/.local/bin/_** |          |
-
-1. **Docs** - is directory where are stored all of docs about every file in this repo and about scripts (how they work)
-2. **Bin** - is directory where are all the scripts that the user can run if they want my dotfiles
-3. **Scripts** - is directory only for maintainer where are all scripts that I use to maintain the repo
-4. **config** - is directory where are all config dirs are required to be put in **_$HOME/.config/_** dir
-5. **usr** - is directory where all config dirs are required to be put in **_/usr/_** dir
-5. **local/bin** - is directory where all my scipts are required to be put in **_$HOME/.local/bin_** dir
+|               | Place                   | Use case         |
+|---------------|:-----------------------:|:----------------:|
+| **Docs**      | nowhere                 | documentation    |
+| **Bin**       | nowhere                 | scripts for user |
+| **Scripts**   | nowhere                 | script for me    |
+| **config**    | **_$HOME/.config/_**    | dotfiles         |
+| **usr**       | **_/usr/_**             | sddm             |
+| **local/bin** | **_$HOME/.local/bin/_** | scripts for WMs  |
 
 ## Software
 
