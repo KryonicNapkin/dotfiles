@@ -3,7 +3,7 @@
 
 // definitons of used directories
 #define SESSION_FILE "/tmp/dwm-session"
-#define ROFIDIR "/home/oizero/.config/rofi/dwm/bin/"
+#define ROFIDIR "/home/oizero/.config/rofi/bin/"
 #define WORKDIR "/home/oizero/.config/dwm/"
 #define CONFDIR "/home/oizero/.config/"
 #define SCRIPTD "/home/oizero/.local/bin/"
@@ -80,7 +80,7 @@ static const Rule rules[] = {
 };
 
 // Layout settings
-static const float mfact        = 0.50; // factor of master area size [0.05..0.95]
+static const float mfact        = 0.55; // factor of master area size [0.05..0.95]
 static const int nmaster        = 1;    // number of clients in master area
 static const int resizehints    = 1;    // 1 means respect size hints in tiled resizals
 static const int lockfullscreen = 1;    // 1 will force focus on the fullscreen window
