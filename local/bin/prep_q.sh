@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -xe
-
 # Variables
 CONFDIR=$HOME/.config
 

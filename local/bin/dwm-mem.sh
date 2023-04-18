@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mem="$(free -m | awk 'NR==2{printf $3"MB"}')"
-printf "%s" "$mem"
+printf "%s%s" "RAM " "$mem"
