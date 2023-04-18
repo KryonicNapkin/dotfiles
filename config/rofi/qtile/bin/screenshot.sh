@@ -6,7 +6,7 @@
 ## Applets : Screenshot
 
 # Import Current Theme
-theme="$HOME/.config/rofi/qtile/configs/applets.rasi"
+theme="$HOME/.config/rofi/configs/applets.rasi"
 
 # Theme Elements
 prompt='Screenshot'

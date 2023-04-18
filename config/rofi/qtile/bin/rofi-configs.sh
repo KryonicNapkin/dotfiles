@@ -1,5 +1,5 @@
 #!/bin/bash
-ROFIDIR=$HOME/.config/rofi/qtile/bin
+ROFIDIR=$HOME/.config/rofi/bin
 CONFDIR=$HOME/.config
 ED="nvim"
 
@@ -32,7 +32,7 @@ declare -a options=(
 "QUIT"
 )
 
-choice=$( printf "%s\n" "${options[@]}" | rofi -dmenu -p Edit -theme ~/.config/rofi/qtile/configs/ed_config.rasi)
+choice=$( printf "%s\n" "${options[@]}" | rofi -dmenu -p Edit -theme ~/.config/rofi/configs/ed_config.rasi)
 
 if [ "$choice" == "QUIT" ]; then
   echo "Program terminated" && exit 1

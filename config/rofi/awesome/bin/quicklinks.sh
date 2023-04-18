@@ -6,7 +6,7 @@
 ## Applets : Quick Links
 
 # Import Current Theme
-theme="$HOME/.config/rofi/awesome/configs/applets.rasi"
+theme="$HOME/.config/rofi/configs/applets.rasi"
 
 # Theme Elements
 prompt='Quick Links'
