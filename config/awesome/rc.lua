@@ -89,7 +89,7 @@ beautiful.gap_single_client = false
 awful.mouse.snap.edge_enabled = false
 
 -- Default Variables (Programs)
-terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_a.yml"
+terminal = "alacritty"
 browser = "brave"
 filemanager = "pcmanfm"
 editor = "lvim" or "nvim"
@@ -618,27 +618,27 @@ globalkeys = gears.table.join(
 			end
 
 			if key == "r" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/launcher.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/launcher.sh")
 			elseif key == "b" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/launcher_bin.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/launcher_bin.sh")
 			elseif key == "p" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/powermenu.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/powermenu.sh")
 			elseif key == "w" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-wiki.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-wiki.sh")
 			elseif key == "n" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-network-manager.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-network-manager.sh")
 			elseif key == "c" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-calc.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-calc.sh")
 			elseif key == "d" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-configs.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-configs.sh")
 			elseif key == "e" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/rofi-emoji.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-emoji.sh")
 			elseif key == "q" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/quicklinks.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/quicklinks.sh")
 			elseif key == "s" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/screenshot.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/screenshot.sh")
 			elseif key == "m" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/awesome/bin/wm-changer.sh")
+				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/wm-changer.sh")
 			end
 			awful.keygrabber.stop(grabber)
 		end)
