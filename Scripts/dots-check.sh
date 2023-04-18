@@ -15,7 +15,7 @@ dotscheck() {
 	echo -e "\n### Qtile dir ###"
 	diff -rq $CONFDIR/qtile/ $DOTDIR/config/qtile/
 
-	echo -e "\n### DWM dir ###n"
+	echo -e "\n### DWM dir ###"
 	diff -rq $CONFDIR/dwm/ $DOTDIR/config/dwm/
 
 	echo -e "\n### Dunst dir ###"
