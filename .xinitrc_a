@@ -3,13 +3,6 @@
 xrandr --output VGA-0 --off
 redshift -P -O 3600k &
 xrdb ~/.Xresources &
-/home/oizero/.config/feh/fehbg_a &
-picom --no-fading-openclose --backend glx --config ~/.config/picom/picom_a.conf &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-dunst -conf $HOME/.config/dunst/dunstrc_a &
-nm-applet &
-thunderbird &
-discord --start-minimized &
 export CWM='awesome'
-source ~/.zshrc &
+/home/oizero/.local/bin/prep.sh &
 exec awesome
