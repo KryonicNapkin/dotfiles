@@ -57,4 +57,4 @@ daily driver.
 -   [ ] Make this page more atractive
 
 ### Credit
-To be continue...
+ZSH - [ChristianChiarulli](https://github.com/ChristianChiarulli)
