@@ -139,10 +139,6 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("blight set +5%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("blight set -5%")),
 
-    # Language
-    Key([mod], "F1", lazy.spawn("setxkbmap us"), desc="Change to US layout"),
-    Key([mod], "F2", lazy.spawn("setxkbmap sk"), desc="Change to Greek layout"),
-
     # Used apps
     ################################################################################
     # SETTING XTERM AS A DEFAULT TERMINAL TEMPORATLY BECAUSE I DON'T HAVE ENOUGHT  #
@@ -161,17 +157,16 @@ keys = [
 
     # Rofi keybindings
     KeyChord([mod], "r", [
-        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/launcher.sh"), desc="Open Rofi"),
-        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/launcher_bin.sh"), desc="Open Rofi"),
-        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/powermenu.sh"), desc="Open Rofi Powermenu"),
-        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
-        Key([], "n", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-network-manager.sh"), desc="Open Rofi Network Manager"),
-        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
-        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
-        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
-        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
-        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
-        Key([], "m", lazy.spawn("/home/oizero/.config/rofi/qtile/bin/wm-changer.sh"), desc="Open WM changer"),
+        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/bin/launcher.sh"), desc="Open Rofi"),
+        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/bin/launcher_bin.sh"), desc="Open Rofi"),
+        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/bin/powermenu.sh"), desc="Open Rofi Powermenu"),
+        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
+        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
+        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
+        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
+        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
+        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
+        Key([], "m", lazy.spawn("/home/oizero/.config/rofi/bin/wm-changer.sh"), desc="Open WM changer"),
     ]),
 
     # Toggle between different layouts as defined below
@@ -240,11 +235,23 @@ layouts = [
 
 # SCRATCHPAD
 groups.append(ScratchPad('scratchpad', [
+    DropDown('htop', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+groups.append(ScratchPad('scratchpad', [
     DropDown('term', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+groups.append(ScratchPad('scratchpad', [
+    DropDown('ttyc', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
 ]))
 
 keys.extend([
-    Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('term'))
+    Key(["mod1"], "1", lazy.group['scratchpad'].dropdown_toggle('term'))
+])
+keys.extend([
+    Key(["mod1"], "2", lazy.group['scratchpad'].dropdown_toggle('htop'))
+])
+keys.extend([
+    Key(["mod1"], "2", lazy.group['scratchpad'].dropdown_toggle('ttyc'))
 ])
 
 
