@@ -1140,19 +1140,19 @@ focusin(XEvent *e)
 		setfocus(selmon->sel);
 }
 
-void
-focusmon(const Arg *arg)
-{
-	Monitor *m;
-
-	if (!mons->next)
-		return;
-	if ((m = dirtomon(arg->i)) == selmon)
-		return;
-	unfocus(selmon->sel, 0);
-	selmon = m;
-	focus(NULL);
-}
+// void
+// focusmon(const Arg *arg)
+// {
+// 	Monitor *m;
+//
+// 	if (!mons->next)
+// 		return;
+// 	if ((m = dirtomon(arg->i)) == selmon)
+// 		return;
+// 	unfocus(selmon->sel, 0);
+// 	selmon = m;
+// 	focus(NULL);
+// }
 
 Atom
 getatomprop(Client *c, Atom prop)

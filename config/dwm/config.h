@@ -46,14 +46,14 @@ typedef struct {
 	const void *cmd;
 } Sp;
 // Scratchpads
-const char *spcmd1[] = {"alacritty", "--class", "sphtop", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "htop", NULL };
-const char *spcmd2[] = {"alacritty", "--class", "spterm", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", NULL };
-const char *spcmd3[] = {"alacritty", "--class", "sptime", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "tty-clock", "-s", "-b", "-c", "-f", "%a %d.%m.%y", NULL };
+const char *spcmd1[] = {"alacritty", "--class", "spterm", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", NULL };
+const char *spcmd2[] = {"alacritty", "--class", "sphtop", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "htop", NULL };
+const char *spcmd3[] = {"alacritty", "--class", "spttyc", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "tty-clock", "-s", "-b", "-c", "-f", "%a %d.%m.%y", NULL };
 static Sp scratchpads[] = {
 	// name           cmd
-	{"sphtop",      spcmd1},
-	{"spterm",      spcmd2},
-	{"sptime",      spcmd3},
+	{"spterm",      spcmd1},
+	{"sphtop",      spcmd2},
+	{"spttyc",      spcmd3},
 };
 
 // Tags names
@@ -74,9 +74,9 @@ static const Rule rules[] = {
 	{ "Firefox",       NULL,			NULL,		                0 << 2,			0,			  0,             1,           -1 },
 	{ "Alacritty",     NULL,			NULL,		                0,			    0,			  1,             0,           -1 },
 	{ NULL,            NULL,	    "Event Tester",	                0,			    0,			  1,             1,           -1 }, /* xev */
-	{ NULL,		       "sphtop",		NULL,		                SPTAG(0),		1,			  1 },
-	{ NULL,		       "spterm",		NULL,		                SPTAG(1),		1,			  1 },
-	{ NULL,		       "sptime",		NULL,		                SPTAG(2),		1,			  1 },
+	{ NULL,		       "spterm",		NULL,		                SPTAG(0),		1,			  1 },
+	{ NULL,		       "sphtop",		NULL,		                SPTAG(1),		1,			  1 },
+	{ NULL,		       "spttyc",		NULL,		                SPTAG(2),		1,			  1 },
 };
 
 // Layout settings
@@ -119,7 +119,6 @@ static const char *roficnf[]      = { ROFIDIR "rofi-configs.sh", NULL };
 static const char *rofiemj[]      = { ROFIDIR "rofi-emoji.sh", NULL };
 static const char *rofiscr[]      = { ROFIDIR "screenshot.sh", NULL };
 static const char *roficlc[]      = { ROFIDIR "rofi-calc.sh", NULL };
-static const char *rofintw[]      = { ROFIDIR "rofi-network-manager.sh", NULL };
 static const char *rofiqkl[]      = { ROFIDIR "quicklinks.sh", NULL };
 static const char *rofiwik[]      = { ROFIDIR "rofi-wiki.sh", NULL };
 static const char *browser[]      = { "brave", NULL };
@@ -157,7 +156,6 @@ static Keychord *keychords[] = {
 	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_e}},	    spawn,          {.v = rofiemj } }),
 	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_s}},	    spawn,          {.v = rofiscr } }),
 	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_c}},	    spawn,          {.v = roficlc } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_n}},	    spawn,          {.v = rofintw } }),
 	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_q}},	    spawn,          {.v = rofiqkl } }),
 	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_w}},	    spawn,          {.v = rofiwik } }),
 	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_m}},	    spawn,          {.v = rofiwmc } }),
@@ -166,12 +164,12 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{MODKEY|ALTKEY, XK_u}},            spawn,          {.v = updates } }),
 	&((Keychord){1, {{MODKEY|ALTKEY, XK_c}},	    	spawn,          {.v = dunstclose } }),
 	&((Keychord){1, {{MODKEY|ALTKEY, XK_x}},   		    spawn,          {.v = xpropinfo } }),
-	&((Keychord){1, {{MODKEY, XK_F9}},	    	        spawn,          {.v = mutemic } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_m}},	        spawn,          {.v = mutemic } }),
 
     // Used apps
 	&((Keychord){1, {{MODKEY, XK_Return}},			    spawn,          {.v = termcmd } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_w}},	        spawn,          {.v = browser } }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_i}},		    spawn,          {.v = inkscape } }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_w}},		    spawn,          {.v = browser } }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_d}},		    spawn,          {.v = discord } }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_t}},		    spawn,          {.v = thndbird } }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_f}},		    spawn,          {.v = filebrw } }),
