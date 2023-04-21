@@ -535,10 +535,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Control" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
-	awful.key({ modkey }, "F9" , function()
-		awful.spawn.with_shell("/home/oizero/.local/bin/mice-mute.sh")
-	end, { description = "select next", group = "layout" }),
-
 	awful.key({ modkey }, "", function()
 		awful.layout.inc(1)
 	end, { description = "select next", group = "layout" }),
@@ -549,31 +545,43 @@ globalkeys = gears.table.join(
 	end, { description = "Open Calendar", group = "Widgets" }),
 
 	-- Terminal Applications
-	awful.key({ altkey, "Control" }, "c", function()
+	awful.key({ altkey }, "1", function()
 		awful.spawn.with_shell(
-			"alacritty --class tty-clock -e tty-clock -s -b -c -f '%a %d.%m.%y'",
+			"alacritty --class term -e 'alacritty'",
+			{ floating = true, ontop = true }
+		)
+	end, { description = "Open Floating Alacritty term", group = "Terminal Applications" }),
+	awful.key({ altkey }, "2", function()
+		awful.spawn.with_shell(
+			"alacritty --class htop -e htop",
+			{ floating = true, ontop = true }
+		)
+	end, { description = "Open Floating htop", group = "Terminal Applications" }),
+	awful.key({ altkey }, "3", function()
+		awful.spawn.with_shell(
+			"alacritty --class ttyc -e tty-clock -s -b -c -f '%a %d.%m.%y'",
 			{ floating = true, ontop = true }
 		)
 	end, { description = "Open Clock", group = "Terminal Applications" }),
-	awful.key({ altkey, "Control" }, "h", function()
-		awful.spawn.with_shell("alacritty --class htop -e htop", { floating = true, ontop = true })
-	end, { description = "Open Gotop", group = "Terminal Applications" }),
+
+    -- Misc
 	awful.key({ altkey, "Control" }, "r", function()
 		awful.spawn.with_shell("feh ~/Screenshots/Rozvrch_9.B.png", { floating = true, ontop = true })
 	end, { description = "Open Rozvrch", group = "Terminal Applications" }),
 
 	-- Notify Applications
 	awful.key({ modkey, altkey }, "u", function()
-		awful.spawn("/home/oizero/.local/bin/updates.sh", { floating = true, ontop = true })
+		awful.spawn("/home/oizero/.local/bin/updates.sh", {})
 	end, { description = "Check for updates", group = "Notify Applications" }),
-
-	-- Keyboard layout changer
-	awful.key({ "Control" }, "F1", function()
-		awful.spawn("setxkbmap us")
-	end, { description = "Switch to US keyboard", group = "Keyboard" }),
-	awful.key({ "Control" }, "F2", function()
-		awful.spawn("setxkbmap sk")
-	end, { description = "Switch to SK keyboard", group = "Keyboard" }),
+	awful.key({ modkey, altkey }, "x", function()
+		awful.spawn("/home/oizero/.local/bin/xprop_info.sh", {})
+	end, { description = "output the xprop info to naughty", group = "Notify Applications" }),
+	awful.key({ modkey, altkey }, "d", function()
+		awful.spawn("/home/oizero/.local/bin/dunst_close.sh", {})
+	end, { description = "Close dunst notification", group = "Notify Applications" }),
+	awful.key({ modkey, altkey }, "m", function()
+		awful.spawn("/home/oizero/.local/bin/mice-mute.sh", {})
+	end, { description = "mutes mice", group = "Notify Applications" }),
 
 	-- Function keys keybindings
 	awful.key({}, "XF86MonBrightnessUp", function()
@@ -608,6 +616,12 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "d", function()
 		awful.spawn("discord")
 	end, { description = "Open Discord", group = "Programs" }),
+	awful.key({ modkey, "Shift" }, "s", function()
+		awful.spawn("steam")
+	end, { description = "Open Steam", group = "Programs" }),
+	awful.key({ modkey, "Shift" }, "t", function()
+		awful.spawn("thunderbird")
+	end, { description = "Open Thunderbird", group = "Programs" }),
 
 	-- ROFI keybindigns
 	awful.key({ modkey }, "r", function()
@@ -625,8 +639,6 @@ globalkeys = gears.table.join(
 				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/powermenu.sh")
 			elseif key == "w" then
 				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-wiki.sh")
-			elseif key == "n" then
-				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-network-manager.sh")
 			elseif key == "c" then
 				awful.spawn.with_shell("/home/oizero/.config/rofi/bin/rofi-calc.sh")
 			elseif key == "d" then
@@ -648,7 +660,6 @@ globalkeys = gears.table.join(
 clientkeys = gears.table.join(
 
 -- Client focus keybindings keybindings
-
 	awful.key({ modkey }, "h", function()
 		awful.client.focus.global_bydirection("left")
 		client.focus:raise()
@@ -667,7 +678,6 @@ clientkeys = gears.table.join(
 	end, { description = "Change focus to window in left", group = "client" }),
 
 	-- Client swap keybindings
-
 	awful.key({ modkey, "Shift" }, "h", function()
 		awful.client.swap.global_bydirection("left")
 	end, { description = "swap with next client by index", group = "client" }),
@@ -859,7 +869,8 @@ awful.rules.rules =
 				"DTA", -- Firefox addon DownThemAll.
 				"copyq", -- Includes session name in class.
 				"pinentry",
-				"tty-clock",
+				"ttyc",
+				"term",
 				"htop",
 				"lvim",
 				"rozvrch",
@@ -892,9 +903,10 @@ awful.rules.rules =
 		properties = { floating = true, placement = awful.placement.centered },
 	},
 
-	{ rule = { class = "thunderbird" }, properties = { screen = 1, tag = "9" } },
+	{ rule = { class = "thunderbird" }, properties = { screen = 1, tag = "8" } },
+	{ rule = { class = "discord" }, properties = { screen = 1, tag = "9" } },
+	{ rule = { class = "Steam" }, properties = { screen = 1, tag = "0" } },
 
-	{ rule = { class = "discord" }, properties = { screen = 1, tag = "8" } },
 	-- Set Firefox to always map on the tag named "2" on screen 1.
 },
 		-- {{{ Signals
