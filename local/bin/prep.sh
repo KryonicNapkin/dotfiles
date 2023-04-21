@@ -1,1 +1,1 @@
-/home/oizero/.local/bin/prep_d.sh
+/home/oizero/.local/bin/prep_q.sh
