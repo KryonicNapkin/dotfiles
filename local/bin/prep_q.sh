@@ -26,6 +26,7 @@ ln -sf $CONFDIR/rofi/qtile/colors $CONFDIR/rofi
 /home/oizero/.config/feh/fehbg &
 picom --no-fading-openclose --backend glx &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+setxkbmap -option "grp:alt_space_toggle" -layout "us,sk" &
 dunst &
 nm-applet &
 thunderbird &
