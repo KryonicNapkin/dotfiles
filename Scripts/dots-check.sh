@@ -78,9 +78,8 @@ dotscheck() {
 
 	echo -e "\n### bin dir (~/.local/bin) ###"
 	diff -rq ~/.local/bin $DOTDIR/local/bin
-
 }
 
-dotscheck >dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
+dotscheck > dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
 less dotcheck-report_$(date +%d-%m-%Y_%H:%M).txt
 rm $DOTDIR/Scripts/*.txt
