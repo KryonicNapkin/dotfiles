@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Variables
+remaining=$(acpi | awk '{print $5}')
 state=$(acpi | awk '{print $3}' | tr -d ',')
 
 if [[ $state == "Not" ]]; then
@@ -17,7 +19,7 @@ elif [ $state == "Full" ] && [ $percentage -eq 100 ]; then
 fi
 
 if [ $state == "Discharging" ] && [ $percentage -le 10 ]; then
-    notify-send "Battery is too low" "Please plug the power"
+    dunstify -u critical "Battery is low at $percentage%, remaining $remaining" "Please plug in the charger"
 elif [ $state == "Charging" ]; then
     printf "%s%s" "BAT " "+$percentage%"
 elif [ $state == "charging" ]; then
