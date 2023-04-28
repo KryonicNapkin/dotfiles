@@ -2,6 +2,7 @@
 
 # Variables
 DOTDIR=$HOME/dotfiles/
+netcheck=$(/home/oizero/.local/bin/net-checker.sh)
 
 check() {
 	paru -Qqe > $DOTDIR/Bin/pkglist.txt
@@ -11,7 +12,7 @@ check() {
 	git push
 }
 
-if [ "$(ping -w 1 8.8.8.8 | awk 'NR==2{print $1}')" = 64 ]; then
+if [ $netcheck = 64 ]; then
 	check
 else
 	dunstify "Error connecting to internet" -u critical
