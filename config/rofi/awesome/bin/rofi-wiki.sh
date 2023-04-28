@@ -1,10 +1,10 @@
 #!/bin/bash
 
-
+# Variables
 wikidir="/usr/share/doc/arch-wiki/html/en/"
 wikidocs="$(find ${wikidir} -iname "*.html")"
 
-
+# Code
 main() {
     wikidocs="$(find ${wikidir}"${lang}" -iname "*.html")"
     choice=$(printf '%s\n' "${wikidocs[@]}" | \
