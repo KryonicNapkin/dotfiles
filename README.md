@@ -69,6 +69,7 @@ mod or MODKEY is Mod4
 -   [ ] Add better documentation
 -   [ ] Make more scripts for user
 -   [ ] Make this page more atractive
+-   [ ] Make this page more informative
 
 ### Credit
 ZSH - [ChristianChiarulli](https://github.com/ChristianChiarulli)
