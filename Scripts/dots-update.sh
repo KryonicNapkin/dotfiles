@@ -81,7 +81,7 @@ localbin()
 	echo "##########################"
 	echo "# Updating local bin dir #"
 	echo -e "##########################\n"
-    rsync -av $BINDIR/bin/ $DOTDIR/local/bin --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm
+    rsync -av $BINDIR/bin/ $DOTDIR/local/bin --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm --exclude=prep.sh
 }
 
 nvim()
