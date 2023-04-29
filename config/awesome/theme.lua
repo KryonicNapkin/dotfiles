@@ -171,7 +171,7 @@ theme.icon_color_disk = "#c678dd"
 theme.icon_color_temp = "#e5c07b"
 theme.icon_color_cpu = "#e06c75"
 theme.icon_color_net = "#61afef"
-theme.icon_font = "Font Awesome 6 "
+theme.icon_font = "Font Awesome 6"
 theme.icon_theme = "/usr/share/icons/Papirus-Dark"
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
