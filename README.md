@@ -21,7 +21,7 @@ daily driver.
 ## Software
 
 ### Keybindings
-alt or ALTKEY is Mod1
+alt or ALTKEY is Mod1\
 mod or MODKEY is Mod4
 
 | Combination                  | Action     |
