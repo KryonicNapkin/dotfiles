@@ -29,6 +29,5 @@ picom --no-fading-openclose --backend glx &
 setxkbmap -option "grp:alt_space_toggle" -layout "us,sk" &
 dunst &
 nm-applet &
-thunderbird &
 discord --start-minimized &
 source ~/.zshrc &
