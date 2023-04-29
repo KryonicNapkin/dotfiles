@@ -20,6 +20,21 @@ daily driver.
 
 ## Software
 
+### Keybindings
+
+alt or ALTKEY is Mod1
+mod or MODKEY is Mod4
+
+| Combination                  | Action     |
+|:----------------------------:|:----------:|
+| Restart Window Manager       | MOD+CTRL+r |
+| Quit Window Manager          | MOD+CRTL+q |
+| Restart Proceses (if needed) | MOD+CRTL+t |
+| Kill focused window    | MOD+c  |
+| Kill focused window    | MOD+c  |
+| Kill focused window    | MOD+c  |
+| Kill focused window    | MOD+c  |
+
 ### WM specific
 |             | AwesomeWM | Dwm      | Qtile    |
 |-------------|:---------:|:--------:|:--------:|
