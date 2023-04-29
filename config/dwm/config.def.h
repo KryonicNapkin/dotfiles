@@ -23,22 +23,28 @@ static const int systraypinningfailfirst = 1;        /* 1: if pinning fails, dis
 static const int showsystray             = 1;        /* 0 means no systray */
 static const char *fonts[]               = { "sans:size=8" };
 static const char dmenufont[]            = "sans:size=8";
-static const char col_black[]            = "#000000";
-static const char col_gray1[]            = "#282C34";
-static const char col_gray2[]            = "#444444";
-static const char col_gray3[]            = "#ABB2BF";
-static const char col_gray4[]            = "#eeeeee";
-static const char col_cyan[]             = "#61AFEF";
-static const char col_red[]              = "#E06C75";
+
+// Colors definition
+static const char bg[]               = "#282c34"; // normal background color
+static const char wbg[]              = "#373b41"; // if there were to be a widget it would use this color
+static const char green[]            = "#98c379";
+static const char blue[]             = "#61afef";
+static const char yellow[]           = "#e5c07b";
+static const char black[]            = "#000000";
+static const char white[]            = "#abb2bf"; // forground white
+static const char cwhite[]           = "#ffffff"; // clear white
+static const char red[]              = "#e06c75";
+static const char pink[]             = "#c678dd";
+static const char cyan[]             = "#56b6c2";
 static const char *colors[][3]           = {
 	//                       fg         bg        border
-	[SchemeNorm]      = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]       = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]    = { col_gray3, col_gray1, "#000000" }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]   = { col_gray4, col_cyan,  "#000000" }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { col_gray3, col_gray1, "#000000" }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]   = { col_black, col_cyan,  "#000000" }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { col_gray3, col_gray1, "#000000" }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeNorm]      = { white, bg, wbg },
+	[SchemeSel]       = { cwhite, blue, blue },
+	[SchemeStatus]    = { white, bg, black }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]   = { cwhite, blue, black }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { white, bg, black }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]   = { black, blue, black }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { white, bg, black }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 typedef struct {
@@ -111,27 +117,31 @@ static const Layout layouts[] = {
 // commands(variables declaration)
 static char        dmenumon[2]    = "0"; // component of dmenucmd, manipulated in spawn()
 static const char *dmenucmd[]     = { ROFIDIR "launcher.sh", NULL };
-static const char *updates[]      = { SCRIPTD "updates.sh", NULL };
 static const char *rofiwmc[]      = { ROFIDIR "wm-changer.sh", NULL };
 static const char *rofipow[]      = { ROFIDIR "powermenu.sh", NULL };
 static const char *rofibin[]      = { ROFIDIR "launcher_bin.sh", NULL };
 static const char *roficnf[]      = { ROFIDIR "rofi-configs.sh", NULL };
 static const char *rofiemj[]      = { ROFIDIR "rofi-emoji.sh", NULL };
+static const char *rofiinf[]      = { ROFIDIR "rofi-pkginfo.sh", NULL};
 static const char *rofiscr[]      = { ROFIDIR "screenshot.sh", NULL };
 static const char *roficlc[]      = { ROFIDIR "rofi-calc.sh", NULL };
 static const char *rofiqkl[]      = { ROFIDIR "quicklinks.sh", NULL };
 static const char *rofiwik[]      = { ROFIDIR "rofi-wiki.sh", NULL };
+static const char *rssreader[]    = { "newsflash", NULL };
+static const char *virtmngr[]     = { "virt-manager", NULL };
 static const char *browser[]      = { "brave", NULL };
 static const char *steam[]        = { "steam", NULL };
 static const char *discord[]      = { "discord", NULL };
 static const char *thndbird[]     = { "thunderbird", NULL };
 static const char *filebrw[]      = { "pcmanfm", NULL };
-static const char *termcmd[]      = { "alacritty", NULL };
+static const char *terminal[]     = { "alacritty", NULL };
 static const char *inkscape[]     = { "inkscape", NULL };
 static const char *dispplan[]     = { "feh", HOMEDIR "Screenshots/Rozvrch_9.B.png", NULL };
+static const char *updates[]      = { SCRIPTD "updates.sh", NULL };
+static const char *restartprocs[] = { SCRIPTD "prep.sh", NULL };
 static const char *mutemic[]      = { SCRIPTD "mice-mute.sh", NULL };
-static const char *xpropinfo[]    = { SCRIPTD "xprop_info.sh", NULL };
-static const char *dunstclose[]   = { SCRIPTD "dunst_close.sh", NULL };
+static const char *xpropinfo[]    = { SCRIPTD "xprop-info.sh", NULL };
+static const char *dunstclose[]   = { SCRIPTD "dunst-close.sh", NULL };
 
 // Definition of keybindings
 static Keychord *keychords[] = {
@@ -144,39 +154,43 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{0, XF86XK_MonBrightnessUp}},      spawn,          SHCMD("blight set +5%; kill -45 $(pidof slbar)")}),
 	&((Keychord){1, {{0, XF86XK_MonBrightnessDown}},    spawn,          SHCMD("blight set -5%; kill -45 $(pidof slbar)")}),
 
-    // DWM restart and quit
-	&((Keychord){1, {{ MODKEY|ControlMask, XK_q}},      quit,           {0} }),
-    &((Keychord){1, {{ MODKEY|ControlMask, XK_r}},      quit,           {1} }),
+    // DWM restart (procs if needed) and quit
+	&((Keychord){1, {{MODKEY|ControlMask, XK_q}},       quit,           {0} }),
+    &((Keychord){1, {{MODKEY|ControlMask, XK_r}},       quit,           {1} }),
+    &((Keychord){1, {{MODKEY|ControlMask, XK_t}},       spawn,          {.v = restartprocs} }),
 
     // Rofi commands
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_r}},        spawn,          {.v = dmenucmd } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_p}},	    spawn,          {.v = rofipow } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_b}},	    spawn,          {.v = rofibin } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_d}},	    spawn,          {.v = roficnf } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_e}},	    spawn,          {.v = rofiemj } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_s}},	    spawn,          {.v = rofiscr } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_c}},	    spawn,          {.v = roficlc } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_q}},	    spawn,          {.v = rofiqkl } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_w}},	    spawn,          {.v = rofiwik } }),
-	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_m}},	    spawn,          {.v = rofiwmc } }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_r}},        spawn,          {.v = dmenucmd} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_i}},        spawn,          {.v = rofiinf} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_p}},	    spawn,          {.v = rofipow} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_b}},	    spawn,          {.v = rofibin} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_d}},	    spawn,          {.v = roficnf} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_e}},	    spawn,          {.v = rofiemj} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_s}},	    spawn,          {.v = rofiscr} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_c}},	    spawn,          {.v = roficlc} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_q}},	    spawn,          {.v = rofiqkl} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_w}},	    spawn,          {.v = rofiwik} }),
+	&((Keychord){2, {{MODKEY, XK_r}, {0, XK_m}},	    spawn,          {.v = rofiwmc} }),
 
     // Notification commands
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_u}},            spawn,          {.v = updates } }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_c}},	    	spawn,          {.v = dunstclose } }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_x}},   		    spawn,          {.v = xpropinfo } }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_m}},	        spawn,          {.v = mutemic } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_u}},            spawn,          {.v = updates} }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_c}},	    	spawn,          {.v = dunstclose} }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_x}},   		    spawn,          {.v = xpropinfo} }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_m}},	        spawn,          {.v = mutemic} }),
 
     // Used apps
-	&((Keychord){1, {{MODKEY, XK_Return}},			    spawn,          {.v = termcmd } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_i}},		    spawn,          {.v = inkscape } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_w}},		    spawn,          {.v = browser } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_d}},		    spawn,          {.v = discord } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_t}},		    spawn,          {.v = thndbird } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_f}},		    spawn,          {.v = filebrw } }),
-	&((Keychord){1, {{MODKEY|ShiftMask, XK_s}},		    spawn,          {.v = steam } }),
+	&((Keychord){1, {{MODKEY, XK_Return}},			    spawn,          {.v = terminal} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_i}},		    spawn,          {.v = inkscape} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_r}},		    spawn,          {.v = rssreader} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_w}},		    spawn,          {.v = browser} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_d}},		    spawn,          {.v = discord} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_t}},		    spawn,          {.v = thndbird} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_f}},		    spawn,          {.v = filebrw} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_s}},		    spawn,          {.v = steam} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_v}},		    spawn,          {.v = virtmngr} }),
 
     // Misc
-	&((Keychord){1, {{ALTKEY|ControlMask, XK_r}},		spawn,          {.v = dispplan } }),
+	&((Keychord){1, {{ALTKEY|ControlMask, XK_r}},		spawn,          {.v = dispplan} }),
 
     // Keyboard layout changer
 	&((Keychord){1, {{ALTKEY, XK_space}},         		spawn,          SHCMD("setxkbmap -option 'grp:alt_space_toggle' -layout 'us,sk'; kill -46 $(pidof slbar)")}),
@@ -190,7 +204,7 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_l}},		    placedir,       {.i =  1} }),     // right
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_k}},		    placedir,       {.i =  2} }),     // up
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_j}},		    placedir,       {.i =  3} }),     // down
-	&((Keychord){1, {{MODKEY|ControlMask, XK_h}},	    setmfact,       {.f = -0.01 } }), // left
+	&((Keychord){1, {{MODKEY|ControlMask, XK_h}},	    setmfact,       {.f = -0.01} }), // left
 	&((Keychord){1, {{MODKEY|ControlMask, XK_l}},	    setmfact,       {.f = +0.01} }),  // right
 	&((Keychord){1, {{MODKEY|ControlMask, XK_k}},	    setcfact,       {.f = +0.10} }),  // up
 	&((Keychord){1, {{MODKEY|ControlMask, XK_j}},	    setcfact,       {.f = -0.10} }),  // down
@@ -198,10 +212,10 @@ static Keychord *keychords[] = {
 
     // Floating window control
 	&((Keychord){1, {{MODKEY|ControlMask, XK_f}}, 	    togglefloating, {0} }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_h}},	        movekeyboard_x, {.i = -20 } }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_l}},	        movekeyboard_x, {.i = 20 } }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_k}},	        movekeyboard_y, {.i = 20 } }),
-	&((Keychord){1, {{MODKEY|ALTKEY, XK_j}},	        movekeyboard_y, {.i = -20 } }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_h}},	        movekeyboard_x, {.i = -20} }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_l}},	        movekeyboard_x, {.i = 20} }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_k}},	        movekeyboard_y, {.i = 20} }),
+	&((Keychord){1, {{MODKEY|ALTKEY, XK_j}},	        movekeyboard_y, {.i = -20} }),
 
     // Tags control
 	TAGKEYS(                        XK_1,                      0)
@@ -224,8 +238,8 @@ static Keychord *keychords[] = {
     // layout control
 	&((Keychord){1, {{MODKEY, XK_space}},				cyclelayout,    {.i = +1} }),
 	&((Keychord){1, {{MODKEY, XK_f}},				    togglefullscr,  {0} }),
-	&((Keychord){1, {{MODKEY, XK_i}},				    incnmaster,     {.i = +1 } }),
-	&((Keychord){1, {{MODKEY, XK_d}},				    incnmaster,     {.i = -1 } }),
+	&((Keychord){1, {{MODKEY, XK_i}},				    incnmaster,     {.i = +1} }),
+	&((Keychord){1, {{MODKEY, XK_d}},				    incnmaster,     {.i = -1} }),
 
     // dwm bar
 	&((Keychord){1, {{MODKEY, XK_b}},				    togglebar,      {0} }),
@@ -238,12 +252,12 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1 } },
-	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2 } },
-	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3 } },
+	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
