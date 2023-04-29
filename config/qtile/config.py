@@ -36,8 +36,28 @@ from libqtile.lazy import lazy
 from libqtile import widget
 from libqtile.widget import base
 
+# Constants definition
+HOMEDIR = os.path.expanduser("/home/oizero/")
+SCRIPTD = os.path.expanduser("{}.local/bin/".format(HOMEDIR))
+WORKDIR = os.path.expanduser("{}.config/qtile/".format(HOMEDIR))
+CONFDIR = os.path.expanduser("{}.config/".format(HOMEDIR))
+ROFIDIR = os.path.expanduser("{}.config/rofi/bin/".format(HOMEDIR))
+
+# Keys definition
 mod = "mod4"
-terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_q.yml"
+alt = "mod1"
+
+# Variables definition
+terminal = "alacritty"
+browser = "brave"
+steam = "steam"
+thndbird = "thunderbird"
+inkscape = "inkscape"
+rssreader = "newsflash"
+filebrw = "pcmanfm"
+discord = "discord"
+virtmngr = "virt-manager"
+dispplan = "feh {}Screenshots/Rozvrch_9.B.png".format(HOMEDIR)
 
 ################################################################################
 # SETTING XTERM AS A DEFAULT TERMINAL TEMPORATLY BECAUSE I DON'T HAVE ENOUGHT  #
@@ -46,23 +66,32 @@ terminal = "alacritty --config-file /home/oizero/.config/alacritty/alacritty_q.y
 ################################################################################
 
 oldterminal = "xterm"
-browser = "brave"
 
 # Hooks
 
 @hook.subscribe.client_new
-def client_new(client):
+def thunderbird(client):
     if client.name == 'Mozilla Thunderbird':
+        client.togroup('8')
+
+@hook.subscribe.client_new
+def discord(client):
+    if client.name == 'Discord':
         client.togroup('9')
+
+@hook.subscribe.client_new
+def steam(client):
+    if client.name == 'Steam':
+        client.togroup('0')
 
 keys = [
     # WINDOWS MANAGMENT
     # Window navigation
+    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
 
     # Switching windows
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -77,19 +106,7 @@ keys = [
         lazy.layout.increase_ratio(),
         lazy.layout.delete(),
         ),
-    Key([mod, "control"], "Right",
-        lazy.layout.grow_right(),
-        lazy.layout.grow(),
-        lazy.layout.increase_ratio(),
-        lazy.layout.delete(),
-        ),
     Key([mod, "control"], "h",
-        lazy.layout.grow_left(),
-        lazy.layout.shrink(),
-        lazy.layout.decrease_ratio(),
-        lazy.layout.add(),
-        ),
-    Key([mod, "control"], "Left",
         lazy.layout.grow_left(),
         lazy.layout.shrink(),
         lazy.layout.decrease_ratio(),
@@ -100,24 +117,15 @@ keys = [
         lazy.layout.grow(),
         lazy.layout.decrease_nmaster(),
         ),
-    Key([mod, "control"], "Up",
-        lazy.layout.grow_up(),
-        lazy.layout.grow(),
-        lazy.layout.decrease_nmaster(),
-        ),
     Key([mod, "control"], "j",
-        lazy.layout.grow_down(),
-        lazy.layout.shrink(),
-        lazy.layout.increase_nmaster(),
-        ),
-    Key([mod, "control"], "Down",
         lazy.layout.grow_down(),
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
         ),
 
     # window state modifing
-    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating mode"),
+    Key([mod, "control"], "f", lazy.window.toggle_floating(), desc="Toggle floating mode"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreeen"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Toggle between split and unsplit sides of stack.
@@ -133,9 +141,9 @@ keys = [
     ),
 
     # Audio and brightness control
-    Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse sset Master toggle")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 3%-")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 3%+")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q set Master 5%+ unmute")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%- unmute")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("blight set +5%")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("blight set -5%")),
 
@@ -146,36 +154,45 @@ keys = [
     # HAVE A OPENGL 3.3 REQUIRED BY ALACRITTY                                      #
     ################################################################################
 
-    #Key([mod], "Return", lazy.spawn(oldterminal), desc="Launch terminal"),
-
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    #Key([mod], "Return", lazy.spawn(oldterminal), desc="Launch Xterm"),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch Alacritty"),
     Key([mod, "shift"], "w", lazy.spawn(browser), desc="Open Brave"),
-    Key([mod, "shift"], "i", lazy.spawn("inkscape"), desc="Open Inkscape"),
-    Key([mod, "shift"], "s", lazy.spawn("steam"), desc="Open Steam"),
-    Key([mod, "shift"], "v", lazy.spawn("virt-manager"), desc="Open Virt-manager"),
-    Key([mod, "shift"], "d", lazy.spawn("discord"), desc="Open discord"),
+    Key([mod, "shift"], "f", lazy.spawn(filebrw), desc="Open PCManFM"),
+    Key([mod, "shift"], "i", lazy.spawn(inkscape), desc="Open Inkscape"),
+    Key([mod, "shift"], "s", lazy.spawn(steam), desc="Open Steam"),
+    Key([mod, "shift"], "v", lazy.spawn(virtmngr), desc="Open Virt-manager"),
+    Key([mod, "shift"], "d", lazy.spawn(discord), desc="Open Discord"),
+    Key([mod, "shift"], "t", lazy.spawn(thndbird), desc="Open Thunderbird"),
+    Key([mod, "shift"], "r", lazy.spawn(rssreader), desc="Open Newsflash"),
+
+    # Notification apps
+    Key([mod, alt], "u", lazy.spawn("{}updates.sh".format(SCRIPTD)), desc="List updates"),
+    Key([mod, alt], "c", lazy.spawn("{}dunst-close.sh".format(SCRIPTD)), desc="Close dunst notification"),
+    Key([mod, alt], "x", lazy.spawn("{}xprop-info.sh".format(SCRIPTD)), desc="Info about focused window"),
+    Key([mod, alt], "m", lazy.spawn("{}mice-mute.sh".format(SCRIPTD)), desc="Mute microphone"),
 
     # Rofi keybindings
     KeyChord([mod], "r", [
-        Key([], "r", lazy.spawn("/home/oizero/.config/rofi/bin/launcher.sh"), desc="Open Rofi"),
-        Key([], "b", lazy.spawn("/home/oizero/.config/rofi/bin/launcher_bin.sh"), desc="Open Rofi"),
-        Key([], "p", lazy.spawn("/home/oizero/.config/rofi/bin/powermenu.sh"), desc="Open Rofi Powermenu"),
-        Key([], "w", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-wiki.sh"), desc="Open Rofi Arch-wiki"),
-        Key([], "c", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-calc.sh"), desc="Open Rofi Calculator"),
-        Key([], "d", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-configs.sh"), desc="Open Quick Configs Edits"),
-        Key([], "e", lazy.spawn("/home/oizero/.config/rofi/bin/rofi-emoji.sh"), desc="Open Rofi Emoji menu"),
-        Key([], "q", lazy.spawn("/home/oizero/.config/rofi/bin/quicklinks.sh"), desc="Open Rofi Quicklinks"),
-        Key([], "s", lazy.spawn("/home/oizero/.config/rofi/bin/screenshot.sh"), desc="Open Rofi Screenshot utillity"),
-        Key([], "m", lazy.spawn("/home/oizero/.config/rofi/bin/wm-changer.sh"), desc="Open WM changer"),
+        Key([], "r", lazy.spawn("{}launcher.sh".format(ROFIDIR)), desc="Open Rofi"),
+        Key([], "b", lazy.spawn("{}launcher_bin.sh".format(ROFIDIR)), desc="Open Rofi"),
+        Key([], "p", lazy.spawn("{}powermenu.sh".format(ROFIDIR)), desc="Open Rofi Powermenu"),
+        Key([], "w", lazy.spawn("{}rofi-wiki.sh".format(ROFIDIR)), desc="Open Rofi Arch-wiki"),
+        Key([], "c", lazy.spawn("{}rofi-calc.sh".format(ROFIDIR)), desc="Open Rofi Calculator"),
+        Key([], "d", lazy.spawn("{}rofi-configs.sh".format(ROFIDIR)), desc="Open Configs Edits"),
+        Key([], "i", lazy.spawn("{}rofi-pkginfo.sh".format(ROFIDIR)), desc="Open Package info menu"),
+        Key([], "e", lazy.spawn("{}rofi-emoji.sh".format(ROFIDIR)), desc="Open Rofi Emoji menu"),
+        Key([], "q", lazy.spawn("{}quicklinks.sh".format(ROFIDIR)), desc="Open Rofi Quicklinks"),
+        Key([], "s", lazy.spawn("{}screenshot.sh".format(ROFIDIR)), desc="Open Rofi Screenshot utillity"),
+        Key([], "m", lazy.spawn("{}wm-changer.sh".format(ROFIDIR)), desc="Open WM changer"),
     ]),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
 
-    # Restart and quit Qtile
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    # Qtile restart  and quit Qtile
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "t", lazy.spawn("{}prep.sh".format(SCRIPTD)), desc="Reload prep.sh"),
 ]
 
 # My workspaces
@@ -185,7 +202,7 @@ groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-group_labels = ["TERM", "WEB", "FILE", "DRAW", "MUSC", "DEV", "VIRT", "CHAT", "MAIL", "PLAY"]
+group_labels = ["TERM", "WEB", "FILE", "DRAW", "MUSC", "DEV", "VIRT",  "MAIL", "CHAT", "PLAY"]
 
 group_layouts = ["monadtall", "monadtall", "monadtall",  "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 
@@ -235,10 +252,10 @@ layouts = [
 
 # SCRATCHPAD
 groups.append(ScratchPad('scratchpad', [
-    DropDown('htop', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+    DropDown('term', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
 ]))
 groups.append(ScratchPad('scratchpad', [
-    DropDown('term', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+    DropDown('htop', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
 ]))
 groups.append(ScratchPad('scratchpad', [
     DropDown('ttyc', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
@@ -312,17 +329,9 @@ def init_widgets_list():
                 background=colors[0]
             ),
             widget.Image(
-                filename="~/.config/qtile/python.png",
+                filename="{}python.png".format(WORKDIR),
                 background=colors[0],
                 foreground=colors[1],
-                mouse_callbacks={
-                    'Button1': lambda: qtile.cmd_spawn(
-                        f'{terminal} -e nvim /home/oizero/.config/qtile/config.py'
-                    ),
-                    'Button3': lambda: qtile.cmd_spawn(
-                        f'{terminal} -e nvim /home/oizero/.config/qtile/autostart.sh'
-                    )
-                }
             ),
             widget.GroupBox(
                 #font="Iosevka Nerd Font",
@@ -437,7 +446,7 @@ def init_widgets_list():
                 background=colors[0],
                 update_interval=1,
                 mouse_callbacks={
-                    'Button1': lambda: qtile.cmd_spawn("{terminal} -e gotop")
+                    'Button1': lambda: qtile.cmd_spawn("{terminal} -e htop")
                 }
             ),
             space,
@@ -451,7 +460,7 @@ def init_widgets_list():
                 background=colors[0],
                 update_interval=1,
                 mouse_callbacks={
-                    'Button1': lambda: qtile.cmd_spawn("{terminal} -e gotop")
+                    'Button1': lambda: qtile.cmd_spawn("{terminal} -e htop")
                 }
             ),
             sep,
