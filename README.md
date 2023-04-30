@@ -61,7 +61,7 @@ daily driver.
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome1.png)
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome2.png)
 
-### Dwm
+### DWM
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm1.png)
 ![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm2.png)
 
