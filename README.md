@@ -18,9 +18,7 @@ daily driver.
 | **usr**       | **_/usr/_**             | sddm             |
 | **local/bin** | **_$HOME/.local/bin/_** | scripts for WMs  |
 
-## Software
-
-### Keybindings
+## Keybindings
 **alt or ALTKEY** = Mod1\
 **mod or MODKEY** = Mod4
 
@@ -33,6 +31,8 @@ daily driver.
 | Kill focused window    | MOD+c  |
 | Kill focused window    | MOD+c  |
 | Kill focused window    | MOD+c  |
+
+## Software
 
 ### WM specific
 |             | AwesomeWM | Dwm      | Qtile    |
