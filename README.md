@@ -20,7 +20,7 @@ daily driver.
 
 ## Keybindings
 **alt or ALTKEY** = Mod1\
-**mod or MODKEY** = Mod4
+**mod or MODKEY** = Mod4 (Super Key)
 
 | Combination                  | Action     |
 |:----------------------------:|:----------:|
