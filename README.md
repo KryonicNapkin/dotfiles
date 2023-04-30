@@ -71,5 +71,5 @@ mod or MODKEY is Mod4
 -   [ ] Make this page more atractive
 -   [ ] Make this page more informative
 
-### Credit
+## Credit
 ZSH - [ChristianChiarulli](https://github.com/ChristianChiarulli)
