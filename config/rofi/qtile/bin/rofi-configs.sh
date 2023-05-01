@@ -3,6 +3,7 @@
 # Variables
 dotdir=$HOME/dotfiles
 confdif=$HOME/.config
+scriptd=$HOME/.local/bin
 arofidir=$HOME/.config/rofi/awesome/bin
 drofidir=$HOME/.config/rofi/dwm/bin
 qrofidir=$HOME/.config/rofi/qtile/bin
@@ -56,6 +57,25 @@ declare -a options=(
 "picom_a.conf - $pcmdir/picom_a.conf"
 "picom_d.conf - $pcmdir/picom_d.conf"
 "picom_q.conf - $pcmdir/picom_q.conf"
+"break-notifier.sh - $scriptd/break-notifier.sh"
+"dunst-close.sh - $scriptd/dunst-close.sh"
+"dwm-audio.sh - $scriptd/dwm-audio.sh"
+"dwm-back.sh- $scriptd/dwm-back.sh"
+"dwm-bat.sh $scriptd/dwm-bat.sh"
+"dwm-cpu.sh $scriptd/dwm-cpu.sh"
+"dwm-date.sh- $scriptd/dwm-date.sh"
+"dwm-disk.sh- $scriptd/dwm-disk.sh"
+"dwm-krnl.sh- $scriptd/dwm-krnl.sh"
+"dwm-mem.sh $scriptd/dwm-mem.sh"
+"dwm-temp.sh- $scriptd/dwm-temp.sh"
+"dwm-xkb.sh $scriptd/dwm-xkb.sh"
+"mice-mute.sh - $scriptd/mice-mute.sh"
+"net-checker.sh - $scriptd/net-checker.sh"
+"prep_a.sh - $scriptd/prep_a.sh"
+"prep_d.sh - $scriptd/prep_d.sh"
+"prep_q.sh - $scriptd/prep_q.sh"
+"updates.sh - $scriptd/updates.sh"
+"xprop-info.sh - $scriptd/xprop-info.sh"
 "dwm.c - $dwmdir/dwm.c"
 "config.def.h - $dwmdir/config.def.h"
 "rc.lua - $awmdir/rc.lua"
