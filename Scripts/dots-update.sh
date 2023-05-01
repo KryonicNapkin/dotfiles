@@ -2,9 +2,9 @@
 #set -xe
 
 # Variables
-CONFIG=$HOME/.config/
-DOTDIR=$HOME/dotfiles/
-BINDIR=$HOME/.local/
+config=$HOME/.config/
+dotdir=$HOME/dotfiles/
+scriptd=$HOME/.local/
 
 # Actual code
 doned()
@@ -20,8 +20,8 @@ awesome()
 	echo "########################"
 	echo "# Updating awesome dir #"
 	echo -e "########################\n"
-    rm -rf $DOTDIR/config/awesome
-	cp -rf $CONFIG/awesome/ $DOTDIR/config/
+    rm -rf $dotdir/config/awesome
+	cp -rf $config/awesome/ $dotdir/config/
 	doned
 }
 
@@ -30,8 +30,8 @@ dwm()
 	echo "######################"
 	echo "#  Updating dwm dir  #"
 	echo -e "######################\n"
-    rm -rf $DOTDIR/config/dwm
-    cp -rf $CONFIG/dwm/ $DOTDIR/config/
+    rm -rf $dotdir/config/dwm
+    rsync -av $config/dwm/ $dotdir/config/dwm --exclude=config.def.h.orig --exclude=config.h --exclude=config.def.h.rej --exclude=dwm.o --exclude=dwm --exclude=drw.o --exclude=dwm.c.orig --exclude=dwm.c.rej --exclude=util.o
 	doned
 }
 
@@ -40,8 +40,8 @@ qtile()
 	echo "######################"
 	echo "# Updating qtile dir #"
 	echo -e "######################\n"
-    rm -rf $DOTDIR/config/qtile
-    rsync -av $CONFIG/qtile/ $DOTDIR/config/qtile --exclude=__pycache__
+    rm -rf $dotdir/config/qtile
+    rsync -av $config/qtile/ $dotdir/config/qtile --exclude=__pycache__
 	doned
 }
 
@@ -51,8 +51,8 @@ alacritty()
 	echo "##########################"
 	echo "# Updating alacritty dir #"
 	echo -e "##########################\n"
-    rm -rf $DOTDIR/config/alacritty
-	cp -rf $CONFIG/alacritty/ $DOTDIR/config/
+    rm -rf $dotdir/config/alacritty
+	rsync -av $config/alacritty/ $dotdir/config/alacritty --exclude=alacritty.yml
 	doned
 }
 
@@ -61,8 +61,8 @@ dunst()
 	echo "######################"
 	echo "# Updating dunst dir #"
 	echo -e "######################\n"
-    rm -rf $DOTDIR/config/dunst
-	cp -rf $CONFIG/dunst/ $DOTDIR/config/
+    rm -rf $dotdir/config/dunst
+	rsync -av $config/dunst/ $dotdir/config/dunst --exclude=dunstrc
 	doned
 }
 
@@ -71,8 +71,8 @@ fehbg()
 	echo "######################"
 	echo "#  Updating feh dir  #"
 	echo -e "######################\n"
-	rm -rf $DOTDIR/config/feh
-	cp -rf $CONFIG/feh/ $DOTDIR/config/
+	rm -rf $dotdir/config/feh
+	rsync -av $config/feh/ $dotdir/config/feh --exclude=fehbg
 	doned
 }
 
@@ -81,7 +81,7 @@ localbin()
 	echo "##########################"
 	echo "# Updating local bin dir #"
 	echo -e "##########################\n"
-    rsync -av $BINDIR/bin/ $DOTDIR/local/bin --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm --exclude=prep.sh
+    rsync -av $scriptd/bin/ $dotdir/local/bin --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm --exclude=prep.sh
 }
 
 nvim()
@@ -89,8 +89,8 @@ nvim()
 	echo "#######################"
 	echo "#  Updating nvim dir  #"
 	echo -e "#######################\n"
-    rm -rf $DOTDIR/config/nvim
-    cp -r $CONFIG/nvim/ $DOTDIR/config/
+    rm -rf $dotdir/config/nvim
+    cp -r $config/nvim/ $dotdir/config/
     doned
 }
 
@@ -99,8 +99,8 @@ picom()
 	echo "##############################"
 	echo "#     Updating picom dir     #"
 	echo -e "##############################\n"
-    rm -rf $DOTDIR/config/picom
-	cp -rf $CONFIG/picom $DOTDIR/config/
+    rm -rf $dotdir/config/picom
+    rsync -av $config/picom/ $dotdir/config/picom --exclude=picom.conf
 	doned
 }
 
@@ -109,9 +109,12 @@ rofi()
 	echo "#############################"
 	echo "#     Updating rofi dir     #"
 	echo -e "#############################\n"
-    rm -rf $DOTDIR/config/rofi
-	cp -rf $CONFIG/rofi $DOTDIR/config/
-	doned
+    rm -rf $dotdir/config/rofi
+	rsync -av $config/rofi/ $dotdir/config/rofi
+    rm -rf $dotdir/config/rofi/bin
+    rm -rf $dotdir/config/rofi/configs
+    rm -rf $dotdir/config/rofi/colors
+    doned
 }
 
 zsh()
@@ -119,10 +122,10 @@ zsh()
 	echo "######################"
 	echo "#  Updating zsh dir  #"
 	echo -e "######################\n"
-    rm -rf $DOTDIR/config/zsh
-	rsync -av $CONFIG/zsh $DOTDIR/config/ --exclude '.zcompdump' --exclude '.zsh_history'
-	cp -rf $HOME/.zprofile $DOTDIR/
-	cp -rf $HOME/.zshrc $DOTDIR/
+    rm -rf $dotdir/config/zsh
+	rsync -av $config/zsh/ $dotdir/config/zsh --exclude=.zcompdump --exclude=.zsh_history --exclude=.zshrc
+	cp -rf $HOME/.zprofile $dotdir/
+	cp -rf $HOME/.zshrc $dotdir/
 	doned
 }
 
@@ -132,8 +135,8 @@ bash()
 	echo "##########################"
 	echo "#     Updating bash      #"
 	echo -e "##########################\n"
-	cp -rf $HOME/.bashrc $DOTDIR/
-	cp -rf $HOME/.bash_profile $DOTDIR/
+	cp -rf $HOME/.bashrc $dotdir/
+	cp -rf $HOME/.bash_profile $dotdir/
 	doned
 }
 
@@ -142,10 +145,10 @@ X11()
 	echo "#############################"
 	echo "#    Updating X11 files     #"
 	echo -e "#############################\n"
-	cp -rf $HOME/.xinitrc_a $DOTDIR/
-	cp -rf $HOME/.xinitrc_d $DOTDIR/
-	cp -rf $HOME/.xinitrc_q $DOTDIR/
-	cp -rf $HOME/.Xresources $DOTDIR/
+	cp -rf $HOME/.xinitrc_a $dotdir/
+	cp -rf $HOME/.xinitrc_d $dotdir/
+	cp -rf $HOME/.xinitrc_q $dotdir/
+	cp -rf $HOME/.Xresources $dotdir/
 	doned
 }
 
