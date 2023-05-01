@@ -78,6 +78,7 @@ grub
 grub-customizer
 gst-plugin-pipewire
 gstreamer-vaapi
+gtk4
 gufw
 gzip
 hdparm
@@ -150,6 +151,7 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
+newsflash
 nitch
 nitrogen
 nmap
