@@ -185,7 +185,7 @@ static Keychord *keychords[] = {
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_w}},	    spawn,          {.v = browser} }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_e}},	    spawn,          SHCMD("brave https://zsmurgasa.edupage.org/") }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_b}},	    spawn,          SHCMD("brave https://bezkriedy.sk/") }),
-	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_l}},	    spawn,          SHCMD("brave https://commons.wikipedia.org/") }),
+	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_c}},	    spawn,          SHCMD("brave https://commons.wikipedia.org/") }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_o}},	    spawn,          SHCMD("brave https://ourworldindata.org/") }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_y}},	    spawn,          SHCMD("brave https://youtube.com/") }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_r}},	    spawn,          SHCMD("brave https://reddit.com/") }),
