@@ -1,5 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 xkb_layout=$(xkblayout-state print %s)
-
-printf "%s" "$xkb_layout"
+printf "%s\n" "$xkb_layout"

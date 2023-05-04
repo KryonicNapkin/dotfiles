@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 kernel=$(uname -r)
-printf "%s" "$kernel"
+printf "%s\n" "$kernel"
