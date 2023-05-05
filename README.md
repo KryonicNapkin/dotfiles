@@ -27,7 +27,7 @@ daily driver.
 | Restart Window Manager       | MOD+CTRL+r  |
 | Quit Window Manager          | MOD+CRTL+q  |
 | Restart Proceses (if needed) | MOD+CRTL+t  |
-|                              |             |
+
 | Window managment controls    |             |
 |:----------------------------:|:-----------:|
 | Kill focused window          | MOD+c       |
