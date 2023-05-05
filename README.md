@@ -20,17 +20,24 @@ daily driver.
 
 ## Keybindings
 **alt or ALTKEY** = Mod1\
-**mod or MODKEY** = Mod4 (Super Key)
+**mod or MODKEY** = Mod4 (Windows Key)
 
-| Combination                  | Action     |
-|:----------------------------:|:----------:|
-| Restart Window Manager       | MOD+CTRL+r |
-| Quit Window Manager          | MOD+CRTL+q |
-| Restart Proceses (if needed) | MOD+CRTL+t |
-| Kill focused window    | MOD+c  |
-| Kill focused window    | MOD+c  |
-| Kill focused window    | MOD+c  |
-| Kill focused window    | MOD+c  |
+| Window Manger Controls       | Combination |
+|:----------------------------:|:-----------:|
+| Restart Window Manager       | MOD+CTRL+r  |
+| Quit Window Manager          | MOD+CRTL+q  |
+| Restart Proceses (if needed) | MOD+CRTL+t  |
+| Window managment controls    |             |
+|:----------------------------:|:-----------:|
+| Kill focused window          | MOD+c       |
+| Change focus to the right    | MOD+l       |
+| Change focus to the left     | MOD+h       |
+| Change focus to the up       | MOD+k       |
+| Change focus to the bottom   | MOD+j       |
+| Move Window to the right     | MOD+Shift+l |
+| Move Window to the left      | MOD+Shift+h |
+| Move Window to the up        | MOD+Shift+k |
+| Move Window to the bottom    | MOD+Shift+j |
 
 ## Software
 
