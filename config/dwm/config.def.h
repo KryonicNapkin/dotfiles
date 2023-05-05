@@ -55,11 +55,13 @@ typedef struct {
 const char *spcmd1[] = {"alacritty", "--class", "spterm", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", NULL };
 const char *spcmd2[] = {"alacritty", "--class", "sphtop", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "htop", NULL };
 const char *spcmd3[] = {"alacritty", "--class", "spttyc", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "tty-clock", "-s", "-b", "-c", "-f", "%a %d.%m.%y", NULL };
+const char *spcmd4[] = {"alacritty", "--class", "spbat", "--config-file", CONFDIR "alacritty/alacritty_scratchpad.yml", "-e", "battop", NULL };
 static Sp scratchpads[] = {
 	// name           cmd
 	{"spterm",      spcmd1},
 	{"sphtop",      spcmd2},
 	{"spttyc",      spcmd3},
+	{"spbat",       spcmd4},
 };
 
 // Tags names
@@ -83,6 +85,7 @@ static const Rule rules[] = {
 	{ NULL,		       "spterm",		NULL,		                SPTAG(0),		1,			  1 },
 	{ NULL,		       "sphtop",		NULL,		                SPTAG(1),		1,			  1 },
 	{ NULL,		       "spttyc",		NULL,		                SPTAG(2),		1,			  1 },
+	{ NULL,		       "spbat",	    	NULL,		                SPTAG(3),		1,			  1 },
 };
 
 // Layout settings
@@ -136,6 +139,7 @@ static const char *thndbird[]     = { "thunderbird", NULL };
 static const char *filebrw[]      = { "pcmanfm", NULL };
 static const char *terminal[]     = { "alacritty", NULL };
 static const char *inkscape[]     = { "inkscape", NULL };
+static const char *hptoolbox[]    = { "hp-toolbox", NULL };
 static const char *dispplan[]     = { "feh", HOMEDIR "Screenshots/Rozvrch_9.B.png", NULL };
 static const char *updates[]      = { SCRIPTD "updates.sh", NULL };
 static const char *restartprocs[] = { SCRIPTD "prep.sh", NULL };
@@ -181,6 +185,7 @@ static Keychord *keychords[] = {
     // Used apps
 	&((Keychord){1, {{MODKEY, XK_Return}},			            spawn,          {.v = terminal} }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_i}},		            spawn,          {.v = inkscape} }),
+	&((Keychord){1, {{MODKEY|ShiftMask, XK_h}},		            spawn,          {.v = hptoolbox} }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_r}},		            spawn,          {.v = rssreader} }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_w}},	    spawn,          {.v = browser} }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_e}},	    spawn,          SHCMD("brave https://zsmurgasa.edupage.org/") }),
@@ -194,6 +199,7 @@ static Keychord *keychords[] = {
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_v}},	    spawn,          SHCMD("brave https://theverge.com/") }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_h}},	    spawn,          SHCMD("brave https://github.com/") }),
 	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_a}},	    spawn,          SHCMD("brave https://wiki.archlinux.org/") }),
+	&((Keychord){2, {{MODKEY|ShiftMask, XK_w}, {0, XK_n}},	    spawn,          SHCMD("brave https://nationstates.net/") }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_d}},		            spawn,          {.v = discord} }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_t}},		            spawn,          {.v = thndbird} }),
 	&((Keychord){1, {{MODKEY|ShiftMask, XK_f}},		            spawn,          {.v = filebrw} }),
@@ -245,6 +251,7 @@ static Keychord *keychords[] = {
 	&((Keychord){1, {{ALTKEY, XK_1}},           	            togglescratch,  {.ui = 0} }),
 	&((Keychord){1, {{ALTKEY, XK_2}},				            togglescratch,  {.ui = 1} }),
 	&((Keychord){1, {{ALTKEY, XK_3}},				            togglescratch,  {.ui = 2} }),
+	&((Keychord){1, {{ALTKEY, XK_4}},				            togglescratch,  {.ui = 3} }),
 
     // layout control
 	&((Keychord){1, {{MODKEY, XK_space}},				        cyclelayout,    {.i = +1} }),
