@@ -9,4 +9,3 @@ if [ $muted = "off" ]; then
 else
     printf "%s%s\n" "VOL " "$vol%"
 fi
-
