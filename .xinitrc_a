@@ -1,8 +1,0 @@
-#!/bin/sh
-
-xrandr --output VGA-0 --off
-redshift -P -O 3600k &
-xrdb ~/.Xresources &
-export CWM='awesome'
-/home/oizero/.local/bin/prep.sh &
-exec awesome
