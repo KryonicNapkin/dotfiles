@@ -1,4 +1,4 @@
 #!/bin/sh
-cpu_temp=$(sensors | awk 'NR==13{print $2}' | tr -d '+')
+cpu_temp=$(sensors | awk 'NR==3{print $4}' | tr -d '+')
 
 printf "%s\n" "$cpu_temp"
