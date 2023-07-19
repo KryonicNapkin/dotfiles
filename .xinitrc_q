@@ -1,8 +1,0 @@
-#!/bin/sh
-
-xrandr --output VGA-0 --off
-redshift -P -O 3600k &
-xrdb ~/.Xresources &
-export CWM='qtile'
-/home/oizero/.local/bin/prep.sh &
-exec qtile start
