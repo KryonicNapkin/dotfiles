@@ -1,10 +1,12 @@
 #!/bin/sh
-alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+
+# Random aliases
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -ah --color=auto --group-directories-first'
 alias ll='ls -lah --color=auto --group-directories-first'
 alias vim='nvim'
 alias show_rozvrch='feh ~/Screenshots/Rozvrch_9.B.png &'
+alias cr-file='cp ~/.local/share/univ/template '
 alias ttyc='tty-clock -s -b -c -f "%a %d.%m.%y"'
 alias pipes='pipes.sh -t 1'
 alias pacman='pacman --color=auto'
@@ -29,6 +31,25 @@ alias fgrep='fgrep --color=auto'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+
+# Directories
+alias lbin='cd ~/.local/bin'
+alias lshare='cd ~/.local/share'
+alias lstate='cd ~/.local/state'
+alias cdunst='cd ~/.config/dunst'
+alias cdmenu='cd ~/.config/dmenu'
+alias cdwm='cd ~/.config/dwm'
+alias cfeh='cd ~/.config/feh'
+alias cpicom='cd ~/.config/picom'
+alias crofi='cd ~/.config/rofi'
+alias cst='cd ~/.config/st'
+alias csuck='cd ~/.config/suckless'
+alias czsh='cd ~/.config/zsh'
+alias hvid='cd ~/Videos'
+alias hgam='cd ~/Games'
+alias hdots='cd ~/dotfiles'
+alias hdraw='cd ~/Drawings'
+alias hgits='cd ~/gits'
 
 # easier to read disk
 alias df='df -h'     # human-readable sizes
