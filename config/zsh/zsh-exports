@@ -1,8 +1,9 @@
 #!/bin/sh
+export ZDOTDIR=$HOME/.config/zsh
+export CM_LAUNCHER="dmenu"
 HISTFILE=$ZDOTDIR/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-export ZDOTDIR=$HOME/.config/zsh
 export PATH="$HOME/.local/bin":$PATH
 export XDG_CONFIG_HOME="$HOME/.config"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -14,3 +15,11 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave"
 export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Clipmenu
+export CM_SELECTIONS="clipboard"
+export CM_DEBUG=0
+export CM_OUTPUT_CLIP=0
+export CM_MAX_CLIPS=100
+export CWM='awesome'
+export CWM='awesome'
