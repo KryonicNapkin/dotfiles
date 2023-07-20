@@ -1,34 +1,30 @@
 #!/bin/sh
 
-# Variables
-CONFDIR=$HOME/.config
+# Importing universal variables declaration file
+. /home/oizero/.local/share/univ/vars
 
 # link alacritty
-ln -sf $CONFDIR/alacritty/alacritty_d.yml $CONFDIR/alacritty/alacritty.yml
+ln -sf $alattyd/alacritty_d.yml $alattyd/alacritty.yml
 
 # link dunst
-ln -sf $CONFDIR/dunst/dunstrc_d $CONFDIR/dunst/dunstrc
+ln -sf $dunstd/dunstrc_d $dunstd/dunstrc
 
 # link picom
-ln -sf $CONFDIR/picom/picom_d.conf $CONFDIR/picom/picom.conf
+ln -sf $picomd/picom_d.conf $picomd/picom.conf
 
 # link feh
-ln -sf $CONFDIR/feh/fehbg_d $CONFDIR/feh/fehbg
-
-# link rofi
-ln -sf $CONFDIR/rofi/dwm/bin $CONFDIR/rofi
-ln -sf $CONFDIR/rofi/dwm/configs $CONFDIR/rofi
-ln -sf $CONFDIR/rofi/dwm/colors $CONFDIR/rofi
+ln -sf $fehbgd/fehbg_d $fehbgd/fehbg
 
 # End of linking
-#
 # startup apps
 /home/oizero/.config/feh/fehbg &
 picom --no-fading-openclose --backend glx &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 setxkbmap -option "grp:alt_space_toggle" -layout "us,sk" &
-slbar &
 dunst &
+slbar &
 nm-applet &
+pkill clipmenud
+clipmenud &
 discord --start-minimized &
-source ~/.zshrc &
+exec dwm
