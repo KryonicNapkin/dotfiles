@@ -1,27 +1,25 @@
 #!/bin/sh
 
-# Variables
-CONFDIR=$HOME/.config
+# Importing universal variables declaration file
+. /home/oizero/.local/share/univ/vars
 
 # link alacritty
-ln -sf $CONFDIR/alacritty/alacritty_q.yml $CONFDIR/alacritty/alacritty.yml
+ln -sf $alattyd/alacritty_q.yml $alattyd/alacritty.yml
 
 # link dunst
-ln -sf $CONFDIR/dunst/dunstrc_q $CONFDIR/dunst/dunstrc
+ln -sf $dunstd/dunstrc_q $dunstd/dunstrc
 
 # link picom
-ln -sf $CONFDIR/picom/picom_q.conf $CONFDIR/picom/picom.conf
+ln -sf $picomd/picom_q.conf $picomd/picom.conf
 
 # link feh
-ln -sf $CONFDIR/feh/fehbg_q $CONFDIR/feh/fehbg
+ln -sf $fehbgd/fehbg_q $fehbgd/fehbg
 
-# link rofi
-ln -sf $CONFDIR/rofi/qtile/bin $CONFDIR/rofi
-ln -sf $CONFDIR/rofi/qtile/configs $CONFDIR/rofi
-ln -sf $CONFDIR/rofi/qtile/colors $CONFDIR/rofi
+# change color scheme of rofi
+sed -i 's/onedark/dracula/g' $rofid/dmenu.rasi
+sed -i 's/blue/magenta/g' $rofid/dmenu.rasi
 
 # End of linking
-#
 # startup apps
 /home/oizero/.config/feh/fehbg &
 picom --no-fading-openclose --backend glx &
@@ -29,5 +27,7 @@ picom --no-fading-openclose --backend glx &
 setxkbmap -option "grp:alt_space_toggle" -layout "us,sk" &
 dunst &
 nm-applet &
+pkill clipmenud
+clipmenud &
 discord --start-minimized &
-source ~/.zshrc &
+exec qtile start
