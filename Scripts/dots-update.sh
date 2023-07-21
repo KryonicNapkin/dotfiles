@@ -37,7 +37,7 @@ qtile() {
     echo "# Updating qtile dir #"
     echo -e "######################\n"
     rm -rf $dotdir/config/qtile
-    rsync -av $config/qtile/ $dotdir/config/qtile --exclude=__pycache__
+    rsync -av $config/qtile/ $dotdir/config/qtile --exclude=__pycache__ --exclude=scripts/__pycache__
     doned
 }
 
@@ -80,7 +80,7 @@ localbin() {
     echo "##########################"
     echo "# Updating local bin dir #"
     echo -e "##########################\n"
-    rsync -av $scriptd/bin/ $dotdir/local/bin --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm --exclude=prep.sh
+    rsync -av $scriptd/bin/ $dotdir/local/bin --exclude=reminders --exclude=dmypy --exclude=mypy --exclude=mypyc --exclude=qemantra --exclude=stubgen --exclude=stubtest --exclude=wpm --exclude=prep.sh
 }
 
 nvim() {
@@ -107,9 +107,6 @@ rofi() {
     echo -e "#############################\n"
     rm -rf $dotdir/config/rofi
     rsync -av $config/rofi/ $dotdir/config/rofi
-    rm -rf $dotdir/config/rofi/bin
-    rm -rf $dotdir/config/rofi/configs
-    rm -rf $dotdir/config/rofi/colors
     doned
 }
 
@@ -118,9 +115,8 @@ zsh() {
     echo "#  Updating zsh dir  #"
     echo -e "######################\n"
     rm -rf $dotdir/config/zsh
-    rsync -av $config/zsh/ $dotdir/config/zsh --exclude=.zcompdump --exclude=.zsh_history --exclude=.zshrc
+    rsync -av $config/zsh/ $dotdir/config/zsh --exclude=.zcompdump --exclude=.zsh_history
     cp -rf $HOME/.zprofile $dotdir/
-    cp -rf $HOME/.zshrc $dotdir/
     doned
 }
 
