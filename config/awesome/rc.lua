@@ -26,11 +26,6 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
---systray_hints                = require("systray_hints")
---systray_hints.font           = "Iosevka Bold 16"
---systray_hints.default_button = 1
---systray_hints.mouse_buttons  = { "h", "j", "l" }
-
 -- Naughty notification config
 naughty.config.padding = 0
 naughty.config.spacing = 3
@@ -90,7 +85,6 @@ local cyan = "#56b6c2"
 
 -- Constants definition
 local HOMEDIR = "/home/oizero/"
-local ROFIDIR = HOMEDIR .. ".config/rofi/bin/"
 local WORKDIR = HOMEDIR .. ".config/awesome/"
 local CONFDIR = HOMEDIR .. ".config/"
 local SCRIPTD = HOMEDIR .. ".local/bin/"
@@ -111,8 +105,8 @@ local mod = "Mod4"
 local alt = "Mod1"
 
 -- Variables declaration
-
 local rssreader = "newsflash"
+local virtmngr = "virt-manager"
 local browser = "brave"
 local steam = "steam"
 local discord = "discord"
@@ -120,9 +114,12 @@ local thndbird = "thunderbird"
 local filebrw = "pcmanfm"
 local terminal = "alacritty"
 local inkscape = "inkscape"
-local virtmngr = "inkscape"
+local hptoolbox = "hp-toolbox"
 local dispplan = "feh " .. HOMEDIR .. "Screenshots/Rozvrch_9.B.png"
+local updates = SCRIPTD .. "updates.sh" -- Table of layouts to cover with awful.layout.inc, order matters.
 local restartprocs = SCRIPTD .. "prep.sh" -- Table of layouts to cover with awful.layout.inc, order matters.
+local dunstclose = SCRIPTD .. "dunst-close.sh" -- Table of layouts to cover with awful.layout.inc, order matters.
+local mutemic = SCRIPTD .. "mice-mute.sh" -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.tile,
 	awful.layout.suit.floating,
@@ -575,22 +572,34 @@ globalkeys = gears.table.join(
 	-- Terminal Applications
 	awful.key({ alt }, "1", function()
 		awful.spawn.with_shell(
-			"alacritty --config-file" .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class term -e 'alacritty'",
+			"alacritty --config-file " .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class term",
 			{ floating = true, ontop = true }
 		)
 	end, { description = "Open Floating Alacritty term", group = "Terminal Applications" }),
 	awful.key({ alt }, "2", function()
 		awful.spawn.with_shell(
-			"alacritty --config-file" .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class htop -e htop",
+			"alacritty --config-file " .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class htop -e htop",
 			{ floating = true, ontop = true }
 		)
 	end, { description = "Open Floating htop", group = "Terminal Applications" }),
 	awful.key({ alt }, "3", function()
 		awful.spawn.with_shell(
-			"alacritty --config-file" .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class ttyc -e tty-clock -s -b -c -f '%a %d.%m.%y'",
+			"alacritty --config-file " .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class ttyc -e tty-clock -s -b -c -f '%a %d.%m.%y'",
 			{ floating = true, ontop = true }
 		)
 	end, { description = "Open Clock", group = "Terminal Applications" }),
+	awful.key({ alt }, "4", function()
+		awful.spawn.with_shell(
+			"alacritty --config-file " .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class battop -e battop",
+			{ floating = true, ontop = true }
+		)
+	end, { description = "Open battop", group = "Terminal Applications" }),
+	awful.key({ alt }, "5", function()
+		awful.spawn.with_shell(
+			"alacritty --config-file " .. CONFDIR .. "alacritty/alacritty_scratchpad.yml --class qalc -e qalc",
+			{ floating = true, ontop = true }
+		)
+	end, { description = "Open Calculator", group = "Terminal Applications" }),
 
     -- Misc
 	awful.key({ alt, "Control" }, "r", function()
@@ -599,17 +608,14 @@ globalkeys = gears.table.join(
 
 	-- Notify Applications
 	awful.key({ mod, alt }, "u", function()
-		awful.spawn(SCRIPTD .. "updates.sh", {})
+		awful.spawn(updates)
 	end, { description = "Check for updates", group = "Notify Applications" }),
-	awful.key({ mod, alt }, "x", function()
-		awful.spawn(SCRIPTD .. "xprop-info.sh", {})
-	end, { description = "output the xprop info to naughty", group = "Notify Applications" }),
 	awful.key({ mod, alt }, "c", function()
-		awful.spawn(SCRIPTD .. "dunst-close.sh", {})
+		awful.spawn(dunstclose)
 	end, { description = "Close dunst notification", group = "Notify Applications" }),
 	awful.key({ mod, alt }, "m", function()
-		awful.spawn(SCRIPTD .. "mice-mute.sh", {})
-	end, { description = "mutes mice", group = "Notify Applications" }),
+		awful.spawn(mutemic)
+	end, { description = "Mutes mice", group = "Notify Applications" }),
 
 	-- Function keys keybindings
 	awful.key({}, "XF86MonBrightnessUp", function()
@@ -653,6 +659,9 @@ globalkeys = gears.table.join(
 	awful.key({ mod, "Shift" }, "v", function()
 		awful.spawn(virtmngr)
 	end, { description = "Open Open Virt-manager", group = "Programs" }),
+	awful.key({ mod, "Shift" }, "p", function()
+		awful.spawn(hptoolbox)
+	end, { description = "Open HP Toolbox", group = "Programs" }),
 	awful.key({ mod, "Shift" }, "t", function()
 		awful.spawn(thndbird)
 	end, { description = "Open Thunderbird", group = "Programs" }),
@@ -666,27 +675,31 @@ globalkeys = gears.table.join(
 			end
 
 			if key == "r" then
-				awful.spawn.with_shell(ROFIDIR .. "launcher.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-run.sh")
 			elseif key == "b" then
-				awful.spawn.with_shell(ROFIDIR .. "launcher_bin.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-bin.sh")
 			elseif key == "p" then
-				awful.spawn.with_shell(ROFIDIR .. "powermenu.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-pwr.sh")
 			elseif key == "w" then
-				awful.spawn.with_shell(ROFIDIR .. "rofi-wiki.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-wiki.sh")
 			elseif key == "c" then
-				awful.spawn.with_shell(ROFIDIR .. "rofi-calc.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-clip.sh")
 			elseif key == "d" then
-				awful.spawn.with_shell(ROFIDIR .. "rofi-configs.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-win.sh")
 			elseif key == "e" then
-				awful.spawn.with_shell(ROFIDIR .. "rofi-emoji.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-dots.sh")
 			elseif key == "i" then
-				awful.spawn.with_shell(ROFIDIR .. "rofi-pkginfo.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-pkginf.sh")
 			elseif key == "q" then
-				awful.spawn.with_shell(ROFIDIR .. "quicklinks.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-qkl.sh")
 			elseif key == "s" then
-				awful.spawn.with_shell(ROFIDIR .. "screenshot.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-scrt.sh")
+			elseif key == "k" then
+				awful.spawn.with_shell(SCRIPTD .. "rf-scpwiki.sh")
+			elseif key == "n" then
+				awful.spawn.with_shell(SCRIPTD .. "rf-man.sh")
 			elseif key == "m" then
-				awful.spawn.with_shell(ROFIDIR .. "wm-changer.sh")
+				awful.spawn.with_shell(SCRIPTD .. "rf-wmch.sh")
 			end
 			awful.keygrabber.stop(grabber)
 		end)
@@ -904,12 +917,12 @@ awful.rules.rules =
 				"copyq", -- Includes session name in class.
 				"pinentry",
 				"ttyc",
+				"qalc",
+				"battop",
 				"term",
 				"htop",
-				"lvim",
 				"rozvrch",
                 "Xdialog",
-                "yad"
 			},
 			class = {
 				"Arandr",
