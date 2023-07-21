@@ -57,7 +57,12 @@ rssreader = "newsflash"
 filebrw = "pcmanfm"
 discord = "discord"
 virtmngr = "virt-manager"
+hptoolbox = "hp-toolbox"
 dispplan = "feh {}Screenshots/Rozvrch_9.B.png".format(HOMEDIR)
+updates = "{}updates.sh".format(SCRIPTD)
+restartprocs = "{}prep.sh".format(SCRIPTD)
+mutemic = "{}mice-mute.sh".format(SCRIPTD)
+dunstclose = "{}dunst-close.sh".format(SCRIPTD)
 
 ################################################################################
 # SETTING XTERM AS A DEFAULT TERMINAL TEMPORATLY BECAUSE I DON'T HAVE ENOUGHT  #
@@ -164,26 +169,28 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn(discord), desc="Open Discord"),
     Key([mod, "shift"], "t", lazy.spawn(thndbird), desc="Open Thunderbird"),
     Key([mod, "shift"], "r", lazy.spawn(rssreader), desc="Open Newsflash"),
+    Key([mod, "shift"], "p", lazy.spawn(hptoolbox), desc="Open HP Toolbox"),
 
     # Notification apps
-    Key([mod, alt], "u", lazy.spawn("{}updates.sh".format(SCRIPTD)), desc="List updates"),
-    Key([mod, alt], "c", lazy.spawn("{}dunst-close.sh".format(SCRIPTD)), desc="Close dunst notification"),
-    Key([mod, alt], "x", lazy.spawn("{}xprop-info.sh".format(SCRIPTD)), desc="Info about focused window"),
-    Key([mod, alt], "m", lazy.spawn("{}mice-mute.sh".format(SCRIPTD)), desc="Mute microphone"),
+    Key([mod, alt], "u", lazy.spawn(updates), desc="List updates"),
+    Key([mod, alt], "c", lazy.spawn(dunstclose), desc="Close dunst notification"),
+    Key([mod, alt], "m", lazy.spawn(mutemic), desc="Mute microphone"),
 
     # Rofi keybindings
     KeyChord([mod], "r", [
-        Key([], "r", lazy.spawn("{}launcher.sh".format(ROFIDIR)), desc="Open Rofi"),
-        Key([], "b", lazy.spawn("{}launcher_bin.sh".format(ROFIDIR)), desc="Open Rofi"),
-        Key([], "p", lazy.spawn("{}powermenu.sh".format(ROFIDIR)), desc="Open Rofi Powermenu"),
-        Key([], "w", lazy.spawn("{}rofi-wiki.sh".format(ROFIDIR)), desc="Open Rofi Arch-wiki"),
-        Key([], "c", lazy.spawn("{}rofi-calc.sh".format(ROFIDIR)), desc="Open Rofi Calculator"),
-        Key([], "d", lazy.spawn("{}rofi-configs.sh".format(ROFIDIR)), desc="Open Configs Edits"),
-        Key([], "i", lazy.spawn("{}rofi-pkginfo.sh".format(ROFIDIR)), desc="Open Package info menu"),
-        Key([], "e", lazy.spawn("{}rofi-emoji.sh".format(ROFIDIR)), desc="Open Rofi Emoji menu"),
-        Key([], "q", lazy.spawn("{}quicklinks.sh".format(ROFIDIR)), desc="Open Rofi Quicklinks"),
-        Key([], "s", lazy.spawn("{}screenshot.sh".format(ROFIDIR)), desc="Open Rofi Screenshot utillity"),
-        Key([], "m", lazy.spawn("{}wm-changer.sh".format(ROFIDIR)), desc="Open WM changer"),
+        Key([], "r", lazy.spawn("{}rf-run.sh".format(SCRIPTD)), desc="Open Rofi"),
+        Key([], "b", lazy.spawn("{}rf-bin.".format(SCRIPTD)), desc="Open Rofi (/bin dir)"),
+        Key([], "p", lazy.spawn("{}rf-pwr.sh".format(SCRIPTD)), desc="Open Rofi Powermenu"),
+        Key([], "w", lazy.spawn("{}rf-wiki.sh".format(SCRIPTD)), desc="Open Rofi Arch-wiki"),
+        Key([], "c", lazy.spawn("{}rf-clip.sh".format(SCRIPTD)), desc="Open Rofi clipmenu"),
+        Key([], "d", lazy.spawn("{}rf-win.".format(SCRIPTD)), desc="Open list of opened windows"),
+        Key([], "i", lazy.spawn("{}rf-pkginf.".format(SCRIPTD)), desc="Open Package info menu"),
+        Key([], "e", lazy.spawn("{}rf-dots.sh".format(SCRIPTD)), desc="Open Configs Edits"),
+        Key([], "q", lazy.spawn("{}rf-qkl.sh".format(SCRIPTD)), desc="Open Rofi Quicklinks"),
+        Key([], "s", lazy.spawn("{}rf-scrt.sh".format(SCRIPTD)), desc="Open Rofi Screenshot utillity"),
+        Key([], "m", lazy.spawn("{}rf-wmch.sh".format(SCRIPTD)), desc="Open WM changer"),
+        Key([], "n", lazy.spawn("{}rf-man.sh".format(SCRIPTD)), desc="Open manpages menu"),
+        Key([], "k", lazy.spawn("{}rf-scpwiki.sh".format(SCRIPTD)), desc="Open SCP wiki entries list"),
     ]),
 
     # Toggle between different layouts as defined below
@@ -192,7 +199,7 @@ keys = [
     # Qtile restart  and quit Qtile
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "t", lazy.spawn("{}prep.sh".format(SCRIPTD)), desc="Reload prep.sh"),
+    Key([mod, "control"], "t", lazy.spawn(restartprocs), desc="Reload prep.sh"),
 ]
 
 # My workspaces
@@ -229,8 +236,8 @@ layout_theme = {'border_width': 2,
                 'margin': 5,
                 'font': "Cantarell",
                 'font_size': 10,
-                'border_focus': "8be9fd",
-                'border_normal': "555555",
+                'border_focus': "#8be9fd",
+                'border_normal': "#555555",
                 }
 
 layouts = [
@@ -249,28 +256,6 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
-
-# SCRATCHPAD
-groups.append(ScratchPad('scratchpad', [
-    DropDown('term', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
-]))
-groups.append(ScratchPad('scratchpad', [
-    DropDown('htop', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
-]))
-groups.append(ScratchPad('scratchpad', [
-    DropDown('ttyc', 'alacritty', width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
-]))
-
-keys.extend([
-    Key(["mod1"], "1", lazy.group['scratchpad'].dropdown_toggle('term'))
-])
-keys.extend([
-    Key(["mod1"], "2", lazy.group['scratchpad'].dropdown_toggle('htop'))
-])
-keys.extend([
-    Key(["mod1"], "2", lazy.group['scratchpad'].dropdown_toggle('ttyc'))
-])
-
 
 def init_colors():
     return [["#282a36", "#282a36"],  # color 0  | bg
@@ -578,3 +563,37 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+# SCRATCHPADS
+groups.append(ScratchPad('scratchpad0', [
+    DropDown('term', "alacritty", width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+groups.append(ScratchPad('scratchpad1', [
+    DropDown('htop', "alacritty -e htop", width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+groups.append(ScratchPad('scratchpad2', [
+    DropDown('ttyc', "alacritty -e tty-clock -s -b -c -f '%a.%d.%m.%y'", width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+groups.append(ScratchPad('scratchpad3', [
+    DropDown('battop', "alacritty -e battop", width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+groups.append(ScratchPad('scratchpad4', [
+    DropDown('qalc', "alacritty -e qalc", width=0.4, height=0.5, x=0.3, y=0.2, opacity=1),
+]))
+
+keys.extend([
+    Key(["mod1"], "1", lazy.group['scratchpad0'].dropdown_toggle('term'))
+])
+keys.extend([
+    Key(["mod1"], "2", lazy.group['scratchpad1'].dropdown_toggle('htop'))
+])
+keys.extend([
+    Key(["mod1"], "3", lazy.group['scratchpad2'].dropdown_toggle('ttyc'))
+])
+keys.extend([
+    Key(["mod1"], "4", lazy.group['scratchpad3'].dropdown_toggle('battop'))
+])
+keys.extend([
+    Key(["mod1"], "5", lazy.group['scratchpad4'].dropdown_toggle('qalc'))
+])
+
