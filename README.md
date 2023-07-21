@@ -17,6 +17,7 @@ daily driver.
 | **config**    | **_$HOME/.config/_**    | dotfiles         |
 | **usr**       | **_/usr/_**             | sddm             |
 | **local/bin** | **_$HOME/.local/bin/_** | scripts for WMs  |
+| **local/share** | **_$HOME/.local/share/_** | universal files |
 
 ## Keybindings
 **alt or ALTKEY** = Mod1\
@@ -27,6 +28,7 @@ daily driver.
 | Restart Window Manager       | MOD+CTRL+r  |
 | Quit Window Manager          | MOD+CRTL+q  |
 | Restart Proceses (if needed) | MOD+CRTL+t  |
+
 | Window managment controls    |             |
 |:----------------------------:|:-----------:|
 | Kill focused window          | MOD+c       |
@@ -50,9 +52,9 @@ daily driver.
 ### Universal
 | Type         | Software  |
 |:------------:|:---------:|
-| Shell        | [Zsh (modified)](https://github.com/ChristianChiarulli/Machfiles/tree/master/zsh) |
-| Text editor  | [Nvpunk](https://nvpunk.gabmus.org/) |
-| Launcher     | [Rofi](https://github.com/adi1090x/rofi) |
+| Shell        | [ZSH custom using Zap plugin manager](https://zapzsh.org) |
+| Text editor  | [Lazyvim](https://lazyvim.org/) |
+| Launcher     | [Rofi](https://github.com/adi1090x/rofi) or [Dmenu](https://tools.suckless.org/dmenu) |
 | Compositor   | [Picom](https://github.com/ibhagwan/picom) |
 | Browser      | [Brave](https://brave.com/) |
 | Notification | [Dunst](https://dunst-project.org/) |
