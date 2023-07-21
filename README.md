@@ -36,10 +36,14 @@ daily driver.
 | Change focus to the left     | MOD+h       |
 | Change focus to the up       | MOD+k       |
 | Change focus to the bottom   | MOD+j       |
-| Move Window to the right     | MOD+Shift+l |
-| Move Window to the left      | MOD+Shift+h |
-| Move Window to the up        | MOD+Shift+k |
-| Move Window to the bottom    | MOD+Shift+j |
+| Move window to the right     | MOD+Shift+l |
+| Move window to the left      | MOD+Shift+h |
+| Move window to the up        | MOD+Shift+k |
+| Move window to the bottom    | MOD+Shift+j |
+| Resize window to the right   | MOD+Ctrl+l  |
+| Resize window to the left    | MOD+Ctrl+h  |
+| Resize window to the up      | MOD+Ctrl+k  |
+| Resize window to the bottom  | MOD+Ctrl+j  |
 
 ## Software
 
