@@ -32,7 +32,7 @@
     # Position the notification in the top right corner
     origin = top-right
 
-    # For 5 px margin in qtile
+    # Offset from the bar and screen
     offset = 0x26
 
     # Scale factor. It is auto-detected if value is 0.
