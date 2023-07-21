@@ -29,7 +29,7 @@ daily driver.
 | Quit Window Manager          | MOD+CRTL+q  |
 | Restart Proceses (if needed) | MOD+CRTL+t  |
 
-| Window managment controls    |             |
+| Window managment controls    | Combination |
 |:----------------------------:|:-----------:|
 | Kill focused window          | MOD+c       |
 | Change focus to the right    | MOD+l       |
