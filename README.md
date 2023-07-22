@@ -20,8 +20,6 @@ daily driver.
 | **local/share** | **_$HOME/.local/share/_** | universal files |
 
 ## Keybindings
-**alt or ALTKEY** = Mod1\
-**mod or MODKEY** = Mod4 (Windows Key)
 
 | Window Manger Controls       | Combination |
 |:----------------------------:|:-----------:|
