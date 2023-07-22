@@ -29,21 +29,51 @@ daily driver.
 | Quit Window Manager          | MOD+CRTL+q  |
 | Restart Proceses (if needed) | MOD+CRTL+t  |
 
-| Window managment controls    | Combination |
+| Window managment controls      | Combination |
+|:------------------------------:|:-----------:|
+| Kill focused window            | MOD+c       |
+| Make focused window fullscreen | MOD+f       |
+| Make focused window float      | MOD+Ctrl+f  |
+| Change focus to the right      | MOD+l       |
+| Change focus to the left       | MOD+h       |
+| Change focus to the up         | MOD+k       |
+| Change focus to the bottom     | MOD+j       |
+| Move window to the right       | MOD+Shift+l |
+| Move window to the left        | MOD+Shift+h |
+| Move window to the up          | MOD+Shift+k |
+| Move window to the bottom      | MOD+Shift+j |
+| Resize window to the right     | MOD+Ctrl+l  |
+| Resize window to the left      | MOD+Ctrl+h  |
+| Resize window to the up        | MOD+Ctrl+k  |
+| Resize window to the bottom    | MOD+Ctrl+j  |
+
+| Tag managment controls       | Combination |
 |:----------------------------:|:-----------:|
-| Kill focused window          | MOD+c       |
-| Change focus to the right    | MOD+l       |
-| Change focus to the left     | MOD+h       |
-| Change focus to the up       | MOD+k       |
-| Change focus to the bottom   | MOD+j       |
-| Move window to the right     | MOD+Shift+l |
-| Move window to the left      | MOD+Shift+h |
-| Move window to the up        | MOD+Shift+k |
-| Move window to the bottom    | MOD+Shift+j |
-| Resize window to the right   | MOD+Ctrl+l  |
-| Resize window to the left    | MOD+Ctrl+h  |
-| Resize window to the up      | MOD+Ctrl+k  |
-| Resize window to the bottom  | MOD+Ctrl+j  |
+| Go to tag 1                  | MOD+1       |
+| Go to tag 2                  | MOD+2       |
+| Go to tag 3                  | MOD+3       |
+| Go to tag 4                  | MOD+4       |
+| Go to tag 5                  | MOD+5       |
+| Go to tag 6                  | MOD+6       |
+| Go to tag 7                  | MOD+7       |
+| Go to tag 8                  | MOD+8       |
+| Go to tag 9                  | MOD+9       |
+| Go to tag 0                  | MOD+0       |
+| Move focused window to tag 1 | MOD+Shift+1 |
+| Move focused window to tag 2 | MOD+Shift+2 |
+| Move focused window to tag 3 | MOD+Shift+3 |
+| Move focused window to tag 4 | MOD+Shift+4 |
+| Move focused window to tag 5 | MOD+Shift+5 |
+| Move focused window to tag 6 | MOD+Shift+6 |
+| Move focused window to tag 7 | MOD+Shift+7 |
+| Move focused window to tag 8 | MOD+Shift+8 |
+| Move focused window to tag 9 | MOD+Shift+9 |
+| Move focused window to tag 0 | MOD+Shift+0 |
+
+| Programs keybindings | Combination |
+|:--------------------:|:-----------:|
+| Brave                | MOD+Shift+w |
+| PcManFM              | MOD+Shift+f |
 
 ## Software
 
