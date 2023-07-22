@@ -74,6 +74,14 @@ daily driver.
 |:--------------------:|:-----------:|
 | Brave                | MOD+Shift+w |
 | PcManFM              | MOD+Shift+f |
+| RSS Reader           | MOD+Shift+r |
+| Thunderbird          | MOD+Shift+t |
+| Virt-manager         | MOD+Shift+v |
+| Steam                | MOD+Shift+s |
+| Discord              | MOD+Shift+d |
+| Inkscape             | MOD+Shift+i |
+| HP Toolbox           | MOD+Shift+p |
+| Alacritty            | MOD+Enter   |
 
 ## Software
 
