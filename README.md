@@ -27,23 +27,23 @@ daily driver.
 | Quit Window Manager          | MOD+CRTL+q  |
 | Restart Proceses (if needed) | MOD+CRTL+t  |
 
-| Window managment controls      | Combination |
-|:------------------------------:|:-----------:|
-| Kill focused window            | MOD+c       |
-| Make focused window fullscreen | MOD+f       |
-| Make focused window float      | MOD+Ctrl+f  |
-| Change focus to the right      | MOD+l       |
-| Change focus to the left       | MOD+h       |
-| Change focus to the up         | MOD+k       |
-| Change focus to the bottom     | MOD+j       |
-| Move window to the right       | MOD+Shift+l |
-| Move window to the left        | MOD+Shift+h |
-| Move window to the up          | MOD+Shift+k |
-| Move window to the bottom      | MOD+Shift+j |
-| Resize window to the right     | MOD+Ctrl+l  |
-| Resize window to the left      | MOD+Ctrl+h  |
-| Resize window to the up        | MOD+Ctrl+k  |
-| Resize window to the bottom    | MOD+Ctrl+j  |
+| Window managment controls    | Combination |
+|:----------------------------:|:-----------:|
+| Kill focused window          | MOD+c       |
+| Make focused window fullscrn | MOD+f       |
+| Make focused window float    | MOD+Ctrl+f  |
+| Change focus to the right    | MOD+l       |
+| Change focus to the left     | MOD+h       |
+| Change focus to the up       | MOD+k       |
+| Change focus to the bottom   | MOD+j       |
+| Move window to the right     | MOD+Shift+l |
+| Move window to the left      | MOD+Shift+h |
+| Move window to the up        | MOD+Shift+k |
+| Move window to the bottom    | MOD+Shift+j |
+| Resize window to the right   | MOD+Ctrl+l  |
+| Resize window to the left    | MOD+Ctrl+h  |
+| Resize window to the up      | MOD+Ctrl+k  |
+| Resize window to the bottom  | MOD+Ctrl+j  |
 
 | Tag managment controls       | Combination |
 |:----------------------------:|:-----------:|
@@ -80,6 +80,14 @@ daily driver.
 | Inkscape             | MOD+Shift+i |
 | HP Toolbox           | MOD+Shift+p |
 | Alacritty            | MOD+Enter   |
+
+| Scratchpads             | Combination |
+|:-----------------------:|:-----------:|
+| Normal alacritty term   | ALT+1       |
+| Htop Terminal           | ALT+2       |
+| Ncurses clock           | ALT+3       |
+| Battop terminal monitor | ALT+4       |
+| Qalc terminal (Calc)    | ALT+5       |
 
 ## Software
 
