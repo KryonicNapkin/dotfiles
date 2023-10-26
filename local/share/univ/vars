@@ -3,7 +3,7 @@
 # Directories
 dotsdir=$HOME/dotfiles
 configd=$HOME/.config
-scriptd=$HOME/.local/bin
+scriptd=$HOME/.local/bin/scripts
 shared=$HOME/.local/share
 stated=$HOME/.local/state
 alattyd=$HOME/.config/alacritty
