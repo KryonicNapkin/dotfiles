@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Variables
+. ~/.local/share/univ/vars
 DOTDIR=$HOME/dotfiles/
-netcheck=$(/home/oizero/.local/bin/net-checker.sh)
+netcheck=$($scriptd/net-checker.sh)
 
 check() {
     paru -Qqe >$DOTDIR/Bin/pkglist.txt
