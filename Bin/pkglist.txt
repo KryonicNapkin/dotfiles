@@ -58,6 +58,7 @@ erlang
 erlang-cl
 etcher-bin
 feh
+ffmpegthumbnailer
 firefox
 fzf
 gcolor3
@@ -86,6 +87,9 @@ iotop
 iptables-nft
 iw
 iwd
+j4-dmenu-desktop
+java-openjdk-bin
+java-openjfx-bin
 jq
 kdiskmark
 kvantum
@@ -126,7 +130,6 @@ linux-zen-headers
 logwatch
 lsw
 luarocks
-lxappearance
 maim
 man-db
 mate-terminal
@@ -194,6 +197,7 @@ ripgrep
 rofi
 rofi-calc
 rofi-emoji
+rtw89-dkms-git
 s-tui-git
 sane
 scour
@@ -206,6 +210,7 @@ sxhkd
 sysstat
 teams
 terminus-font
+thunar
 thunderbird
 timeshift-bin
 tldr
@@ -220,11 +225,13 @@ ttf-jetbrains-mono
 ttf-liberation
 ttf-mononoki
 ttf-nerd-fonts-symbols
+tumbler
 ufw
 unarj
 unrar
 unzip
 vde2
+vi
 viewnior
 vim
 virt-manager
@@ -247,7 +254,7 @@ xdg-user-dirs
 xdg-utils
 xdotool
 xf86-video-ati
-xorg-xbacklight
+xkblayout-state-git
 xorg-xev
 xorg-xhost
 xorg-xinit
