@@ -2,6 +2,8 @@
 Big changes happening to the repo. i.e completely restructuring all my github 
 repos
 
+# Coevoe's dotfiles
+
 ![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/Qtile_desktop.png)
 ![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/Qtile_in_action.png)
 
