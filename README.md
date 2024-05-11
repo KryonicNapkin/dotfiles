@@ -8,12 +8,10 @@ repos
 ![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/Qtile_in_action.png)
 
 ## Welcome
-This is my repo for the dotfiles. When I first created this repo, it was for the
-dotfiles of my qtile desktop, but after I began to experiment with AwesomeWM,
-I've added AwesomeWM to the repo. Now I've also added DWM to it. I will be
-keeping all the WMs up to date, but primarily DWM because it is currently my
-daily driver.
+This is my repo for the dotfiles. Use at your own risk❗
+They are created to fit my setup and only my.
 
+## Installation
 ### File structure
 |               | Place                   | Use case         |
 |---------------|:-----------------------:|:----------------:|
