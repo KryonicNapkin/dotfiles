@@ -2,8 +2,8 @@
 Big changes happening to the repo. i.e completely restructuring all my github 
 repos
 
-![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/qtile1.png)
-![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/qtile2.png)
+![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/Qtile_desktop.png)
+![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/Qtile_in_action.png)
 
 ## Welcome
 This is my repo for the dotfiles. When I first created this repo, it was for the
