@@ -8,8 +8,8 @@ repos
 ![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/Qtile_in_action.png)
 
 ## Welcome
-This is my repo for the dotfiles. **Use at your own risk**❗\
-They are created to fit my setup and only my.
+This is my repo for the dotfiles. They are created to fit my setup and only my. \
+**Use at your own risk**‼
 
 ## Installation
 ### File structure
