@@ -1,7 +1,0 @@
-#!/bin/sh
-# Xsetup - run as root before the login dialog appears
-xrandr --output VGA-0 --off
-xrandr --output LVDS --primary --mode 1600x900
-redshift -P -O 3800k
-export ZDOTDIR=$HOME/.config/zsh
-
