@@ -1,3 +1,7 @@
+# WORK IN PROGRESS
+Big changes happening to the repo. i.e completely restructuring all my github 
+repos
+
 # My-dotfiles
 My AwesomeWM, DWM and Qtile desktop dotfiles
 
