@@ -2,8 +2,8 @@
 Big changes happening to the repo. i.e completely restructuring all my github 
 repos
 
-# My-dotfiles
-My AwesomeWM, DWM and Qtile desktop dotfiles
+![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/qtile1.png)
+![alt text](https://github.com/coevoe/dotfiles/blob/main/assets/qtile2.png)
 
 ## Welcome
 This is my repo for the dotfiles. When I first created this repo, it was for the
@@ -19,7 +19,6 @@ daily driver.
 | **Bin**       | nowhere                 | scripts for user |
 | **Scripts**   | nowhere                 | scripts for me   |
 | **config**    | **_$HOME/.config/_**    | dotfiles         |
-| **usr**       | **_/usr/_**             | sddm             |
 | **local/bin** | **_$HOME/.local/bin/_** | scripts for WMs  |
 | **local/share** | **_$HOME/.local/share/_** | universal files |
 
@@ -27,9 +26,9 @@ daily driver.
 
 | Window Manger Controls       | Combination |
 |:----------------------------:|:-----------:|
-| Restart Window Manager       | MOD+CTRL+r  |
-| Quit Window Manager          | MOD+CRTL+q  |
-| Restart Proceses (if needed) | MOD+CRTL+t  |
+| Restart window manager       | MOD+CTRL+r  |
+| Quit window manager          | MOD+CRTL+q  |
+| Restart processes (if needed) | MOD+CRTL+t  |
 
 | Window managment controls    | Combination |
 |:----------------------------:|:-----------:|
@@ -75,7 +74,7 @@ daily driver.
 | Programs keybindings | Combination |
 |:--------------------:|:-----------:|
 | Brave                | MOD+Shift+w |
-| PcManFM              | MOD+Shift+f |
+| Thunar               | MOD+Shift+f |
 | RSS Reader           | MOD+Shift+r |
 | Thunderbird          | MOD+Shift+t |
 | Virt-manager         | MOD+Shift+v |
@@ -105,26 +104,12 @@ daily driver.
 | Type         | Software  |
 |:------------:|:---------:|
 | Shell        | [ZSH custom using Zap plugin manager](https://zapzsh.org) |
-| Text editor  | [Lazyvim](https://lazyvim.org/) |
-| Launcher     | [Rofi](https://github.com/adi1090x/rofi) or [Dmenu](https://tools.suckless.org/dmenu) |
+| Text editor  | [Neovim](https://lazyvim.org/) |
+| Launcher     | [Dmenu](https://tools.suckless.org/dmenu) |
 | Compositor   | [Picom](https://github.com/ibhagwan/picom) |
 | Browser      | [Brave](https://brave.com/) |
-| Notification | [Dunst](https://dunst-project.org/) |
-| File Manager | [PcManFM](https://wiki.archlinux.org/title/PCManFM) |
-
-## SCREENSHOTS
-
-### Qtile
-![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile1.png)
-![alt text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/qtile2.png)
-
-### AwesomeWM
-![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome1.png)
-![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/awesome2.png)
-
-### DWM
-![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm1.png)
-![alt_text](https://github.com/coevoe/My-dotfiles/blob/main/Screenshots/dwm2.png)
+| Notification | [Wired](https://github.com/Toqozz/wired-notify) |
+| File Manager | [Thunar](https://docs.xfce.org/xfce/thunar/start) |
 
 ## Roadmap
 -   [ ] Add better documentation
