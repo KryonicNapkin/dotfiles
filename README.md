@@ -12,16 +12,6 @@ This is my repo for the dotfiles. They are created to fit my setup and only my. 
 **Use at your own risk**❗
 
 ## Installation
-### File structure
-|               | Place                   | Use case         |
-|---------------|:-----------------------:|:----------------:|
-| **Docs**      | nowhere                 | documentation    |
-| **Bin**       | nowhere                 | scripts for user |
-| **Scripts**   | nowhere                 | scripts for me   |
-| **config**    | **_$HOME/.config/_**    | dotfiles         |
-| **local/bin** | **_$HOME/.local/bin/_** | scripts for WMs  |
-| **local/share** | **_$HOME/.local/share/_** | universal files |
-
 ## Keybindings
 
 | Window Manger Controls       | Combination |
