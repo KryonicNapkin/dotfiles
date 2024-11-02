@@ -1,6 +1,1 @@
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-source ~/.bashrc
+/home/oizero/.bash_profile
