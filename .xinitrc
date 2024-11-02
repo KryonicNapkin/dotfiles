@@ -1,10 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# Disable unused monitor
-xrandr --output VGA-0 --off
-# Set monitor color intenstity
-redshift -P -O 3600k &
-# Set cursor theme
-xrdb ~/.Xresources &
+# Set monitor color warmness
+redshift -P -O 3800k &
+# Set cursor theme and dpi
+xrdb -merge ~/.Xresources &
 # Actual autostart programs and window manager itself
-/home/oizero/.local/bin/prep.sh
+~/.local/bin/prep.sh
