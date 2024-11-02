@@ -1,0 +1,13 @@
+[user]
+	name = "coevoe"
+	email = "85091338+KryonicNapkin@users.noreply.github.com"
+[alias]
+	s = status
+	a = add
+	aa = add .
+	au = add -u
+	c = commit
+	cm = commit -m
+	p = push
+	pl = pull
+	d = diff
