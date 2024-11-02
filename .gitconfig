@@ -11,3 +11,5 @@
 	p = push
 	pl = pull
 	d = diff
+    r = restore
+    rs = restore --staged
