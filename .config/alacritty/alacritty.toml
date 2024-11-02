@@ -1,0 +1,61 @@
+[colors.bright]
+    black = "#5c6370"
+    blue = "#61afef"
+    cyan = "#56b6c2"
+    green = "#98c379"
+    magenta = "#c678dd"
+    red = "#e06c75"
+    white = "#ffffff"
+    yellow = "#d19a66"
+
+[colors.normal]
+    black = "#282c34"
+    blue = "#61afef"
+    cyan = "#56b6c2"
+    green = "#98c379"
+    magenta = "#c678dd"
+    red = "#e06c75"
+    white = "#abb2bf"
+    yellow = "#e5c07b"
+
+[colors.primary]
+    background = "#282c34"
+    foreground = "#abb2bf"
+
+[env]
+    TERM = "xterm-256color"
+
+[font]
+    size = 14
+
+[font.bold]
+    family = "Iosevka Nerd Font"
+    style = "Bold"
+
+[font.bold_italic]
+    family = "Iosevka Nerd Font"
+    style = "Bold Italic"
+
+[font.italic]
+    family = "Iosevka Nerd Font"
+    style = "Italic"
+
+[font.normal]
+    family = "Iosevka Nerd Font"
+    style = "Regular"
+
+[scrolling]
+    history = 7500
+
+[window]
+    dynamic_padding = false
+    opacity = 1.0
+    title = "Alacritty"
+
+[window.class]
+    general = "Alacritty"
+    instance = "Alacritty"
+
+[window.padding]
+    x = 6
+    y = 6
