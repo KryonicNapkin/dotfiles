@@ -1,0 +1,66 @@
+From 33a4918578a7c19ce358a0233d6731933999f105 Mon Sep 17 00:00:00 2001
+From: Hai Nguyen <hhai2105@gmail.com>
+Date: Wed, 8 Dec 2021 00:30:24 -0500
+Subject: [PATCH] update focus to not change focus stack, change unmanage to
+ always move to the next visible client
+
+---
+ dwm.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/dwm.c b/dwm.c
+index 5e4d494..a2aabb4 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -793,8 +793,6 @@ focus(Client *c)
+ 			selmon = c->mon;
+ 		if (c->isurgent)
+ 			seturgent(c, 0);
+-		detachstack(c);
+-		attachstack(c);
+ 		grabbuttons(c, 1);
+ 		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
+ 		setfocus(c);
+@@ -803,6 +801,8 @@ focus(Client *c)
+ 		XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
+ 	}
+ 	selmon->sel = c;
++	if(c && selmon->lt[selmon->sellt]->arrange == monocle)
++		XRaiseWindow(dpy, c->win);
+ 	drawbars();
+ }
+ 
+@@ -851,8 +851,8 @@ focusstack(const Arg *arg)
+ 					c = i;
+ 	}
+ 	if (c) {
+-		focus(c);
+ 		restack(selmon);
++		focus(c);
+ 	}
+ }
+ 
+@@ -1767,6 +1767,9 @@ unmanage(Client *c, int destroyed)
+ {
+ 	Monitor *m = c->mon;
+ 	XWindowChanges wc;
++	int fullscreen = (selmon->sel == c && selmon->sel->isfullscreen)?1:0;
++	Client *nc;
++	for (nc = c->next; nc && !ISVISIBLE(nc); nc = nc->next);
+ 
+ 	detach(c);
+ 	detachstack(c);
+@@ -1782,7 +1785,9 @@ unmanage(Client *c, int destroyed)
+ 		XUngrabServer(dpy);
+ 	}
+ 	free(c);
+-	focus(NULL);
++	focus(nc);
++	if(fullscreen)
++		togglefullscreen();
+ 	updateclientlist();
+ 	arrange(m);
+ }
+-- 
+2.34.1
+

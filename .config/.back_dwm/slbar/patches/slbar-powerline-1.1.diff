@@ -1,0 +1,95 @@
+From 58cb55cf8e5f8dfd7d84d2c8e7a78c7ab5a50975 Mon Sep 17 00:00:00 2001
+From: Rentib <sbitner420@tutanota.com>
+Date: Mon, 8 Aug 2022 15:12:58 +0200
+Subject: [PATCH] Powerline looks
+
+Requires status2d patch for dwm, without it colors will not be displayed.
+Removes separator from config, changes it to the one used in powerline.
+Adds the possibility of changing foreground and background colors of
+each module. By default it has a gruvbox color scheme.
+---
+ config.h | 17 ++++++-----------
+ slbar.c  | 14 ++++++++------
+ 2 files changed, 14 insertions(+), 17 deletions(-)
+
+diff --git a/config.h b/config.h
+index dc4e8b9..2df6540 100644
+--- a/config.h
++++ b/config.h
+@@ -1,20 +1,15 @@
+ /* See LICENSE file for copyright and license details. */
+ 
+-/* separator used for separating modules */
+-static const char *sep = " | ";
+-/* length of the given separator */
+-static const uint sep_len = 3;
+-
+ /* If update interval is set to 0 then given command will be executed only
+  * after receiving given signal. If update signal is set to 0, then there is no
+  * signal that will trigger execution of the command. 
+  * To send signal use command 'kill -n $(pidof slbar)' 
+  * where n is 34 + update signal. */
+ static const Module modules[] = {
+-  /* command                update interval    update signal */
+-  { "music-statusbar",      0,                 2 },
+-  { "volume-statusbar",     0,                 1 },
+-  { "wifi-statusbar",       5,                 0 },
+-  { "battery-statusbar",    5,                 0 },
+-  { "clock-statusbar",      60,                0 },
++  /* command                update interval    update signal       fg         bg */
++  { "music-statusbar",      0,                 2,               { "#bdae93", "#3c3836" } },
++  { "volume-statusbar",     0,                 1,               { "#d5c4a1", "#504945" } },
++  { "wifi-statusbar",       5,                 0,               { "#ebdbb2", "#665c54" } },
++  { "battery-statusbar",    5,                 0,               { "#1d2021", "#928374" } },
++  { "clock-statusbar",      60,                0,               { "#282828", "#a89984" } },
+ };
+diff --git a/slbar.c b/slbar.c
+index 9e03a3b..193268d 100644
+--- a/slbar.c
++++ b/slbar.c
+@@ -18,6 +18,7 @@ typedef struct {
+   char* cmd; /* command to be executed */
+   uint  upd; /* update interval (0 means no update interval) */
+   uint  sig; /* update signal (0 means no signal) */
++  char* colors[2]; /* foreground and background colors */
+ } Module;
+ 
+ /* functions */
+@@ -74,13 +75,15 @@ void
+ display(void)
+ {
+   uint old = current, new = current ^ 1;
+-  uint i;
++  uint i, len = 0;
+ 
+   barstr[new][0] = '\0';
+ 
+-  for (i = 0; i < LEN(modules); i++)
+-    strcat(barstr[new], cmds[i]);
+-  barstr[new][strlen(barstr[new]) - sep_len] = '\0';
++  for (i = 0; i < LEN(modules); i++, len = strlen(barstr[new]))
++    if (*cmds[i])
++      sprintf(barstr[new] + len, "^c%s^ ^c%s^^b%s^%s",
++              modules[i].colors[1], modules[i].colors[0], modules[i].colors[1],
++              cmds[i]);
+ 
+   if (!(strcmp(barstr[new], barstr[old])))
+     return;
+@@ -157,13 +160,12 @@ updatecmd(const char *cmd, char *out)
+   *out = 0;
+   if (!(fp = popen(cmd, "r")))
+     return;
+-  fgets(out, CMDLEN - sep_len - 1, fp);
++  fgets(out, CMDLEN - 2 - 1, fp);
+   if (!(len = strlen(out))) {
+     pclose(fp);
+     return;
+   }
+   out[len - (out[len - 1] == '\n')] = '\0';
+-  strcat(out, sep);
+   pclose(fp);
+ }
+ 
+-- 
+2.37.1
+
