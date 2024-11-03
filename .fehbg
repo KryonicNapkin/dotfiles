@@ -1,2 +1,2 @@
-#!/bin/bash
-feh --no-fehbg --bg-scale $HOME/Pictures/onedark-wallpapers/botw/od_guardian.png
+#!/usr/bin/env bash
+feh --no-fehbg --bg-scale $XDG_DATA_HOME/wallpapers/onedark-wallpapers/botw/od_guardian.png
