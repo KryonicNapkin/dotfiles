@@ -38,9 +38,10 @@ from libqtile.widget import base
 
 # Constants definition
 HOMEDIR = os.environ.get('HOME')
-SCRIPTD = os.path.expanduser("{}/.local/bin/".format(HOMEDIR))
-WORKDIR = os.path.expanduser("{}.config/qtile/".format(HOMEDIR))
-CONFDIR = os.path.expanduser("{}.config/".format(HOMEDIR))
+SCRIPTD = os.path.expanduser("{}/.local/bin/scripts/".format(HOMEDIR))
+UTILD = os.path.expanduser("{}/.local/bin/utils/".format(HOMEDIR))
+WORKDIR = os.path.expanduser("{}/.config/qtile/".format(HOMEDIR))
+CONFDIR = os.path.expanduser("{}/.config/".format(HOMEDIR))
 
 # Keys definition
 mod = "mod4"
@@ -60,10 +61,10 @@ virtmngr = "virt-manager"
 hptoolbox = "hp-toolbox"
 superproductivity = "superproductivity"
 dispplan = "feh {}/Pictures/Screenshots/rozvrch_II_E.png".format(HOMEDIR)
-updates = "{}updates.sh".format(SCRIPTD)
+updates = "{}misc/updates.sh".format(SCRIPTD)
 restartprocs = "{}prep.sh".format(SCRIPTD)
-mutemic = "{}mice-mute.sh".format(SCRIPTD)
-dunstclose = "{}dunst-close.sh".format(SCRIPTD)
+mutemic = "{}misc/mice-mute.sh".format(SCRIPTD)
+dunstclose = "{}misc/dunst-close.sh".format(SCRIPTD)
 
 # Hooks
 
@@ -348,7 +349,7 @@ def init_widgets_list():
             widget.GenPollCommand(
                 foreground=colors[5],
                 background=colors[0],
-                cmd="{}statusu/notibat/battu -s -c -w -n".format(SCRIPTD),
+                cmd="{}battu -s -c -w -n".format(UTILD),
                 shell=True,
                 update_interval=15,
             ),
@@ -543,33 +544,33 @@ wmname = "LG3D"
 
 # SCRATCHPADS
 groups.append(ScratchPad('scratchpad0', [
-    DropDown('term', "alacritty --config-file=/home/oizero/.config/alacritty/alacritty_scratchpad.toml", width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
+    DropDown('term', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 groups.append(ScratchPad('scratchpad1', [
-    DropDown('htop', "alacritty --config-file=/home/oizero/.config/alacritty/alacritty_scratchpad.toml -e htop", width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
+    DropDown('htop', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml -e htop".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 groups.append(ScratchPad('scratchpad2', [
-    DropDown('ttyc', "alacritty --config-file=/home/oizero/.config/alacritty/alacritty_scratchpad.toml -e tty-clock -s -b -c -f '%a.%d.%m.%y'", width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
+    DropDown('ttyc', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml -e tty-clock -s -b -c -f '%a.%d.%m.%y'".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 groups.append(ScratchPad('scratchpad3', [
-    DropDown('battop', "alacritty --config-file=/home/oizero/.config/alacritty/alacritty_scratchpad.toml -e battop", width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
+    DropDown('battop', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml -e battop".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 groups.append(ScratchPad('scratchpad4', [
-    DropDown('qalc', "alacritty --config-file=/home/oizero/.config/alacritty/alacritty_scratchpad.toml -e qalc", width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
+    DropDown('qalc', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml -e qalc".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 
 keys.extend([
-    Key(["mod1", "shift"], "1", lazy.group['scratchpad0'].dropdown_toggle('term'))
+    Key(["mod1"], "1", lazy.group['scratchpad0'].dropdown_toggle('term'))
 ])
 keys.extend([
-    Key(["mod1", "shift"], "2", lazy.group['scratchpad1'].dropdown_toggle('htop'))
+    Key(["mod1"], "2", lazy.group['scratchpad1'].dropdown_toggle('htop'))
 ])
 keys.extend([
-    Key(["mod1", "shift"], "3", lazy.group['scratchpad2'].dropdown_toggle('ttyc'))
+    Key(["mod1"], "3", lazy.group['scratchpad2'].dropdown_toggle('ttyc'))
 ])
 keys.extend([
-    Key(["mod1", "shift"], "4", lazy.group['scratchpad3'].dropdown_toggle('battop'))
+    Key(["mod1"], "4", lazy.group['scratchpad3'].dropdown_toggle('battop'))
 ])
 keys.extend([
-    Key(["mod1", "shift"], "5", lazy.group['scratchpad4'].dropdown_toggle('qalc'))
+    Key(["mod1"], "5", lazy.group['scratchpad4'].dropdown_toggle('qalc'))
 ])
