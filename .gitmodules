@@ -10,3 +10,6 @@
 [submodule ".local/share/wallpapers/dracula-wallpapers"]
 	path = .local/share/wallpapers/dracula-wallpapers
 	url = https://github.com/dracula/wallpaper
+[submodule ".local/share/wallpapers/onedark-wallpapers"]
+	path = .local/share/wallpapers/onedark-wallpapers
+	url = https://github.com/Narmis-E/onedark-wallpapers
