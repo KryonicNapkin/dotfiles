@@ -2,8 +2,6 @@
 .config/qtile/__pycache__
 .zsh_history
 .zcompdump
-.local/share
-.local/state
 
 *.o
 *.rej
