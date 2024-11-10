@@ -41,13 +41,13 @@ pkgs_install() {
         if [[ $yaych -ne 0 ]]; then
             yay_install
         fi
-        pacman -S --needed - < "$dotdir/.pkgs"
+        sudo pacman -S --needed - < "$dotdir/.pkgs"
         yay -S --needed - < "$dotdir/.pkgs_aur"
     elif [[ $1 == "paru" ]]; then
         if [[ $paruch -ne 0 ]]; then
             paru_install
         fi
-        pacman -S --needed - < "$dotdir/.pkgs"
+        sudo pacman -S --needed - < "$dotdir/.pkgs"
         paru -S --needed - < "$dotdir/.pkgs_aur"
     fi
 }
@@ -150,8 +150,8 @@ main() {
 
     read -p "Which AUR helper do you prefer to use to install packages (yay/paru)? [y/p]: " confirm
     case $confirm in
-    y) pkgs_install "yay"; pkgs_install yay ;;
-    p) pkgs_install "paru"; pkgs_install paru ;;
+    y) yay_install "yay"; pkgs_install yay ;;
+    p) paru_install "paru"; pkgs_install paru ;;
     *) exit 1 ;;
     esac
 
