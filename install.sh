@@ -14,13 +14,6 @@ paruch=$(which paru; echo $?)
 netcheck=$(ping -c1 8.8.8.8; echo $?)
 
 yay_install() {
-    if [[ $(which git; echo $?) -ne 0 ]]; then
-        echo "git is not installed"
-        echo "This install script is going to install it for you"
-        echo "Installing git..."
-        pacman -Syu git
-        echo "Done";
-    fi
     cd ~ && git clone https://aur.archlinux.org/yay-bin.git
     cd yay-bin 
     echo "Installing yay..";
@@ -29,13 +22,6 @@ yay_install() {
 }
 
 paru_install() {
-    if [[ $(which git; echo $?) -ne 0 ]]; then
-        echo "git is not installed"
-        echo "This install script is going to install it for you"
-        echo "Installing git..."
-        pacman -Syu git
-        echo "Done";
-    fi
     cd ~ && git clone https://aur.archlinux.org/paru-bin.git
     cd paru-bin 
     echo "Installing paru..";
