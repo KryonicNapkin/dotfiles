@@ -11,7 +11,7 @@
 dotdir="$HOME/.dotfiles"
 yaych=$(which yay; echo $?)
 paruch=$(which paru; echo $?)
-netcheck=$(ping 8.8.8.8; echo $?)
+netcheck=$(ping -c1 8.8.8.8; echo $?)
 
 yay_install() {
     if [[ $(which git; echo $?) -ne 0 ]]; then
