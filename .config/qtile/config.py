@@ -49,7 +49,7 @@ alt = "mod1"
 
 # Variables definition
 terminal = "alacritty"
-browser = "brave"
+browser = os.environ.get('BROWSER')
 steam = "steam"
 thndbird = "thunderbird"
 inkscape = "inkscape"
