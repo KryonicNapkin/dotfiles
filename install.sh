@@ -16,8 +16,8 @@ if [[ $usr == "root" ]]; then
 fi
 
 dotdir="$HOME/.dotfiles"
-yaych=$(which yay; echo $?)
-paruch=$(which paru; echo $?)
+yaych=$(which yay &>/dev/null; echo $?)
+paruch=$(which paru &>/dev/null; echo $?)
 netcheck=$(ping -c1 8.8.8.8; echo $?)
 
 yay_install() {
