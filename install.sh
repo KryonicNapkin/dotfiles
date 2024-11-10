@@ -8,6 +8,13 @@
 # Script for the installation of my configuration 
 
 # 1. Check for aur package manager 
+
+usr="$USER"
+if [[ $usr == "root" ]]; then 
+    echo "You should not run this script as a root"
+    exit 1
+fi
+
 dotdir="$HOME/.dotfiles"
 yaych=$(which yay; echo $?)
 paruch=$(which paru; echo $?)
