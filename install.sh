@@ -165,8 +165,8 @@ main() {
 
     read -p "Which AUR helper do you prefer to use to install packages (yay/paru)? [y/p]: " confirm
     case $confirm in
-    y) yay_install "yay"; pkgs_install yay ;;
-    p) paru_install "paru"; pkgs_install paru ;;
+    y) pkgs_install yay ;;
+    p) pkgs_install paru ;;
     *) exit 1 ;;
     esac
 
