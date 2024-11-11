@@ -55,74 +55,89 @@ pkgs_install() {
 link_files() {
     echo "Started linking files..."
     echo "Linking files in the home directory"
-    ln -s "$dotdir/.bash_profile" ~/.bash_profile
-    ln -s "$dotdir/.bashrc" ~/.bashrc
-    ln -s "$dotdir/.fehbg" ~/.fehbg
-    ln -s "$dotdir/.gitconfig" ~/.gitconfig
-    ln -s "$dotdir/.gtkrc-2.0.mine" ~/.gtkrc-2.0.mine
-    ln -s "$dotdir/.profile" ~/.profile
-    ln -s "$dotdir/.xinitrc" ~/.xinitrc
-    ln -s "$dotdir/.Xresource" ~/.Xresources
-    ln -s "$dotdir/.zprofile" ~/.zprofile
+    ln -sf "$dotdir/.bash_profile" ~/.bash_profile
+    ln -sf "$dotdir/.bashrc" ~/.bashrc
+    ln -sf "$dotdir/.fehbg" ~/.fehbg
+    ln -sf "$dotdir/.gitconfig" ~/.gitconfig
+    ln -sf "$dotdir/.gtkrc-2.0.mine" ~/.gtkrc-2.0.mine
+    ln -sf "$dotdir/.profile" ~/.profile
+    ln -sf "$dotdir/.xinitrc" ~/.xinitrc
+    ln -sf "$dotdir/.Xresource" ~/.Xresources
+    ln -sf "$dotdir/.zprofile" ~/.zprofile
     echo "DONE"
 
     echo "Linking files in the .local/bin directory"
-    ln -s "$dotdir/.local/bin/prep.sh" ~/.local/bin/prep.sh
-    ln -sd "$dotdir/.local/bin/scripts" ~/.local/bin/scripts
-    ln -sd "$dotdir/.local/bin/utils" ~/.local/bin/utils
+    if [[ ! -d "~/.local/bin" ]]; then
+        mkdir ~/.local/bin
+    fi
+    ln -sf "$dotdir/.local/bin/prep.sh" ~/.local/bin/prep.sh
+    ln -sfd "$dotdir/.local/bin/scripts" ~/.local/bin/scripts
+    ln -sfd "$dotdir/.local/bin/utils" ~/.local/bin/utils
     echo "DONE"
 
     echo "Linking files in the .local/share directory"
-    ln -sd "$dotdir/.local/share/dracula-wallpapers" ~/.local/share/wallpapers/dracula-wallpapers
-    ln -sd "$dotdir/.local/share/onedark-wallpapers" ~/.local/share/wallpapers/onedark-wallpapers
+    if [[ ! -d "~/.local/share" ]]; then
+        mkdir ~/.local/bin
+    fi
+    ln -sfd "$dotdir/.local/share/dracula-wallpapers" ~/.local/share/wallpapers/dracula-wallpapers
+    ln -sfd "$dotdir/.local/share/onedark-wallpapers" ~/.local/share/wallpapers/onedark-wallpapers
     echo "DONE"
 
     echo "Linking files in the .config directory"
-    ln -s "$dotdir/.config/picom.conf" ~/.config/picom.conf
-    ln -s "$dotdir/.config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
-    ln -s "$dotdir/.config/alacritty/alacritty_scratchpad.toml" ~/.config/alacritty/alacritty_scratchpad.toml
-    ln -s "$dotdir/.config/betterlockscreen/betterlockscreenrc" ~/.config/betterlockscreen/betterlockscreenrc
-    ln -s "$dotdir/.config/betterlockscreen/betterlockscreenrc" ~/.config/betterlockscreen/betterlockscreenrc
-    ln -sd "$dotdir/.config/dmenu" ~/.config/
-    ln -s "$dotdir/.config/gtk-3.0/settings.ini" ~/.config/gtk-3.0/settings.ini
+    ln -sf "$dotdir/.config/picom.conf" ~/.config/picom.conf
+    if [[ ! -d "~/.config/alacritty" ]]; then
+        mkdir ~/.config/alacritty
+    fi
+    ln -sf "$dotdir/.config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
+    ln -sf "$dotdir/.config/alacritty/alacritty_scratchpad.toml" ~/.config/alacritty/alacritty_scratchpad.toml
+    if [[ ! -d "~/.config/betterlockscreen" ]]; then
+        mkdir ~/.config/betterlockscreen
+    fi
+    ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" ~/.config/betterlockscreen/betterlockscreenrc
+    ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" ~/.config/betterlockscreen/betterlockscreenrc
+    ln -sfd "$dotdir/.config/dmenu" ~/.config/
+    if [[ ! -d "~/.config/gtk-3.0" ]]; then
+        mkdir ~/.config/gtk-3.0
+    fi
+    ln -sf "$dotdir/.config/gtk-3.0/settings.ini" ~/.config/gtk-3.0/settings.ini
     if [[ ! -d "~/.config/nvim" ]]; then
         mkdir ~/.config/nvim
     fi
-    ln -sd "$dotdir/.config/nvim" ~/.config/
+    ln -sfd "$dotdir/.config/nvim" ~/.config/
     if [[ ! -d "~/.config/qtile" ]]; then
         mkdir ~/.config/qtile
     fi
-    ln -s "$dotdir/.config/qtile/config.py" ~/.config/qtile/config.py 
+    ln -sf "$dotdir/.config/qtile/config.py" ~/.config/qtile/config.py 
     if [[ ! -d "~/.config/wired" ]]; then
         mkdir ~/.config/wired
     fi
-    ln -s "$dotdir/.config/wired/wired.ron" ~/.config/wired/wired.ron 
+    ln -sf "$dotdir/.config/wired/wired.ron" ~/.config/wired/wired.ron 
     if [[ ! -d "~/.config/zsh" ]]; then
         mkdir ~/.config/zsh
     fi
-    ln -s "$dotdir/.config/zsh/zsh-aliases" ~/.config/zsh/zsh-aliases
-    ln -s "$dotdir/.config/zsh/.zshev" ~/.config/zsh/.zshenv
-    ln -s "$dotdir/.config/zsh/zsh-exports" ~/.config/zsh/zsh-exports
-    ln -s "$dotdir/.config/zsh/zsh-prompt" ~/.config/zsh/zsh-prompt
-    ln -s "$dotdir/.config/zsh/.zshrc" ~/.config/zsh/.zshrc
+    ln -sf "$dotdir/.config/zsh/zsh-aliases" ~/.config/zsh/zsh-aliases
+    ln -sf "$dotdir/.config/zsh/.zshev" ~/.config/zsh/.zshenv
+    ln -sf "$dotdir/.config/zsh/zsh-exports" ~/.config/zsh/zsh-exports
+    ln -sf "$dotdir/.config/zsh/zsh-prompt" ~/.config/zsh/zsh-prompt
+    ln -sf "$dotdir/.config/zsh/.zshrc" ~/.config/zsh/.zshrc
     if [[ $1 == "also-old" ]]; then
         echo "Linking old software..."
         if [[ ! -d "~/.config/dunst" ]]; then
             mkdir ~/.config/dunst
         fi
-        ln -s "$dotdir/.config/.back_dunst" ~/.config/dunst/dunstrc
-        ln -sd "$dotdir/.config/.back_dwm" ~/.config/dwm
+        ln -sf "$dotdir/.config/.back_dunst" ~/.config/dunst/dunstrc
+        ln -sfd "$dotdir/.config/.back_dwm" ~/.config/dwm
         if [[ ! -d "~/.config/rofi" ]]; then
             mkdir ~/.config/rofi
         fi
-        ln -s "$dotdir/.config/.back_rofi/dmenu.rasi" ~/.config/rofi/dmenu.rasi
-        ln -s "$dotdir/.config/.back_rofi/dracula.rasi" ~/.config/rofi/dracula.rasi
-        ln -s "$dotdir/.config/.back_rofi/onedark.rasi" ~/.config/rofi/onedark.rasi
+        ln -sf "$dotdir/.config/.back_rofi/dmenu.rasi" ~/.config/rofi/dmenu.rasi
+        ln -sf "$dotdir/.config/.back_rofi/dracula.rasi" ~/.config/rofi/dracula.rasi
+        ln -sf "$dotdir/.config/.back_rofi/onedark.rasi" ~/.config/rofi/onedark.rasi
     fi
     echo "DONE"
 
     echo "Enabling higher vm map count to 2147483642"
-    ln -s "$dotdir/etc/sysctl.d/99-sysctl.conf"
+    ln -sf "$dotdir/etc/sysctl.d/99-sysctl.conf"
     echo "DONE"
 }
 
