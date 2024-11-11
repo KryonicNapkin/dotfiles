@@ -4,8 +4,6 @@ alsa-utils
 amd-ucode
 amdvlk
 arandr
-arc-gtk-theme
-arc-icon-theme
 arch-wiki-docs
 arduino-cli
 arduino-ide
@@ -16,7 +14,6 @@ avr-gdb
 avr-libc
 base
 base-devel
-bat
 bind
 bitwarden
 bitwarden-cli
@@ -28,18 +25,14 @@ bluez-utils
 breeze-gtk
 bridge-utils
 brightnessctl
-brltty
 btrfs-progs
 calcurse
 cameractrls
-cataclysm-dda-tiles
 cdrtools
-checkbashisms
 clang
 clipmenu
 clipnotify
 cmatrix
-cockpit
 cowsay
 cups
 cups-pdf
@@ -55,8 +48,6 @@ dunst
 ed
 efibootmgr
 electron
-erlang
-erlang-cl
 feh
 ffmpegthumbnailer
 firefox
@@ -117,13 +108,8 @@ libguestfs
 libopenraw
 libpulse
 librecad
-libreoffice-fresh
 libva-mesa-driver
 libvirt
-lightdm
-lightdm-slick-greeter
-lightdm-webkit-theme-litarvan
-lightdm-webkit2-greeter
 linux
 linux-firmware
 linux-headers
@@ -140,7 +126,6 @@ maim
 man-db
 man-pages
 mangohud
-mate-terminal
 materia-gtk-theme
 mingw-w64-gcc
 misfortune
@@ -160,7 +145,6 @@ nmap
 noto-fonts
 noto-fonts-emoji
 nvme-cli
-nyx
 openbsd-netcat
 openssh
 os-prober
@@ -191,13 +175,11 @@ python-psutil
 python-pyqt5
 python-reportlab
 qbittorrent
-qcad
 qemu-tests
 qt5ct
 qt6ct
 qtile
 raylib
-rebar
 redshift
 reflector
 ripgrep
@@ -206,7 +188,6 @@ rofi-calc
 rofi-emoji
 sane
 scour
-sddm
 smartmontools
 sof-firmware
 steam
