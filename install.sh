@@ -30,8 +30,8 @@ yay_install() {
 }
 
 paru_install() {
-    cd $homedir && git clone https://aur.archlinux.org/paru-bin.git
-    cd paru-bin 
+    cd $homedir && git clone https://aur.archlinux.org/paru.git
+    cd paru 
     echo "Installing paru..";
     makepkg -sci 
     echo "Done";
@@ -138,7 +138,7 @@ link_files() {
     echo "DONE"
 
     echo "Enabling higher vm map count to 2147483642"
-    ln -sf "$dotdir/etc/sysctl.d/99-sysctl.conf"
+    ln -sf "$dotdir/etc/sysctl.d/99-sysctl.conf" /etc/sysctl.d/99-sysctl.conf
     echo "DONE"
 }
 
