@@ -186,6 +186,10 @@ main() {
     n) exit 0 ;;
     *) exit 1 ;;
     esac
+
+    echo "Changing the default shell to zsh"
+    chsh -s $(which zsh)
+    echo "DONE"
 }
 
 main
