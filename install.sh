@@ -16,12 +16,13 @@ if [[ $usr == "root" ]]; then
 fi
 
 dotdir="$HOME/.dotfiles"
+homedir="$HOME"
 yaych=$(which yay &>/dev/null; echo $?)
 paruch=$(which paru &>/dev/null; echo $?)
 netcheck=$(ping -c1 8.8.8.8; echo $?)
 
 yay_install() {
-    cd ~ && git clone https://aur.archlinux.org/yay-bin.git
+    cd $homedir && git clone https://aur.archlinux.org/yay-bin.git
     cd yay-bin 
     echo "Installing yay..";
     makepkg -sci 
@@ -29,7 +30,7 @@ yay_install() {
 }
 
 paru_install() {
-    cd ~ && git clone https://aur.archlinux.org/paru-bin.git
+    cd $homedir && git clone https://aur.archlinux.org/paru-bin.git
     cd paru-bin 
     echo "Installing paru..";
     makepkg -sci 
@@ -55,84 +56,84 @@ pkgs_install() {
 link_files() {
     echo "Started linking files..."
     echo "Linking files in the home directory"
-    ln -sf "$dotdir/.bash_profile" ~/.bash_profile
-    ln -sf "$dotdir/.bashrc" ~/.bashrc
-    ln -sf "$dotdir/.fehbg" ~/.fehbg
-    ln -sf "$dotdir/.gitconfig" ~/.gitconfig
-    ln -sf "$dotdir/.gtkrc-2.0.mine" ~/.gtkrc-2.0.mine
-    ln -sf "$dotdir/.profile" ~/.profile
-    ln -sf "$dotdir/.xinitrc" ~/.xinitrc
-    ln -sf "$dotdir/.Xresource" ~/.Xresources
-    ln -sf "$dotdir/.zprofile" ~/.zprofile
+    ln -sf "$dotdir/.bash_profile" $homedir/.bash_profile
+    ln -sf "$dotdir/.bashrc" $homedir/.bashrc
+    ln -sf "$dotdir/.fehbg" $homedir/.fehbg
+    ln -sf "$dotdir/.gitconfig" $homedir/.gitconfig
+    ln -sf "$dotdir/.gtkrc-2.0.mine" $homedir/.gtkrc-2.0.mine
+    ln -sf "$dotdir/.profile" $homedir/.profile
+    ln -sf "$dotdir/.xinitrc" $homedir/.xinitrc
+    ln -sf "$dotdir/.Xresource" $homedir/.Xresources
+    ln -sf "$dotdir/.zprofile" $homedir/.zprofile
     echo "DONE"
 
     echo "Linking files in the .local/bin directory"
-    if [[ ! -d "~/.local/bin" ]]; then
-        mkdir ~/.local/bin
+    if [[ ! -d "$homedir/.local/bin" ]]; then
+        mkdir $homedir/.local/bin
     fi
-    ln -sf "$dotdir/.local/bin/prep.sh" ~/.local/bin/prep.sh
-    ln -sfd "$dotdir/.local/bin/scripts" ~/.local/bin/scripts
-    ln -sfd "$dotdir/.local/bin/utils" ~/.local/bin/utils
+    ln -sf "$dotdir/.local/bin/prep.sh" $homedir/.local/bin/prep.sh
+    ln -sfd "$dotdir/.local/bin/scripts" $homedir/.local/bin/scripts
+    ln -sfd "$dotdir/.local/bin/utils" $homedir/.local/bin/utils
     echo "DONE"
 
     echo "Linking files in the .local/share directory"
-    if [[ ! -d "~/.local/share" ]]; then
-        mkdir ~/.local/bin
+    if [[ ! -d "$homedir/.local/share" ]]; then
+        mkdir $homedir/.local/bin
     fi
-    ln -sfd "$dotdir/.local/share/dracula-wallpapers" ~/.local/share/wallpapers/dracula-wallpapers
-    ln -sfd "$dotdir/.local/share/onedark-wallpapers" ~/.local/share/wallpapers/onedark-wallpapers
+    ln -sfd "$dotdir/.local/share/dracula-wallpapers" $homedir/.local/share/wallpapers/dracula-wallpapers
+    ln -sfd "$dotdir/.local/share/onedark-wallpapers" $homedir/.local/share/wallpapers/onedark-wallpapers
     echo "DONE"
 
     echo "Linking files in the .config directory"
-    ln -sf "$dotdir/.config/picom.conf" ~/.config/picom.conf
-    if [[ ! -d "~/.config/alacritty" ]]; then
-        mkdir ~/.config/alacritty
+    ln -sf "$dotdir/.config/picom.conf" $homedir/.config/picom.conf
+    if [[ ! -d "$homedir/.config/alacritty" ]]; then
+        mkdir $homedir/.config/alacritty
     fi
-    ln -sf "$dotdir/.config/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
-    ln -sf "$dotdir/.config/alacritty/alacritty_scratchpad.toml" ~/.config/alacritty/alacritty_scratchpad.toml
-    if [[ ! -d "~/.config/betterlockscreen" ]]; then
-        mkdir ~/.config/betterlockscreen
+    ln -sf "$dotdir/.config/alacritty/alacritty.toml" $homedir/.config/alacritty/alacritty.toml
+    ln -sf "$dotdir/.config/alacritty/alacritty_scratchpad.toml" $homedir/.config/alacritty/alacritty_scratchpad.toml
+    if [[ ! -d "$homedir/.config/betterlockscreen" ]]; then
+        mkdir $homedir/.config/betterlockscreen
     fi
-    ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" ~/.config/betterlockscreen/betterlockscreenrc
-    ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" ~/.config/betterlockscreen/betterlockscreenrc
-    ln -sfd "$dotdir/.config/dmenu" ~/.config/
-    if [[ ! -d "~/.config/gtk-3.0" ]]; then
-        mkdir ~/.config/gtk-3.0
+    ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" $homedir/.config/betterlockscreen/betterlockscreenrc
+    ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" $homedir/.config/betterlockscreen/betterlockscreenrc
+    ln -sfd "$dotdir/.config/dmenu" $homedir/.config/
+    if [[ ! -d "$homedir/.config/gtk-3.0" ]]; then
+        mkdir $homedir/.config/gtk-3.0
     fi
-    ln -sf "$dotdir/.config/gtk-3.0/settings.ini" ~/.config/gtk-3.0/settings.ini
-    if [[ ! -d "~/.config/nvim" ]]; then
-        mkdir ~/.config/nvim
+    ln -sf "$dotdir/.config/gtk-3.0/settings.ini" $homedir/.config/gtk-3.0/settings.ini
+    if [[ ! -d "$homedir/.config/nvim" ]]; then
+        mkdir $homedir/.config/nvim
     fi
-    ln -sfd "$dotdir/.config/nvim" ~/.config/
-    if [[ ! -d "~/.config/qtile" ]]; then
-        mkdir ~/.config/qtile
+    ln -sfd "$dotdir/.config/nvim" $homedir/.config/
+    if [[ ! -d "$homedir/.config/qtile" ]]; then
+        mkdir $homedir/.config/qtile
     fi
-    ln -sf "$dotdir/.config/qtile/config.py" ~/.config/qtile/config.py 
-    if [[ ! -d "~/.config/wired" ]]; then
-        mkdir ~/.config/wired
+    ln -sf "$dotdir/.config/qtile/config.py" $homedir/.config/qtile/config.py 
+    if [[ ! -d "$homedir/.config/wired" ]]; then
+        mkdir $homedir/.config/wired
     fi
-    ln -sf "$dotdir/.config/wired/wired.ron" ~/.config/wired/wired.ron 
-    if [[ ! -d "~/.config/zsh" ]]; then
-        mkdir ~/.config/zsh
+    ln -sf "$dotdir/.config/wired/wired.ron" $homedir/.config/wired/wired.ron 
+    if [[ ! -d "$homedir/.config/zsh" ]]; then
+        mkdir $homedir/.config/zsh
     fi
-    ln -sf "$dotdir/.config/zsh/zsh-aliases" ~/.config/zsh/zsh-aliases
-    ln -sf "$dotdir/.config/zsh/.zshev" ~/.config/zsh/.zshenv
-    ln -sf "$dotdir/.config/zsh/zsh-exports" ~/.config/zsh/zsh-exports
-    ln -sf "$dotdir/.config/zsh/zsh-prompt" ~/.config/zsh/zsh-prompt
-    ln -sf "$dotdir/.config/zsh/.zshrc" ~/.config/zsh/.zshrc
+    ln -sf "$dotdir/.config/zsh/zsh-aliases" $homedir/.config/zsh/zsh-aliases
+    ln -sf "$dotdir/.config/zsh/.zshev" $homedir/.config/zsh/.zshenv
+    ln -sf "$dotdir/.config/zsh/zsh-exports" $homedir/.config/zsh/zsh-exports
+    ln -sf "$dotdir/.config/zsh/zsh-prompt" $homedir/.config/zsh/zsh-prompt
+    ln -sf "$dotdir/.config/zsh/.zshrc" $homedir/.config/zsh/.zshrc
     if [[ $1 == "also-old" ]]; then
         echo "Linking old software..."
-        if [[ ! -d "~/.config/dunst" ]]; then
-            mkdir ~/.config/dunst
+        if [[ ! -d "$homedir/.config/dunst" ]]; then
+            mkdir $homedir/.config/dunst
         fi
-        ln -sf "$dotdir/.config/.back_dunst" ~/.config/dunst/dunstrc
-        ln -sfd "$dotdir/.config/.back_dwm" ~/.config/dwm
-        if [[ ! -d "~/.config/rofi" ]]; then
-            mkdir ~/.config/rofi
+        ln -sf "$dotdir/.config/.back_dunst" $homedir/.config/dunst/dunstrc
+        ln -sfd "$dotdir/.config/.back_dwm" $homedir/.config/dwm
+        if [[ ! -d "$homedir/.config/rofi" ]]; then
+            mkdir $homedir/.config/rofi
         fi
-        ln -sf "$dotdir/.config/.back_rofi/dmenu.rasi" ~/.config/rofi/dmenu.rasi
-        ln -sf "$dotdir/.config/.back_rofi/dracula.rasi" ~/.config/rofi/dracula.rasi
-        ln -sf "$dotdir/.config/.back_rofi/onedark.rasi" ~/.config/rofi/onedark.rasi
+        ln -sf "$dotdir/.config/.back_rofi/dmenu.rasi" $homedir/.config/rofi/dmenu.rasi
+        ln -sf "$dotdir/.config/.back_rofi/dracula.rasi" $homedir/.config/rofi/dracula.rasi
+        ln -sf "$dotdir/.config/.back_rofi/onedark.rasi" $homedir/.config/rofi/onedark.rasi
     fi
     echo "DONE"
 
