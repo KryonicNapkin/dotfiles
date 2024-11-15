@@ -513,6 +513,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ImageMagick'),  # ImageMagick
     Match(wm_class='Display'),  # ImageMagick
     Match(wm_class='Alafloat'),  # Floating Alacritty Terminal
+    Match(wm_class='qalculate-gtk'),  # Floating Alacritty Terminal
     Match(title='KDE Connect'), # KDE Connect app
     Match(title='test'), # Testing raylib.h simple to use graphics library
     Match(title='About Mozilla Thunderbird'),  # About Thunderbird
@@ -556,7 +557,7 @@ groups.append(ScratchPad('scratchpad3', [
     DropDown('battop', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml -e battop".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 groups.append(ScratchPad('scratchpad4', [
-    DropDown('qalc', "alacritty --config-file={}alacritty/alacritty_scratchpad.toml -e qalc".format(CONFDIR), width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
+    DropDown('qalculate', "qalculate-gtk", width=0.385, height=0.45, x=0.31, y=0.25, opacity=1, on_focus_lost_hide=False),
 ]))
 
 keys.extend([
@@ -572,5 +573,5 @@ keys.extend([
     Key(["mod1"], "4", lazy.group['scratchpad3'].dropdown_toggle('battop'))
 ])
 keys.extend([
-    Key(["mod1"], "5", lazy.group['scratchpad4'].dropdown_toggle('qalc'))
+    Key(["mod1"], "5", lazy.group['scratchpad4'].dropdown_toggle('qalculate'))
 ])
