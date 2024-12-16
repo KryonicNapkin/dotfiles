@@ -115,7 +115,14 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
-    -- Comment
+    -- Commenuse 
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = '*',
+        config = function()
+            require("toggleterm").setup()
+        end
+    }
     use {
         "numToStr/Comment.nvim",
         config = function()
