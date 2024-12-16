@@ -82,5 +82,8 @@ keymap("n", "<leader>as", "<cmd>ArduinoSerial<CR>", opts)
 keymap("n", "<leader>ab", "<cmd>ArduinoChooseBoard<CR>", opts)
 keymap("n", "<leader>ap", "<cmd>ArduinoChooseProgrammer<CR>", opts)
 
+-- Toggleterm
+keymap("n", "<leader>tt", "<cmd>ToggleTerm<CR>", opts)
+
 -- Neotree
 keymap("n", "<leader>nt", "<cmd>Neotree toggle<CR>", opts)
