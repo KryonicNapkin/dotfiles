@@ -27,7 +27,6 @@ export PATH="$HOME/.cargo/bin":$PATH
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="chromium"
-
 # Clipmenu
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
@@ -37,3 +36,6 @@ export CM_MAX_CLIPS=100
 # Arduino sketch menu
 export AVR_PORT="/dev/ttyUSB0"
 export AVR_FQBN="arduino:avr:mega"
+
+# CPATH for gtk dev
+export CPATH="/usr/include/gtk4.0:/usr/include/pango1.0:/usr/include/fribidi:/usr/include/harfbuzz:/usr/include/gdkpixbuf2.0:/usr/include/cairo:/usr/include/freetype2:/usr/include/libpng16:/usr/include/pixman1:/usr/include/graphene1.0:/usr/lib/graphene1.0/include:/usr/include/glib2.0:/usr/lib/glib2.0/include:/usr/include"
