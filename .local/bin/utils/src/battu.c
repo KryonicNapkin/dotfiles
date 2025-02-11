@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <libnotify/notification.h>
 #include <libnotify/notify.h>
-#include <getopt.h>
 #include <stdbool.h>
 
 #include "../libs/batt_config.h"
