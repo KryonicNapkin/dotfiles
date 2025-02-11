@@ -17,7 +17,6 @@ base-devel
 bind
 bitwarden
 bitwarden-cli
-blender
 blueman
 bluez-obex
 bluez-tools
@@ -26,7 +25,6 @@ breeze-gtk
 bridge-utils
 brightnessctl
 btrfs-progs
-calcurse
 cameractrls
 cdrtools
 clang
@@ -51,9 +49,7 @@ electron
 feh
 ffmpegthumbnailer
 firefox
-foot
 fzf
-gammastep
 gcolor3
 gdb
 gdk-pixbuf2-docs
