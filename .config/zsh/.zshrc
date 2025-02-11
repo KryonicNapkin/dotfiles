@@ -13,6 +13,8 @@ compinit
 source $zshdir/zsh-aliases
 source $zshdir/zsh-prompt
 source $zshdir/zsh-exports
+export EMSDK_QUIET=1
+source "$HOME/.emsdk/emsdk_env.sh"
 
 # z (better cd)
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
