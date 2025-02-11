@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # set -xe
 #
-# TODO :    1. Install all the packages
-#           2. link all the necessary config files
-#           3. Install GTK and Qt themes
-#           4. Set up default services (i.e. cups, ufw and others)
+# 
+# TODO:    1. Install all the packages
+#          2. link all the necessary config files
+#          3. Install GTK and Qt themes
+#          4. Set up default services (i.e. cups, ufw and others)
 # Script for the installation of my configuration 
 
+# TODO: DOKONCI SCRIPT
 # 1. Check for aur package manager 
 
 usr="$USER"
@@ -80,6 +82,8 @@ link_files() {
     if [[ ! -d "$homedir/.local/share" ]]; then
         mkdir $homedir/.local/bin
     fi
+    echo "Making wallpaper directory"
+    mkdir -p ~/.local/share/wallpapers
     ln -sfd "$dotdir/.local/share/dracula-wallpapers" $homedir/.local/share/wallpapers/dracula-wallpapers
     ln -sfd "$dotdir/.local/share/onedark-wallpapers" $homedir/.local/share/wallpapers/onedark-wallpapers
     echo "DONE"
