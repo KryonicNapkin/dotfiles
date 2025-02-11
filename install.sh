@@ -108,6 +108,10 @@ link_files() {
     if [[ ! -d "$homedir/.config/nvim" ]]; then
         mkdir $homedir/.config/nvim
     fi
+    if [[ ! -z $(ls -A "$homedir"/.config/nvim) ]]; then
+        cd $homedir/.config/nvim && rm -rf *
+        cd $dotdir
+    fi   
     ln -sfd "$dotdir/.config/nvim" $homedir/.config/
     if [[ ! -d "$homedir/.config/qtile" ]]; then
         mkdir $homedir/.config/qtile
@@ -124,7 +128,14 @@ link_files() {
     ln -sf "$dotdir/.config/zsh/.zshev" $homedir/.config/zsh/.zshenv
     ln -sf "$dotdir/.config/zsh/zsh-exports" $homedir/.config/zsh/zsh-exports
     ln -sf "$dotdir/.config/zsh/zsh-prompt" $homedir/.config/zsh/zsh-prompt
+
+    echo "Installing zap plugin manager for zsh..."
+    zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+    echo "Done"
+    echo "Replacing temp file with the .zshrc file"
+    mv .zshrc_* .zshrc
     ln -sf "$dotdir/.config/zsh/.zshrc" $homedir/.config/zsh/.zshrc
+    echo "Done"
     if [[ $1 == "also-old" ]]; then
         echo "Linking old software..."
         if [[ ! -d "$homedir/.config/dunst" ]]; then
