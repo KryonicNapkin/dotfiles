@@ -4,16 +4,12 @@ betterlockscreen
 blight
 brave-bin
 bvi
-c3c-git
 devour
-dia-git
-dosbox-x
 downgrade
 etcher-bin
 geekbench
 gf2-git
 google-earth-pro
-gotop-bin
 heroic-games-launcher-bin
 input-remapper-git
 java-openjdk-bin
@@ -24,7 +20,6 @@ mkinitcpio-firmware
 nbwmon
 ncurses5-compat-libs
 nitch
-onlyoffice-bin
 paru-bin
 phinger-cursors
 pipes.sh
@@ -39,7 +34,6 @@ sddm-sugar-dark
 sklauncher-bin
 superproductivity-bin
 teams
-teams-for-linux
 ttf-mononoki
 wired
 xdg-ninja-git
