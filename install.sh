@@ -17,7 +17,7 @@ if [[ $usr == "root" ]]; then
     exit 1
 fi
 
-dotdir="$HOME/.dotfiles"
+dotdir=$(pwd)
 homedir="$HOME"
 yaych=$(which yay &>/dev/null; echo $?)
 paruch=$(which paru &>/dev/null; echo $?)
