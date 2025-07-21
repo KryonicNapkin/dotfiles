@@ -2,7 +2,7 @@
 #define BATT_CONFIG_H_
 
 // Default path for laptop's battery
-#define BATT_DIR "/sys/class/power_supply/BAT0/"
+#define BATT_DIR                       "/sys/class/power_supply/BAT0/"
 
 /* CONSTANTS (DO NOT CHANGE!!!!) */
 // Status file

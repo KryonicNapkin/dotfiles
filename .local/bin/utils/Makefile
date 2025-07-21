@@ -1,19 +1,9 @@
 CC		= gcc
 CFLAGS 	= -std=c11 -g -Wall -Wextra -Wpedantic -Wconversion
-LDFLAGS	= `pkg-config --cflags --libs libnotify`
-LIBDIR 	= ./libs
-SRCDIR	= ./src
+LDFLAGS	= -lm `pkg-config --cflags --libs libnotify`
+PROGRAMS = krnlu tempu dateu bat
 
-all: battu dateu tempu krnlu
+all: $(PROGRAMS)
 
-battu: $(SRCDIR)/battu.c
-	$(CC) ${CFLAGS} ${LDFLAGS} -o $@ $<
-
-dateu: $(SRCDIR)/dateu.c
-	$(CC) ${CFLAGS} ${LDFLAGS} -o $@ $<
-
-tempu: $(SRCDIR)/tempu.c
-	$(CC) ${CFLAGS} ${LDFLAGS} -o $@ $<
-
-krnlu: $(SRCDIR)/krnlu.c
-	$(CC) ${CFLAGS} ${LDFLAGS} -o $@ $<
+$(PROGRAMS): %: src/%.c
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $<
