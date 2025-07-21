@@ -4,7 +4,7 @@
  * Copyright: Dave Davenport
  */
 
-@import "~/.config/rofi/dracula.rasi"
+@import "~/.config/rofi/onedark.rasi"
 
 * {
     background-color:   @bg;
