@@ -9,12 +9,18 @@
 # Variables
 
 # Start of Code
-case "$(printf "Terraria Wiki\\nSmartbooks\\nKataster\\nMHD\\nC Exercises\\n3Dviewer\\nProtonDB\\nSuckless\\nScpwiki\\nSOŠEdupage\\nZSEdupage\\nBezkriedy\\nAur\\nHeureka\\nAlza\\nAndreaShop\\nTinkercad\\nArchlinux\\nYoutube\\nCommons Wikipedia\\nReddit\\nGmail\\nItsfoss\\nTheverge\\nGithub\\nWikipedia\\nNationstates issues\\nNationstates\\nArchWiki\\nVox\\nOurWorldinData\\n" | sort | $dmdpy "Open in "${BROWSER}":")" in
+case "$(printf "Terraria Wiki\\nSmartbooks\\nKataster\\nMHD\\nC Exercises\\n3Dviewer\\nProtonDB\\nSuckless\\nScpwiki\\nSOŠEdupage\\nZSEdupage\\nBezkriedy\\nAur\\nHeureka\\nAlza\\nAndreaShop\\nTinkercad\\nArchlinux\\nYoutube\\nCommons Wikipedia\\nReddit\\nGmail\\nItsfoss\\nTheverge\\nGithub\\nWikipedia\\nNationstates issues\\nNationstates\\nArchWiki\\nVox\\nOurWorldinData\\nMatPriklady\\nCalamity Mod Wiki\\n" | sort | $dmdpy "Open in "${BROWSER}":")" in
+"Calamity Mod Wiki")
+    $BROWSER https://calamitymod.wiki.gg/
+    ;;
+"MatPriklady")
+    $BROWSER https://www.priklady.com/sk/ 
+    ;;
 "Smartbooks")
     $BROWSER https://smartbooks.sk/
     ;;
 "Terraria Wiki")
-	$BROWSER https://terraria.fandom.com/wiki/Terraria_Wiki
+	$BROWSER https://terraria.wiki.gg/ 
 	;;
 "Suckless")
     $BROWSER https://suckless.org/
@@ -98,11 +104,11 @@ case "$(printf "Terraria Wiki\\nSmartbooks\\nKataster\\nMHD\\nC Exercises\\n3Dvi
     $BROWSER https://gileri.github.io/OSMTransportViewer/
    ;;
 "Kataster")
-   $BROWSER https://zbgis.skgeodesy.sk/mkzbgis/sk/kataster
-   ;;
+    $BROWSER https://zbgis.skgeodesy.sk/mkzbgis/sk/kataster
+    ;;
 "OurWorldinData")
-   $BROWSER https://ourworldindata.com/
-   ;;
+    $BROWSER https://ourworldindata.com/
+    ;;
 *)
     echo default
     ;;

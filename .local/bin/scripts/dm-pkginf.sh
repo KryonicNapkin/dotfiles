@@ -8,7 +8,7 @@
 
 # Variables
 # List all installed packages
-packages=$(paru -Qq)
+packages=$(pacman -Qq)
 # Use Rofi to display the package list and get the selected package
 selected_package=$(echo "$packages" | $dmdpy "Select Package:" >/tmp/rofi-choice.txt)
 

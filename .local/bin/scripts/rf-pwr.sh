@@ -5,10 +5,18 @@
 
 # Imports
 . ~/.local/share/univ/vars
+shutdown='  Shutdown'
+reboot='  Reboot'
+lock='  Lock'
+suspend='  Suspend'
+logout='  Logout'
 
+rofi_cmd() {
+    rofi -no-show-icons -i -dmenu -p 'Action:'
+}
 # Variables
 # Options
-options=$(printf "Shutdown\\nReboot\\nLock\\nSuspend\\nLogout\\n" | sort | $rfdmdpy "Action:")
+options=$(printf "  Shutdown\\n  Reboot\\n  Lock\\n  Suspend\\n  Logout\\n" | sort | rofi_cmd)
 
 # Start of Code
 case "$options" in
