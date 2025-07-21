@@ -74,8 +74,8 @@ link_files() {
         mkdir $homedir/.local/bin
     fi
     ln -sf "$dotdir/.local/bin/prep.sh" $homedir/.local/bin/prep.sh
-    ln -sfd "$dotdir/.local/bin/scripts" $homedir/.local/bin/scripts
-    ln -sfd "$dotdir/.local/bin/utils" $homedir/.local/bin/utils
+    ln -sf "$dotdir/.local/bin/scripts" $homedir/.local/bin/scripts
+    ln -sf "$dotdir/.local/bin/utils" $homedir/.local/bin/utils
     echo "DONE"
 
     echo "Linking files in the .local/share directory"
@@ -84,8 +84,8 @@ link_files() {
     fi
     echo "Making wallpaper directory"
     mkdir -p ~/.local/share/wallpapers
-    ln -sfd "$dotdir/.local/share/dracula-wallpapers" $homedir/.local/share/wallpapers/dracula-wallpapers
-    ln -sfd "$dotdir/.local/share/onedark-wallpapers" $homedir/.local/share/wallpapers/onedark-wallpapers
+    ln -sf "$dotdir/.local/share/dracula-wallpapers" $homedir/.local/share/wallpapers/dracula-wallpapers
+    ln -sf "$dotdir/.local/share/onedark-wallpapers" $homedir/.local/share/wallpapers/onedark-wallpapers
     echo "DONE"
 
     echo "Linking files in the .config directory"
@@ -100,7 +100,7 @@ link_files() {
     fi
     ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" $homedir/.config/betterlockscreen/betterlockscreenrc
     ln -sf "$dotdir/.config/betterlockscreen/betterlockscreenrc" $homedir/.config/betterlockscreen/betterlockscreenrc
-    ln -sfd "$dotdir/.config/dmenu" $homedir/.config/
+    ln -sf "$dotdir/.config/dmenu" $homedir/.config/
     if [[ ! -d "$homedir/.config/gtk-3.0" ]]; then
         mkdir $homedir/.config/gtk-3.0
     fi
@@ -112,7 +112,7 @@ link_files() {
         cd $homedir/.config/nvim && rm -rf *
         cd $dotdir
     fi   
-    ln -sfd "$dotdir/.config/nvim" $homedir/.config/
+    ln -sf "$dotdir/.config/nvim" $homedir/.config/
     if [[ ! -d "$homedir/.config/qtile" ]]; then
         mkdir $homedir/.config/qtile
     fi
@@ -142,7 +142,7 @@ link_files() {
             mkdir $homedir/.config/dunst
         fi
         ln -sf "$dotdir/.config/.back_dunst" $homedir/.config/dunst/dunstrc
-        ln -sfd "$dotdir/.config/.back_dwm" $homedir/.config/dwm
+        ln -sf "$dotdir/.config/.back_dwm" $homedir/.config/dwm
         if [[ ! -d "$homedir/.config/rofi" ]]; then
             mkdir $homedir/.config/rofi
         fi
