@@ -48,6 +48,9 @@ return packer.startup(function(use)
     use "RRethy/vim-illuminate" -- higlights the word under the cursor
     use "nvim-tree/nvim-web-devicons"
 
+    -- Multi cursor
+    use "mg979/vim-visual-multi"
+
     use "ziglang/zig.vim" -- zig syntax highlighting
 
     -- Lualine
@@ -168,6 +171,16 @@ return packer.startup(function(use)
         requires = {
             "nvim-tree/nvim-web-devicons"
         }
+    }
+
+    use {
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
     }
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
