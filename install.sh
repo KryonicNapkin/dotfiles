@@ -44,14 +44,14 @@ pkgs_install() {
         if [[ $yaych -ne 0 ]]; then
             yay_install
         fi
-        sudo pacman -S --needed - < "$dotdir/.pkgs"
-        yay -S --needed - < "$dotdir/.pkgs_aur"
+        sudo pacman -Syyu --needed - < "$dotdir/.pkgs"
+        yay -Syyu --needed - < "$dotdir/.pkgs_aur"
     elif [[ $1 == "paru" ]]; then
         if [[ $paruch -ne 0 ]]; then
             paru_install
         fi
-        sudo pacman -S --needed - < "$dotdir/.pkgs"
-        paru -S --needed - < "$dotdir/.pkgs_aur"
+        sudo pacman -Syyu --needed - < "$dotdir/.pkgs"
+        paru -Syyu --needed - < "$dotdir/.pkgs_aur"
     fi
 }
 
