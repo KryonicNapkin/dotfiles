@@ -16,6 +16,6 @@ require("bufferline").setup{}
 require("todo-comments").setup{}
 vim.cmd('colorscheme onedark')
 vim.cmd('set colorcolumn=80')
-vim.opt.guicursor = "n-v-i-c:block-Cursor"
+vim.opt.guicursor = "n-v-sm:block,i-c-ci-ve:block-blinkwait100-blinkon200-blinkoff500"
 
 vim.diagnostic.config({ virtual_text = true })
