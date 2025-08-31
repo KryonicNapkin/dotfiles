@@ -35,6 +35,7 @@ from libqtile.config import Key, KeyChord, Click, Drag, Group, Key, Match, Scree
 from libqtile.lazy import lazy
 from libqtile import widget
 from libqtile.widget import base
+from enum import Enum
 
 # Constants definition
 HOMEDIR = os.environ.get('HOME')
@@ -185,6 +186,7 @@ keys = [
         Key([], "p", lazy.spawn("{}dm-pwr.sh".format(SCRIPTD)), desc="Open dmenu Powermenu"),
         Key([], "w", lazy.spawn("{}dm-wiki.sh".format(SCRIPTD)), desc="Open dmenu Arch-wiki"),
         Key([], "c", lazy.spawn("{}dm-clip.sh".format(SCRIPTD)), desc="Open dmenu clipmenu"),
+        Key([], "g", lazy.spawn("{}dm-gm.sh".format(SCRIPTD)), desc="Open dmenu 'gamemode' menu"),
         Key([], "d", lazy.spawn("{}dm-win.sh".format(SCRIPTD)), desc="Open list of opened windows"),
         Key([], "i", lazy.spawn("{}dm-pkginf.sh".format(SCRIPTD)), desc="Open Package info menu"),
         Key([], "e", lazy.spawn("{}dm-dots.sh".format(SCRIPTD)), desc="Open Configs Edits"),
@@ -211,7 +213,7 @@ groups = []
 
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-group_layouts = ["monadtall", "monadtall", "monadtall",  "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
+group_layouts = ["max", "monadtall", "monadtall",  "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 
 # Add group names, labels, and default layouts to the groups object.
 for i in range(len(group_names)):
@@ -245,6 +247,18 @@ layouts = [
     layout.Floating(**layout_theme),
 ]
 
+class Colors(Enum):
+    BG_COLOR = 0
+    FG_COLOR = 1
+    BLACK = 2
+    RED = 3
+    GREEN = 4
+    YELLOW = 5
+    MAGENTA = 6
+    BLUE = 7
+    CYAN = 8
+    WHITE = 9
+
 def init_colors():
     return [["#282C34", "#282C34"],  # color 0  | bg
             ["#FFFFFF", "#FFFFFF"],  # color 1  | fg
@@ -262,7 +276,7 @@ def init_separator():
                 size_percent=60,
                 margin=5,
                 linewidth=2,
-                background=colors[0],
+                background=colors[Colors.BG_COLOR.value],
                 foreground="#373B41")
 
 def nerd_icon(nerdfont_icon, fg_color):
@@ -271,12 +285,12 @@ def nerd_icon(nerdfont_icon, fg_color):
                 fontsize=16,
                 text=nerdfont_icon,
                 foreground=fg_color,
-                background=colors[0])
+                background=colors[Colors.BG_COLOR.value])
 
 def init_edge_spacer():
     return widget.Spacer(
                 length=4,
-                background=colors[0])
+                background=colors[Colors.BG_COLOR.value])
 
 colors = init_colors()
 sep = init_separator()
@@ -295,43 +309,44 @@ def init_widgets_list():
                 margin_y=3,
                 margin_x=0,
                 padding_x=8,
-                forground=colors[9],
-                background=colors[0],
+                forground=colors[Colors.WHITE.value],
+                background=colors[Colors.BG_COLOR.value],
                 borderwidth=2,
                 disable_drag=True,
                 highlight_method="block",
-                this_current_screen_border=colors[7],
-                block_highlight_text_color=colors[2],
-                active=colors[1],
-                inactive=colors[9],
+                this_current_screen_border=colors[Colors.BLUE.value],
+                block_highlight_text_color=colors[Colors.BLACK.value],
+                active=colors[Colors.FG_COLOR.value],
+                inactive=colors[Colors.WHITE.value],
                 rounded=False,
                 use_mouse_wheel=False,
                 urgent_alert_method="block",
-                urgent_border=colors[3]
+                urgent_border=colors[Colors.RED.value]
             ),
             space,
             sep,
             space,
-            widget.CurrentLayoutIcon(
+            widget.CurrentLayout(
+                mode='icon',
                 scale=0.9,
                 padding=3,
-                background=colors[0]
+                background=colors[Colors.BG_COLOR.value]
             ),
             space,
             sep,
             widget.TaskList(
                 icon_size=None,
                 markup=True,
-                foreground=colors[1],
-                background=colors[0],
+                foreground=colors[Colors.FG_COLOR.value],
+                background=colors[Colors.BG_COLOR.value],
                 borderwidth=2,
-                border=colors[7],
+                border=colors[Colors.BLUE.value],
                 margin=0,
                 padding=3,
                 highlight_method="block",
                 title_width_method="uniform",
                 urgent_alert_method="block",
-                urgent_border=colors[3],
+                urgent_border=colors[Colors.RED.value],
                 window_name_location=True,
                 rounded=False,
                 txt_floating=" ",
@@ -343,15 +358,15 @@ def init_widgets_list():
             widget.TextBox(
                 fmt="BAT:",
                 font="JetBrainsMonoNL bold",
-                foreground=colors[5],
-                background=colors[0],
+                foreground=colors[Colors.YELLOW.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             widget.GenPollCommand(
-                foreground=colors[5],
-                background=colors[0],
-                cmd="{}battu -s -c -w -n".format(UTILD),
+                foreground=colors[Colors.YELLOW.value],
+                background=colors[Colors.BG_COLOR.value],
+                cmd="{}bat -s -c -w -n".format(UTILD),
                 shell=True,
-                update_interval=15,
+                update_interval=10,
             ),
             space,
             sep,
@@ -359,16 +374,16 @@ def init_widgets_list():
             widget.TextBox(
                 fmt="BRG:",
                 font="JetBrainsMonoNL bold",
-                foreground=colors[8],
-                background=colors[0],
+                foreground=colors[Colors.CYAN.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             widget.Backlight(
                 backlight_name='amdgpu_bl1',
                 brightness_file='/sys/class/backlight/amdgpu_bl1/brightness',
                 max_brightness_file='/sys/class/backlight/amdgpu_bl1/max_brightness',
                 change_command='blight set {:.0f}',
-                foreground=colors[8],
-                background=colors[0],
+                foreground=colors[Colors.CYAN.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             space,
             sep,
@@ -376,13 +391,13 @@ def init_widgets_list():
             widget.TextBox(
                 fmt="VOL:",
                 font="JetBrainsMonoNL bold",
-                foreground=colors[6],
-                background=colors[0],
+                foreground=colors[Colors.MAGENTA.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             widget.Volume(
                 step=5,
-                foreground=colors[6],
-                background=colors[0],
+                foreground=colors[Colors.MAGENTA.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             space,
             sep,
@@ -390,19 +405,19 @@ def init_widgets_list():
             widget.TextBox(
                 fmt="CPU:",
                 font="JetBrainsMonoNL bold",
-                foreground=colors[3],
-                background=colors[0],
+                foreground=colors[Colors.RED.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             widget.ThermalSensor(
                 format='{temp:.0f}{unit}',
-                foreground=colors[3],
-                background=colors[0],
+                foreground=colors[Colors.RED.value],
+                background=colors[Colors.BG_COLOR.value],
                 update_interval=1,
             ),
             widget.CPU(
                 format="{load_percent}%",
-                foreground=colors[3],
-                background=colors[0],
+                foreground=colors[Colors.RED.value],
+                background=colors[Colors.BG_COLOR.value],
                 update_interval=1,
             ),
             space,
@@ -411,13 +426,13 @@ def init_widgets_list():
             widget.TextBox(
                 fmt="MEM:",
                 font="JetBrainsMonoNL bold",
-                foreground=colors[4],
-                background=colors[0],
+                foreground=colors[Colors.GREEN.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             widget.Memory(
                 format="{MemUsed:.0f}{mm}",
-                foreground=colors[4],
-                background=colors[0],
+                foreground=colors[Colors.GREEN.value],
+                background=colors[Colors.BG_COLOR.value],
                 update_interval=1,
             ),
             space,
@@ -426,14 +441,14 @@ def init_widgets_list():
             widget.TextBox(
                 fmt="SSD:",
                 font="JetBrainsMonoNL bold",
-                foreground=colors[9],
-                background=colors[0],
+                foreground=colors[Colors.WHITE.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             widget.DF(
                 visible_on_warn=False,
                 format="{uf}{m} {r:.0f}%",
-                foreground=colors[9],
-                background=colors[0],
+                foreground=colors[Colors.WHITE.value],
+                background=colors[Colors.BG_COLOR.value],
             ),
             space,
             sep,
@@ -441,33 +456,33 @@ def init_widgets_list():
             widget.KeyboardLayout(
                 font="JetBrainsMonoNL Bold",
                 configured_keyboards=['us', 'sk'],
-                foreground=colors[7],
-                background=colors[0]
+                foreground=colors[Colors.BLUE.value],
+                background=colors[Colors.BG_COLOR.value]
             ),
             space,
             sep,
             space,
             widget.Clock(
                 format='%a',
-                foreground=colors[9],
-                background=colors[0]
+                foreground=colors[Colors.WHITE.value],
+                background=colors[Colors.BG_COLOR.value]
             ),
             widget.Clock(
                 format='%H:%M:%S',
                 font="JetBrainsMonoNL bold",
-                foreground=colors[5],
-                background=colors[0]
+                foreground=colors[Colors.YELLOW.value],
+                background=colors[Colors.BG_COLOR.value]
             ),
             widget.Clock(
                 format='%d.%m.%y',
-                foreground=colors[9],
-                background=colors[0]
+                foreground=colors[Colors.WHITE.value],
+                background=colors[Colors.BG_COLOR.value]
             ),
             space,
             sep,
             widget.Systray(
                 icon_size=24,
-                background=colors[0]
+                background=colors[Colors.BG_COLOR.value]
             ),
             space
         ]
@@ -476,7 +491,9 @@ def init_widgets_list():
 
 # screens/bar
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=28, opacity=1.0, margin=[0,0,0,0]))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=28, opacity=1.0, 
+                               margin=[0,0,0,0], border_width = 0, 
+                               border_color = colors[Colors.BLUE.value]))]
 
 
 screens = init_screens()
