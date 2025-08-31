@@ -1,7 +1,6 @@
 /*
  * This is a configuration file for bat program to display information about laptops 
- * battery in a single line format to be used in window manager's bar as a bar script
- */
+ * battery in a single line format to be used in window manager's bar as a bar script */
 
 #ifndef BAT_CONFIG_H_
 #define BAT_CONFIG_H_
@@ -57,8 +56,8 @@ static const char* full_cap_notify_body        = "Unplug the charging cable";
  * CRITICALLY_LOW_CAPACITY notification is triggered when the battery's capacity
  * is less than critical_cap set prior
  */
-static const char* critical_cap_notify_summary = "You've set a safe batt notification";
-static const char* critical_cap_notify_body    = "For the longevity of your battery you should unplug the charging cable";
+static const char* critical_cap_notify_summary = "CRITICALLY LOW CAPACITY";
+static const char* critical_cap_notify_body    = "Immediately connect you laptop to power";
 
 /* 
  * UNKNOWN notification is triggered when program cannot get some battery attribute
